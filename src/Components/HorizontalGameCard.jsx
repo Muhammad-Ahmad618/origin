@@ -3,13 +3,13 @@ import { FaStar, FaStarHalfAlt  } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
 import CartBtn from './Add_to_cart_Btn';
 
-export default function HorizontalGameCard({title, FetchDetailedGames, specifices }) {
+export default function HorizontalGameCard({title, FetchDetailedGames, specifics }) {
     const [game, setGames] = useState([]);
      
     useEffect(()=> {
        
       const FetchData = async() => {
-      const responseData = await FetchDetailedGames('4',1,'2020-01-01,2025-02-25',specifices)
+      const responseData = await FetchDetailedGames('4',1,'2020-01-01,2025-02-25',specifics)
     
         // Ensure that the response is an array or fallback to an empty array
         if (Array.isArray(responseData)) {
@@ -21,7 +21,7 @@ export default function HorizontalGameCard({title, FetchDetailedGames, specifice
         
       FetchData()
   
-    },[FetchDetailedGames,specifices])
+    },[FetchDetailedGames,specifics])
 
     if (game.length === 0) {
         return <div className='text-center text-[1.3rem] text-white'>No games found.</div>;

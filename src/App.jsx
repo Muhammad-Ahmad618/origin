@@ -1,4 +1,5 @@
 import './App.css'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import LandingPage from './Screens/LandingPage/LandingPage';
 import SignIn from './Screens/LoginPage/SignIn';
 import Register from './Screens/LoginPage/SignIn';
@@ -7,10 +8,14 @@ import GameDetail from './Components/Interface/GameDetails_Interface'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
+const queryClient = new QueryClient()
+
+
 function App() {
 
   return (
     <>
+     <QueryClientProvider client={queryClient}>
       <Router>
       <Routes>
         <Route path='/' element={<LandingPage/>} />
@@ -20,6 +25,7 @@ function App() {
         <Route path='/Store/GameDetail' element={<GameDetail/>} />
       </Routes>
     </Router>
+    </QueryClientProvider>
     </>
   )
 }

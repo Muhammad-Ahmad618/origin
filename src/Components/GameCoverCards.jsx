@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from "react";
+import {useQuery} from '@tanstack/react-query'
 import { IoMdAddCircle } from "react-icons/io";
+import { fetchBaseGameData } from "../api/games";
 
-export default function GameCover({ title, FetchGames, genre, specifics }) {
-  const [games, setGames] = useState([]);
+export default function GameCover({ title, numbers = 5, genre, dates,specifics }) {
 
-  useEffect(() => {
-    const FetchData = async () => {
-      const responseData = await FetchGames(
-        genre,
-        5,
-        "2020-01-01,2025-01-30",
-        specifics
-      );
+  const {data: games = [] , isLoading, error} = useQuery({
 
-      // Ensure that the response is an array or fallback to an empty array
-      if (Array.isArray(responseData)) {
-        setGames(responseData);
-      } else {
-        setGames([]); // Set empty array if the response is not an array
-      }
-    };
+    queryKey:["games", genre, numbers, dates, specifics],
+    queryFn:() => fetchBaseGameData({genre, numbers, dates, specifics}),
+  })
 
-    FetchData();
-  }, [FetchGames, genre, specifics]);
+  if(isLoading){
+    return <p>Loading {title} ...</p>
+  }
+
+  if(error){
+    return <p>failed to load data {title}</p>
+  }
 
   return (
     <div>

@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import axios from "axios";
 
-export default function NewGamesSlider() {
+export default function GamesSlider() {
   const [games, setGames] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -122,7 +122,7 @@ export default function NewGamesSlider() {
                      <FaPlus className="text-white text-xs"/>
                     </span>
                   </div>
-                  <div className="flex flex-col justify-between text-white py-3 text-left">
+                  <div className="flex flex-col justify-between text-white py-3 text-left aspect-5/3">
                     <div>
                       <p className="text-gray-500 font-medium text-sm">
                         Base Game

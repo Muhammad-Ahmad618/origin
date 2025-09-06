@@ -1,6 +1,6 @@
 import NavBar from '../../Components/StoreNavBar'
 import CoverSlider from '../../Components/StoreCoverSlider'
-import NewGamesSlider from '../../Components/NewGamesSlider'
+import FeaturedGames from '../../Components/GamesSlider'
 import Categories from '../../Components/CategoriesSlider'
 import GameCoverCards from '../../Components/GameCoverCards'
 import axios from 'axios'
@@ -11,7 +11,11 @@ import CartProvider from '../../CartContext/CartContext'
 
 export default function Store() {
 
-  const API_KEY =  'a82e5a54c5794044a40b36a465e6c265';
+  const API_KEY =  import.meta.env.VITE_RAWG_KEY;
+
+  if(!API_KEY){
+    console.log("RAWG API KEY missing !")
+  }
 
   const fetchGameData = async(genre,numbers,dates,specifics) => {
   
@@ -77,29 +81,30 @@ export default function Store() {
       <div className='py-28 max-w-screen-2xl px-5 lg:px-24 mx-auto'>
       <CoverSlider/>
       <div className='pt-28 space-y-16 mx-auto'>
-      <NewGamesSlider/>      
+      <FeaturedGames/>      
       <Categories/>
       <GameCoverCards 
       title="Top Speed" 
       FetchGames={fetchGameData} 
       genre = "racing"
+      dates = "2020-01-01,2025-01-30"
       specifics="Forza,MotoGP,Need for Speed"
       />
       <HorizontalGameCard  
       title="Game of the Year" 
       FetchDetailedGames={fetch_Detailed_Game_Data}
-      specifices="Elden Ring shadow of the erd tree"
+      specifics="Elden Ring shadow of the erd tree"
       />
       <GameCoverCards 
       title="Fantasy" 
       FetchGames={fetchGameData}
       genre = "role-playing-games-rpg"
-      specifics="witchers,baldur gate,nioh,Final Fantasy,Dota"
+      specifics="The witcher ,baldur's gate,nioh,Final Fantasy,Dota"
       />
       <HorizontalGameCard
       title="Most Anticipated"
       FetchDetailedGames={fetch_Detailed_Game_Data}
-      specifices="Final Fantasy VII rebirth"
+      specifics="Final Fantasy VII rebirth"
       />
        <GameCoverCards 
       title="Action" 
