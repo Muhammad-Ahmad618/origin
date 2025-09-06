@@ -1,4 +1,3 @@
-import React from "react";
 import { MdWindow } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
@@ -6,17 +5,17 @@ import { FaStarHalfAlt } from "react-icons/fa";
 export default function FreeGameCard() {
   const CardContent = [
     {
-      img: require("../Assets/FreeGames/image 4.png"),
+      img: require("../assets/FreeGames/image 4.png"),
       title: "Warframe: Whispers in the Walls",
       description: `The next chapter in Warframe’s cinematic narrative has arrived! Whispers in the Walls is available now!`,
     },
     {
-      img: require("../Assets/FreeGames/image 5.png"),
+      img: require("../assets/FreeGames/image 5.png"),
       title: "Destiny 2 - The Dawning",
       description: `Tis the season for festive bounties, cookies, gifts, and snowball fights, of course. Open to all!`,
     },
     {
-      img: require("../Assets/FreeGames/image 6.jpg"),
+      img: require("../assets/FreeGames/image 6.jpg"),
       title: "Bio Mutant",
       description: `Tis the season for festive bounties, cookies, gifts, and snowball fights, of course. Open to all!`,
     },

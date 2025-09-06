@@ -1,4 +1,3 @@
-import React, {useContext} from "react";
 import {CartContext}  from '../CartContext/CartContext'
 import { IoCart } from "react-icons/io5";
 

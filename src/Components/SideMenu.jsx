@@ -1,4 +1,3 @@
-import React from "react";
 import { IoStorefront } from "react-icons/io5";
 import { IoMdAddCircle } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
