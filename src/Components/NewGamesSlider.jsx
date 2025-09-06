@@ -31,7 +31,7 @@ export default function NewGamesSlider() {
   return (
     <div className="mb-10">
       <div className="flex items-center justify-between">
-        <a className="group text-[1.6rem] text-white font-semibold cursor-pointer flex items-center gap-x-2">
+        <a className="group text-[1.5rem] text-white font-bold cursor-pointer flex items-center gap-x-2">
           Discover Something New
           <span>
             <MdArrowForwardIos className="text-[1.5rem] transition-all mt-1.5 duration-300 ease-in-out group-hover:translate-x-2" />

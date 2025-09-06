@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { IoMdAddCircle } from "react-icons/io";
 
-export default function GameCover({ title, FetchGames, genere, specifics }) {
+export default function GameCover({ title, FetchGames, genre, specifics }) {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
     const FetchData = async () => {
       const responseData = await FetchGames(
-        genere,
+        genre,
         5,
         "2020-01-01,2025-01-30",
         specifics
@@ -22,7 +22,7 @@ export default function GameCover({ title, FetchGames, genere, specifics }) {
     };
 
     FetchData();
-  }, [FetchGames, genere, specifics]);
+  }, [FetchGames, genre, specifics]);
 
   return (
     <div>

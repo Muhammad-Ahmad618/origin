@@ -1,4 +1,3 @@
-import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -105,7 +104,7 @@ export default function SlickSlider() {
 
   return (
     <div className="text-center py-10">
-      <h2 className="text-white text-[2rem] font-bold pb-14 text-left">
+      <h2 className="text-white text-[1.5rem] font-bold pb-14 text-left">
         Categories
       </h2>
       <Slider {...settings}>

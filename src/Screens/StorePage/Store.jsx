@@ -6,7 +6,7 @@ import GameCoverCards from '../../Components/GameCoverCards'
 import axios from 'axios'
 import HorizontalGameCard from '../../Components/HorizontalGameCard'
 import Footer from '../../Components/Footer'
-import UpcommingGames from '../../Components/GameBox'
+import UpcomingGames from '../../Components/GameBox'
 import CartProvider from '../../CartContext/CartContext'
 
 export default function Store() {
@@ -35,7 +35,7 @@ export default function Store() {
     }
   }
 
-  const fetch_Detailed_Game_Date = async (genre,numbers,dates,specifics) => {
+  const fetch_Detailed_Game_Data = async (genre,numbers,dates,specifics) => {
 
     let API_url = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${dates}&platforms=4&genres=${genre}&ordering=-metacritics&page_size=${numbers}`;
     
@@ -65,7 +65,7 @@ export default function Store() {
   }
   catch(error){
     console.log("Error while Fetching data", error)
-    return error
+    return [];
   }
   
   }
@@ -82,33 +82,33 @@ export default function Store() {
       <GameCoverCards 
       title="Top Speed" 
       FetchGames={fetchGameData} 
-      genere = "racing"
+      genre = "racing"
       specifics="Forza,MotoGP,Need for Speed"
       />
       <HorizontalGameCard  
       title="Game of the Year" 
-      FetchDetailedGames={fetch_Detailed_Game_Date}
+      FetchDetailedGames={fetch_Detailed_Game_Data}
       specifices="Elden Ring shadow of the erd tree"
       />
       <GameCoverCards 
       title="Fantasy" 
       FetchGames={fetchGameData}
-      genere = "role-playing-games-rpg"
+      genre = "role-playing-games-rpg"
       specifics="witchers,baldur gate,nioh,Final Fantasy,Dota"
       />
       <HorizontalGameCard
       title="Most Anticipated"
-      FetchDetailedGames={fetch_Detailed_Game_Date}
+      FetchDetailedGames={fetch_Detailed_Game_Data}
       specifices="Final Fantasy VII rebirth"
       />
        <GameCoverCards 
       title="Action" 
       FetchGames={fetchGameData}
-      genere = "fighting"
+      genre = "fighting"
       specifics="street fighter, Guilty gear, street of rage, king of fightersXV"
       />
       
-      <UpcommingGames/>
+      <UpcomingGames/>
       </div>
       </div>
       <Footer/>

@@ -24,7 +24,7 @@ export default function GameBox() {
   return (
     <div>
      <div className='text-center py-10 '>
-      <h3 className='text-[2rem] text-white font-medium'>Upcomming Games of 2025</h3>
+      <h3 className='text-[2rem] text-white font-medium'>Upcoming Games of 2025</h3>
       <div className="bg-custom-gradient2 h-1 max-w-[26rem] w-full mx-auto rounded-full mt-2"></div>
     </div>
 

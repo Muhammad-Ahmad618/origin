@@ -2,12 +2,11 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar";
 import Category from "../../Components/CategoriesSlider";
 import News from "../../Components/VideoGamesNews";
-import Avatar from "../../Assets/avatar.png";
+import Avatar from "../../assets/avatar.png";
 import PopularGames from "../../Components/popularGames";
 import Footer from "../../Components/Footer";
 import { FaMoneyBill, FaDownload, FaTrophy } from "react-icons/fa6";
 import { MdAccessAlarm } from "react-icons/md";
-import { SiOrigin } from "react-icons/si";
 
 export default function LandingPage() {
   const navigate = useNavigate();
