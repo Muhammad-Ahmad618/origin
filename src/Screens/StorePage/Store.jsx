@@ -4,7 +4,7 @@ import FeaturedGames from '../../Components/GamesSlider'
 import Categories from '../../Components/CategoriesSlider'
 import GameCoverCards from '../../Components/GameCoverCards'
 import axios from 'axios'
-import HorizontalGameCard from '../../Components/HorizontalGameCard'
+import GameCards from '../../Components/GameCards'
 import Footer from '../../Components/Footer'
 import UpcomingGames from '../../Components/GameBox'
 import CartProvider from '../../CartContext/CartContext'
@@ -12,32 +12,6 @@ import CartProvider from '../../CartContext/CartContext'
 export default function Store() {
 
   const API_KEY =  import.meta.env.VITE_RAWG_KEY;
-
-  if(!API_KEY){
-    console.log("RAWG API KEY missing !")
-  }
-
-  const fetchGameData = async(genre,numbers,dates,specifics) => {
-  
-    let API_url = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${dates}&platforms=4&genres=${genre}&ordering=-metacritics&page_size=${numbers}`;
-    
-    if(specifics){
-      API_url +=`&search=${specifics}`
-    }
-    try {
-      const response = await axios.get(API_url);
-      
-      if (response.data && response.data.results) {
-        return response.data.results;  // Return the results if available
-      } else {
-        console.log('No results found:', response.data);  // Log the response for debugging
-        return [];  // Return empty array if no results
-      }
-    } catch (error) {
-      console.error('Error while fetching:', error);
-      return [];  // Return empty array in case of error
-    }
-  }
 
   const fetch_Detailed_Game_Data = async (genre,numbers,dates,specifics) => {
 
@@ -85,34 +59,34 @@ export default function Store() {
       <Categories/>
       <GameCoverCards 
       title="Top Speed" 
-      FetchGames={fetchGameData} 
       genre = "racing"
       dates = "2020-01-01,2025-01-30"
-      specifics="Forza,MotoGP,Need for Speed"
+      specifics="Forza horizon,MotoGP,Need for Speed"
       />
-      <HorizontalGameCard  
+      <GameCards  
       title="Game of the Year" 
-      FetchDetailedGames={fetch_Detailed_Game_Data}
-      specifics="Elden Ring shadow of the erd tree"
+      genre = 'role-playing-games-rpg'
+      dates = "2020-01-01,2025-01-30"
+      specifics="Elden Ring, Dark Soul, nioh"
       />
+      <div className='space-y-4'>      
       <GameCoverCards 
-      title="Fantasy" 
-      FetchGames={fetchGameData}
-      genre = "role-playing-games-rpg"
-      specifics="The witcher ,baldur's gate,nioh,Final Fantasy,Dota"
+      title="Top Seller"
+      dates = "2020-01-01,2025-07-30"
+      genre = "3"
       />
-      <HorizontalGameCard
-      title="Most Anticipated"
+      <GameCards
+      genre = 'action'
+      dates = "2020-01-01,2025-01-30"
       FetchDetailedGames={fetch_Detailed_Game_Data}
-      specifics="Final Fantasy VII rebirth"
       />
+      </div>
        <GameCoverCards 
       title="Action" 
-      FetchGames={fetchGameData}
+       dates = "2020-01-01,2025-01-30"
       genre = "fighting"
-      specifics="street fighter, Guilty gear, street of rage, king of fightersXV"
+      specifics="Guilty gear, Street Fighter, Tekken, street of rage, king of fightersXV"
       />
-      
       <UpcomingGames/>
       </div>
       </div>

@@ -69,7 +69,7 @@ export default function StoreNavBar() {
   ];
 
   return (
-    <div className="bg-black shadow-sm shadow-black p-4 flex items-center justify-between fixed w-full z-10">
+    <div className="bg-black shadow-sm shadow-black p-4 flex items-center justify-between fixed w-full z-20">
       <LuMenu 
         className="text-white text-[1.7rem] hover:text-purple-600 cursor-pointer" 
         onClick={toggleSideMenu} 
@@ -83,7 +83,7 @@ export default function StoreNavBar() {
           </h3>
         </div>
         
-        <div className="w-full flex bg-[#262626] max-w-[24rem] justify-between items-center py-2 px-2 rounded-full">
+        <div className="w-full flex bg-[#262626] max-w-[24rem] justify-between items-center py-2 px-2 rounded-sm">
           <IoIosSearch className="text-gray-400 text-[1.2rem] hover:text-gray-800 mr-3"/>
           <input 
             type="search" 

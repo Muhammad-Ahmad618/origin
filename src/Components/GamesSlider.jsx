@@ -38,10 +38,10 @@ export default function GamesSlider() {
           </span>
         </a>
         <div className="text-[#efeeee71] text-sm text-end flex items-center text-[2rem] gap-x-2">
-          <span className="custom-prev p-2 rounded-full bg-white/10 backdrop-blur-md">
+          <span className="custom-prev p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20">
             <FaAngleLeft className="text-white text-xs"/>
           </span>
-          <span className="custom-next p-2 rounded-full bg-white/10 backdrop-blur-md">
+          <span className="custom-next p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20">
             <FaAngleRight className="text-white text-xs"/>
           </span>
         </div>
