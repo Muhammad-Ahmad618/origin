@@ -1,52 +1,13 @@
 import NavBar from '../../Components/StoreNavBar'
 import CoverSlider from '../../Components/StoreCoverSlider'
-import FeaturedGames from '../../Components/GamesSlider'
+import GamesSlider from '../../Components/GamesSlider'
 import Categories from '../../Components/CategoriesSlider'
-import GameCoverCards from '../../Components/GameCoverCards'
-import axios from 'axios'
 import GameCards from '../../Components/GameCards'
 import Footer from '../../Components/Footer'
-import UpcomingGames from '../../Components/GameBox'
+import GameGrid from '../../Components/GameGrid'
 import CartProvider from '../../CartContext/CartContext'
 
 export default function Store() {
-
-  const API_KEY =  import.meta.env.VITE_RAWG_KEY;
-
-  const fetch_Detailed_Game_Data = async (genre,numbers,dates,specifics) => {
-
-    let API_url = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${dates}&platforms=4&genres=${genre}&ordering=-metacritics&page_size=${numbers}`;
-    
-    if(specifics){
-      API_url +=`&search=${specifics}`
-    }
-    
-    try{
-    const response = await axios.get(API_url)
-    const gameList = response.data.results;
-
-    const game_With_Details = await Promise.all(
-      gameList.map(async(game) => {
-        const gameDetails = await axios.get(
-          `https://api.rawg.io/api/games/${game.id}?key=${API_KEY}`
-        );
-        return {
-          ...game,
-          description: gameDetails.data.description_raw,
-          publishers: gameDetails.data.publishers.map(pub => pub.name).join(","),
-          tags: gameDetails.data.tags.map(tag => tag.name).join(", "),
-          developers:gameDetails.data.developers.map(dev => dev.name).join(",")
-        }
-      })
-    )
-    return game_With_Details
-  }
-  catch(error){
-    console.log("Error while Fetching data", error)
-    return [];
-  }
-  
-  }
 
   return (
     <CartProvider>
@@ -55,22 +16,27 @@ export default function Store() {
       <div className='py-28 max-w-screen-2xl px-5 lg:px-24 mx-auto'>
       <CoverSlider/>
       <div className='pt-28 space-y-16 mx-auto'>
-      <FeaturedGames/>      
+      <GamesSlider
+      title = "Discover Something New"
+      numbers = "25"
+      dates = "2024-01-01,2025-08-20"
+      />      
       <Categories/>
-      <GameCoverCards 
+      <GamesSlider 
       title="Top Speed" 
       genre = "racing"
+      numbers = '20'
       dates = "2020-01-01,2025-01-30"
-      specifics="Forza horizon,MotoGP,Need for Speed"
+      specifics="Need for Speed Forza Horizon,MotoGP Dirt F1,Assetto Corsa Project Cars The Crew,GranTurismo "
       />
       <GameCards  
       title="Game of the Year" 
       genre = 'role-playing-games-rpg'
-      dates = "2020-01-01,2025-01-30"
-      specifics="Elden Ring, Dark Soul, nioh"
+      dates = "2020-01-01,2025-08-30"
+      specifics="Black Desert,Elden Ring"
       />
       <div className='space-y-4'>      
-      <GameCoverCards 
+      <GamesSlider
       title="Top Seller"
       dates = "2020-01-01,2025-07-30"
       genre = "3"
@@ -78,16 +44,15 @@ export default function Store() {
       <GameCards
       genre = 'action'
       dates = "2020-01-01,2025-01-30"
-      FetchDetailedGames={fetch_Detailed_Game_Data}
       />
       </div>
-       <GameCoverCards 
+       <GamesSlider
       title="Action" 
        dates = "2020-01-01,2025-01-30"
       genre = "fighting"
-      specifics="Guilty gear, Street Fighter, Tekken, street of rage, king of fightersXV"
+      numbers="30"
       />
-      <UpcomingGames/>
+      <GameGrid/>
       </div>
       </div>
       <Footer/>

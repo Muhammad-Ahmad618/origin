@@ -54,7 +54,7 @@ export default function GameCards({
               >
                 {game.name}
               </h1>
-              <p className="text-sm font-medium text-[#ff32bb]">
+              <p className="text-sm font-medium text-[#ff32bb] line-clamp-1">
                 {game.publishers} | {game.developers}
               </p>
               <p className="text-sm text-gray-400  leading-relaxed line-clamp-2">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { MdArrowForwardIos } from "react-icons/md";
@@ -6,33 +6,28 @@ import { FaPlus } from "react-icons/fa"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/navigation";
-import axios from "axios";
+import { fetchBaseGameData } from "../api/games";
 
-export default function GamesSlider() {
-  const [games, setGames] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+export default function GamesSlider({title, genre ,numbers, dates, specifics}) {
 
-  useEffect(() => {
-    const apikey = "a82e5a54c5794044a40b36a465e6c265";
-    const API_URL = `https://api.rawg.io/api/games?key=${apikey}&dates=2024-01-01,2025-01-20&platforms=4&ordering=-added&page_size=25&exclude_additions=true`;
+const { data: games = [], isLoading, error } = useQuery({
+  queryKey: ["games", numbers, dates],
+  queryFn: () => fetchBaseGameData({genre, numbers, dates, specifics}),
+});
 
-    axios
-      .get(API_URL)
-      .then((response) => {
-        setGames(response.data.results);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data", error);
-        setIsLoading(false);
-      });
-  }, []);
+  if(error){
+    return <p className="text-red-500 text-center">Error fetching games !</p>
+  }
+
+  if(games.lenght === 0){
+    return <p className="text-red-500 text-center">No Games Found !</p>
+  }
 
   return (
     <div className="mb-10">
       <div className="flex items-center justify-between">
         <a className="group text-[1.5rem] text-white font-bold cursor-pointer flex items-center gap-x-2">
-          Discover Something New
+          {title}
           <span>
             <MdArrowForwardIos className="text-[1.5rem] transition-all mt-1.5 duration-300 ease-in-out group-hover:translate-x-2" />
           </span>
@@ -106,7 +101,7 @@ export default function GamesSlider() {
               },
             }}
           >
-            {games.map((game) => (
+            {games?.map((game) => (
               <SwiperSlide
                 key={game.id}
                 className="max-w-[15rem] sm:max-w-[18rem] md:max-w-[20rem]"
@@ -124,7 +119,7 @@ export default function GamesSlider() {
                   </div>
                   <div className="flex flex-col justify-between text-white py-3 text-left aspect-5/3">
                     <div>
-                      <p className="text-gray-500 font-medium text-sm">
+                      <p className="text-[#ff32bb] font-medium text-sm">
                         Base Game
                       </p>
                       <h3 className="text-[1.05rem] font-medium">
