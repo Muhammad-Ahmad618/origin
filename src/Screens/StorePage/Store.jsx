@@ -52,7 +52,20 @@ export default function Store() {
       genre = "fighting"
       numbers="30"
       />
-      <GameGrid/>
+      <div className="grid grid-cols-3 gap-x-10">
+      <GameGrid
+      title = "Most Anticipated"
+      border = "border-r border-gray-600"
+      />
+       <GameGrid
+      title = "Most Played"
+      border = "border-r border-gray-600"
+      />
+       <GameGrid
+      title = "New Releases"
+      border = "border-none"
+      />
+      </div>
       </div>
       </div>
       <Footer/>

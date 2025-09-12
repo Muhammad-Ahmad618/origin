@@ -2,7 +2,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { fetchBaseGameData } from "../api/games";
 
-export default function GameGrid({genre, numbers = 5, dates, specifics}) {
+export default function GameGrid({title, border, genre, numbers = 5, dates, specifics}) {
 
   const {data: games, isLoading, error} = useQuery({
     
@@ -11,7 +11,29 @@ export default function GameGrid({genre, numbers = 5, dates, specifics}) {
   })
 
   if(isLoading){
-    return <p className="text-red-500 text-center">Fetching Games . . . </p>
+    return<div>
+         <div className="h-3 w-[20%] bg-white/10 animate-pulse mb-10"></div>  
+        <div className="grid grid-cols-3 gap-x-10">
+        <div className="border-r border-gray-400 space-y-5 pr-3">
+        {[...Array(5)].map((_, index) => (
+          <div
+            key={index}
+            className="flex w-full items-center group cursor-pointer hover:bg-white/10 p-2 rounded-xl"
+          >
+            <div className="basis-[20%] bg-white/10 animate-pulse aspect-[4/5] rounded-md">
+            </div>
+
+            <div className="space-y-5 px-4 text-white basis-[80%] ">
+              <h1 className="bg-white/10 h-2 rounded-md animate-pulse"></h1>
+              <p className="bg-white/10 h-2 rounded-md animate-pulse"></p>
+              <p className="bg-white/10 h-2 rounded-md animate-pulse">
+              </p>
+            </div>
+          </div>
+        ))}
+        </div>
+      </div>
+      </div>
   }
 
   if(games.lenght === 0){
@@ -24,10 +46,10 @@ export default function GameGrid({genre, numbers = 5, dates, specifics}) {
   }
 
   return (
-    <div>
-      <div className="py-10 ">
+    <div className={`${border} my-10`}>
+      <div className="pb-5 ">
         <a className="group text-[1.5rem] text-white font-bold cursor-pointer flex items-center gap-x-2">
-          Most Anticipated
+          {title}
           <span>
             <MdArrowForwardIos className="text-[1.5rem] transition-all mt-1.5 duration-300 ease-in-out group-hover:translate-x-2" />
           </span>
@@ -35,8 +57,7 @@ export default function GameGrid({genre, numbers = 5, dates, specifics}) {
         <div className="bg-gradient-to-r from-purple-600 via-purple-400 to-blue-600 h-1 max-w-[13rem] w-full rounded-full mt-2"></div>
       </div>
 
-      <div className="grid grid-cols-3 gap-x-10">
-        <div className="border-r border-gray-400 space-y-5 pr-3">
+        <div className="space-y-5 pr-3">
         {games.map((game, index) => (
           <div
             key={index}
@@ -56,12 +77,10 @@ export default function GameGrid({genre, numbers = 5, dates, specifics}) {
               <p className="text-sm font-semibold text-[#ca2dbd]">
                 Relase Date: {game.released}
               </p>
-              <div></div>
             </div>
           </div>
         ))}
         </div>
       </div>
-    </div>
   );
 }

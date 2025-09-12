@@ -21,7 +21,7 @@ export default function popularGames() {
     },
     {
       url: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2731870/header.jpg?t=1729875676",
-      title: "Ys X:Nordics",
+      title: "Ys X: Nordics",
     },
 
     {
@@ -35,18 +35,18 @@ export default function popularGames() {
       {GamesImage.map((images, index) => (
         <div
           key={index}
-          className="flex flex-col flex-wrap text-white w-full  cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+          className="flex flex-col flex-wrap text-white w-full cursor-pointer transform transition-transform duration-300 hover:scale-105"
         >
-          <img src={images.url} alt="Games_Image" className="rounded-t-lg" />
-          <div className="px-2 sm:px-5 py-2 md:py-3 bg-white/5 backdrop-blur-md rounded-b-lg flex justify-between h-auto">
+          <img src={images.url} alt="Games_Image" className="rounded-lg" />
+          <div className="py-2 md:py-3 rounded-b-lg flex justify-between h-auto">
             <div className="space-y-2 sm:space-y-3 text-start">
             <h1 className="font-medium text-base ">{images.title}</h1>
             <p className="font-medium  text-sm lg:text-base">
               <span className="line-through text-gray-400 pr-5">$79.99</span>
-              <span className="text-[#43d60d]">$49.99</span>
+              <span className="bg-gradient-to-r from-purple-700 to-purple-400 px-3 py-1 rounded-2xl text-sm">$49.99</span>
             </p>
             </div>
-            <IoMdAddCircleOutline className="text-2xl hover:text-[#43d60d]"/>
+            <IoMdAddCircleOutline className="text-2xl hover:text-[#dc37ce]"/>
           </div>
           
         </div>
