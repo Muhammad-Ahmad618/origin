@@ -6,6 +6,7 @@ import GameCards from '../../Components/GameCards'
 import Footer from '../../Components/Footer'
 import GameGrid from '../../Components/GameGrid'
 import CartProvider from '../../CartContext/CartContext'
+import HeroSectionSlider from '../../Components/HeroSectionSlider/HeroSectionSlider'
 
 export default function Store() {
 
@@ -14,7 +15,7 @@ export default function Store() {
     <div className='min-h-screen bg-[#121212]'>
       <NavBar/>
       <div className='py-28 max-w-screen-2xl px-5 lg:px-24 mx-auto'>
-      <CoverSlider/>
+      <HeroSectionSlider/>
       <div className='pt-28 space-y-16 mx-auto'>
       <GamesSlider
       title = "Discover Something New"

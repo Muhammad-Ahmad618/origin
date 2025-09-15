@@ -1,13 +1,9 @@
-import React, {useState, useEffect, useRef} from "react";
+import {useState, useEffect, useRef} from "react";
 import { LuMenu } from "react-icons/lu";
-import { FaUserCircle } from "react-icons/fa";
+import { BsCart3 } from "react-icons/bs";
 import { BsBellFill } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
 import { SiOrigin } from "react-icons/si"
-import { RiCoupon2Fill } from "react-icons/ri";
-import { FaUser } from "react-icons/fa";
-import { IoLogOut } from "react-icons/io5";
-import { IoMdSettings } from "react-icons/io";
 import { FaBell } from "react-icons/fa6";
 import SideMenu from "./SideMenu";
 
@@ -18,8 +14,6 @@ export default function StoreNavBar() {
 
   const notificationRef = useRef(null);
   const notificationButtonRef = useRef(null);
-  const userMenuRef = useRef(null);
-  const userIconRef = useRef(null)
 
   const toggleSideMenu = () => {
     setSideMenu(!sideMenu);
@@ -43,15 +37,6 @@ export default function StoreNavBar() {
       ) {
         setNotificationTab(false);
       }
-
-      // Close user menu when clicking outside
-      if (
-        userMenuRef.current && 
-        !userMenuRef.current.contains(event.target)&&
-        !userIconRef.current.contains(event.target)
-      ) {
-        setUserMenu(false);
-      }
     };
     
     document.addEventListener('mousedown', handleOutsideClick);
@@ -60,13 +45,6 @@ export default function StoreNavBar() {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
-
-  const PopUpContent = [
-    {icon: <FaUser/>, label: "SensitiveMetal99x0"},
-    {icon: <RiCoupon2Fill/>, label: "Coupon"},
-    {icon: <IoMdSettings/>, label: "Settings"},
-    {icon: <IoLogOut/>, label: "Sign Out"},
-  ];
 
   return (
     <div className="bg-black shadow-sm shadow-black p-4 flex items-center justify-between fixed w-full z-20">
@@ -88,7 +66,7 @@ export default function StoreNavBar() {
           <input 
             type="search" 
             name="Search" 
-            className="max-w-[22rem] w-full bg-[#262626] text-gray-400 text-sm font-medium outline-none" 
+            className="max-w-[22rem] w-full bg-[#262626] text-gray-100 text-sm outline-none" 
             placeholder="Search Store"
           />
         </div>
@@ -102,49 +80,32 @@ export default function StoreNavBar() {
           </div>
         
           <div 
-            className={`w-[19rem] h-[30rem] bg-[#262626] absolute top-10 right-16 rounded-md duration-300 transition-all ease-in-out ${
+            className={`w-[19rem] h-[30rem] bg-black/60 backdrop-blur-md absolute top-10 right-16 rounded-3xl duration-300 transition-all ease-in-out ${
               notificationTab ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
             ref={notificationRef}
           >
             <div className="p-4 text-white w-full space-y-4">
-              <h3 className="font-medium">Notifications</h3>
+              <h3 className="font-medium ">Notifications</h3>
               <div className="w-[95%] h-[1px] bg-gray-300"></div>
             </div>
             <div className="w-full h-full flex justify-center items-center">
-              <div className="text-center space-y-5 text-gray-500 mb-14">
-                <FaBell className="text-[3rem] w-full m-auto"/>
-                <h3 className="font-semibold">No Notifications</h3>
+              <div className="text-center mb-14">
+                <FaBell className="text-[3rem] w-full m-auto mb-5 text-white"/>
+                <h3 className="font-semibold text-white">No Notifications</h3>
               </div>
             </div>   
           </div>
-          
-          <div ref={userIconRef}>
-          <FaUserCircle 
-            className="text-[1.8rem] text-white hover:text-purple-600 cursor-pointer" 
-            onClick={toggleUserMenu}
-          />
-          </div>
-
-          <div 
-            ref={userMenuRef}
-            className={`bg-[#262626] absolute w-[17rem] z-10 top-10 right-0 py-2 rounded-lg shadow-sm shadow-black ${
-              userMenu ? "block" : "hidden"
-            }`}
-          >
-            <ul className="text-white">
-              {PopUpContent.map((item, index) => (
-                <li 
-                  key={index} 
-                  className="flex items-center gap-x-4 px-4 text-[1.3rem] rounded-lg py-4 cursor-pointer hover:bg-[#727272]"
-                >
-                  {item.icon}
-                  <p className="text-base font-medium">{item.label}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+           
+           <div className="relative">
+            <span className="w-4 h-4 bg-purple-500 sm:hidden text-white flex items-center justify-center font-bold text-[0.65rem] rounded-full absolute -right-1 -top-1.5">
+              1
+            </span>
+           <BsCart3 className="text-white text-[1.6rem] cursor-pointer hover:text-purple-400"/>
+           </div>
         </div>
+
+       
 
         <SideMenu SideMenu={sideMenu}/>
       </div>

@@ -1,0 +1,47 @@
+import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import CartBtn from "../Add_to_cart_Btn";
+
+export default function LargeGameCards({ game }) {
+  const [toolTip, setToolTip] = useState(false);
+  return (
+    <div className="flex flex-col gap-x-4 w-full text-white">
+      {/* Game Image Container */}
+      <div className="group aspect-[8/5] cursor-pointer relative">
+        <span className="bg-gradient-to-r from-purple-400 hidden group-hover:block to-purple-600 p-2 shadow-sm shadow-black rounded-full absolute top-2 right-2 z-10"
+         onMouseEnter={() => {setToolTip(true)}}
+          onMouseLeave={() => {setToolTip(false)}}>
+          <FaPlus className="text-white text-xs" />
+        </span>
+        {toolTip && (
+          <div className="absolute top-1 right-10 rounded-md py-2 px-5 bg-black text-xs font-medium text-white z-10">
+            Add to Wishlist
+          </div>
+        )}
+        <img
+          src={game.background_image}
+          alt={game.name}
+          className="rounded-md w-full h-full object-cover group-hover:opacity-80 transition-all duration-300"
+        />
+      </div>
+
+      {/* Game Detail Container */}
+
+      <div className="py-4 space-y-4 w-full h-full">
+        <h1
+          className="text-[1.5rem] font-bold cursor-pointer"
+          style={{ textShadow: "1px 1px 2px black" }}
+        >
+          {game.name}
+        </h1>
+        <p className="text-sm font-medium text-[#ff32bb] line-clamp-1">
+          {game.publishers} | {game.developers}
+        </p>
+        <p className="text-sm text-gray-400  leading-relaxed line-clamp-2">
+          {game.description}
+        </p>
+        <CartBtn />
+      </div>
+    </div>
+  );
+}
