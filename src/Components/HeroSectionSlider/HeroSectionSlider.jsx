@@ -72,7 +72,7 @@ function HeroSectionSlider() {
         {data.map((game, index) => (
           <SwiperSlide key={index}>
             <div
-              className="aspect-[4/5] sm:aspect-[9/5] md:aspect-[11/5] lg:aspect-[12/5] bg-cover bg-center bg-no-repeat rounded-xl relative flex items-end"
+              className="aspect-[4/5] sm:aspect-[9/5] md:aspect-[11/5] bg-cover bg-center bg-no-repeat rounded-xl relative flex items-end"
               style={{ backgroundImage: `url(${game.Image})` }}
             >
               <div className="w-full h-full flex items-end bottom-0 rounded-rt-full rounded-b-xl left-0 p-10"

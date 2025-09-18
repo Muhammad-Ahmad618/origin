@@ -28,12 +28,12 @@ function SmallGameCards({game}) {
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-between text-white py-3 text-left aspect-5/3">
+      <div className="flex flex-col justify-between text-white py-3 text-left aspect-[6/3] md:aspect-[5/3]">
         <div>
           <p className="text-[#ff32bb] font-medium text-xs">Base Game</p>
           <h3 className="text-[1.05rem] font-medium">{game.name}</h3>
         </div>
-        <h2 className="text-[1rem] font-semibold pt-3 text-gray-300">Free</h2>
+        <h2 className="text-[1rem] font-semibold text-gray-300">Free</h2>
       </div>
     </div>
   );

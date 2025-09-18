@@ -1,44 +1,8 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 export default function SlickSlider() {
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   const data = [
     {
       image:
@@ -104,28 +68,76 @@ export default function SlickSlider() {
 
   return (
     <div className="text-center py-10">
-      <h2 className="text-white text-[1.5rem] font-bold pb-14 text-left">
-        Categories
-      </h2>
-      <Slider {...settings}>
+      <div className="flex justify-between items-center">
+        <h2 className="text-white text-[1.5rem] font-bold pb-14 text-left">
+          Categories
+        </h2>
+        <div className="text-[#efeeee71] text-sm text-end flex items-center text-[2rem] gap-x-2">
+          <span className="custom-cat-prev p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20">
+            <FaAngleLeft className="text-white text-xs" />
+          </span>
+          <span className="custom-cat-next p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20">
+            <FaAngleRight className="text-white text-xs" />
+          </span>
+        </div>
+      </div>
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        spaceBetween={40}
+        slidesPerView={5}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        loop={true}
+        navigation={{
+          nextEl: ".custom-cat-next",
+          prevEl: ".custom-cat-prev",
+        }}
+        breakpoints={{
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+          1280: {
+            slidesPerView: 5,
+            spaceBetween: 40,
+          },
+        }}
+      >
         {data.map((category, index) => (
-          <div
-            key={index}
-            className="group relative max-w-[10rem] lg:max-w-[14rem]  w-full cursor-pointer overflow-hidden"
-          >
-            <img
-              src={category.image}
-              alt="categoryImage"
-              className="transition-all duration-150 group-hover:opacity-70 "
-            />
-            <div className="absolute bottom-0 md:bottom-1 bg-black w-full p-3 rounded-b-lg transform translate-y-80 transition-transform duration-500 group-hover:translate-y-0">
-              <h4 className="text-xs sm:text-sm lg:text-base text-white font-medium">
-                {category.text}
-              </h4>
+          <SwiperSlide>
+            <div
+              key={index}
+              className="group relative aspect-[4/5] w-full cursor-pointer overflow-hidden"
+            >
+              <img
+                src={category.image}
+                alt="categoryImage"
+                className="w-full h-full"
+              />
+              <div className="absolute bottom-0 md:bottom-1 bg-black/50 backdrop-blur-md w-full p-3 rounded-b-lg transform translate-y-80 transition-transform duration-500 group-hover:translate-y-0">
+                <h4 className="text-xs sm:text-sm lg:text-base text-white font-medium">
+                  {category.text}
+                </h4>
+              </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
     </div>
   );
 }
