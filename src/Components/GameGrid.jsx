@@ -48,10 +48,10 @@ export default function GameGrid({title, border, genre, numbers = 5, dates, spec
   return (
     <div className={`${border} my-10`}>
       <div className="pb-5 ">
-        <a className="group text-[1.5rem] text-white font-bold cursor-pointer flex items-center gap-x-2">
+        <a className="group text-[1.2rem] md:text-[1.5rem] text-white font-bold cursor-pointer flex items-center gap-x-2">
           {title}
           <span>
-            <MdArrowForwardIos className="text-[1.5rem] transition-all mt-1.5 duration-300 ease-in-out group-hover:translate-x-2" />
+            <MdArrowForwardIos className="text-[1.2rem] md:text-[1.5rem] transition-all mt-1.5 duration-300 ease-in-out group-hover:translate-x-2" />
           </span>
         </a>
         <div className="bg-gradient-to-r from-purple-600 via-purple-400 to-blue-600 h-1 max-w-[13rem] w-full rounded-full mt-2"></div>
@@ -72,9 +72,9 @@ export default function GameGrid({title, border, genre, numbers = 5, dates, spec
             </div>
 
             <div className="space-y-2 px-4 text-white basis-[80%] ">
-              <h1 className="font-medium text-[1.1rem]">{game.name}</h1>
+              <h1 className="font-medium text-base md:text-[1.1rem]">{game.name}</h1>
               <p className="line-clamp-3 text-xs text-gray-400 font-medium leading-6">Rating : {game.rating}</p>
-              <p className="text-sm font-semibold text-[#ca2dbd]">
+              <p className="text-xs md:text-sm font-semibold text-[#ca2dbd]">
                 Relase Date: {game.released}
               </p>
             </div>

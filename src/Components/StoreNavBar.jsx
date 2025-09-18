@@ -8,7 +8,6 @@ import { FaBell } from "react-icons/fa6";
 import SideMenu from "./SideMenu";
 
 export default function StoreNavBar() {
-  const [userMenu, setUserMenu] = useState(false);
   const [sideMenu, setSideMenu] = useState(false);
   const [notificationTab, setNotificationTab] = useState(false);
 
@@ -17,10 +16,6 @@ export default function StoreNavBar() {
 
   const toggleSideMenu = () => {
     setSideMenu(!sideMenu);
-  };
-
-  const toggleUserMenu = () => {
-    setUserMenu(!userMenu);
   };
 
   const toggleNotifications = () => {
@@ -53,7 +48,7 @@ export default function StoreNavBar() {
         onClick={toggleSideMenu} 
       />
 
-      <div className="px-10 flex items-center justify-between w-full">
+      <div className="px-5 sm:px-10 flex items-center justify-between w-full">
         <div className="text-white flex items-center hover:text-purple-600 ease-in-out duration-150 cursor-pointer">
           <SiOrigin className="text-[2rem] sm:text-[2.5rem] rotate-45" />
           <h3 className="text-[1.2rem] sm:text-[1.3rem] font-medium">
@@ -61,18 +56,18 @@ export default function StoreNavBar() {
           </h3>
         </div>
         
-        <div className="w-full flex bg-[#262626] max-w-[24rem] justify-between items-center py-2 px-2 rounded-sm">
-          <IoIosSearch className="text-gray-400 text-[1.2rem] hover:text-gray-800 mr-3"/>
+        <div className="w-full flex bg-none md:bg-[#262626] md:max-w-[24rem] justify-end md:justify-between items-center py-2 px-2 rounded-sm">
+          <IoIosSearch className="text-white md:text-gray-400 text-[1.8rem] md:text-[1.2rem] hover:text-gray-800 mr-3"/>
           <input 
             type="search" 
             name="Search" 
-            className="max-w-[22rem] w-full bg-[#262626] text-gray-100 text-sm outline-none" 
+            className="max-w-[22rem] w-full bg-[#262626] hidden md:block text-gray-100 text-sm outline-none" 
             placeholder="Search Store"
           />
         </div>
          
         <div className="flex items-center gap-x-8 relative">
-          <div ref={notificationButtonRef}>
+          <div ref={notificationButtonRef} className="hidden md:block">
             <BsBellFill 
               className="text-[1.4rem] text-white hover:text-purple-600 cursor-pointer" 
               onClick={toggleNotifications}
@@ -80,7 +75,7 @@ export default function StoreNavBar() {
           </div>
         
           <div 
-            className={`w-[19rem] h-[30rem] bg-black/60 backdrop-blur-md absolute top-10 right-16 rounded-3xl duration-300 transition-all ease-in-out ${
+            className={`w-[19rem] h-[30rem] hidden md:block bg-black/60 backdrop-blur-md absolute top-10 right-16 rounded-3xl duration-300 transition-all ease-in-out ${
               notificationTab ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
             ref={notificationRef}
@@ -104,9 +99,6 @@ export default function StoreNavBar() {
            <BsCart3 className="text-white text-[1.6rem] cursor-pointer hover:text-purple-400"/>
            </div>
         </div>
-
-       
-
         <SideMenu SideMenu={sideMenu}/>
       </div>
     </div>

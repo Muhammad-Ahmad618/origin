@@ -14,9 +14,9 @@ export default function Store() {
     <CartProvider>
     <div className='min-h-screen bg-[#121212]'>
       <NavBar/>
-      <div className='py-28 max-w-screen-2xl px-5 lg:px-24 mx-auto'>
+      <div className='pt-28 pb-10 sm:py-28 max-w-screen-2xl px-5 lg:px-24 mx-auto'>
       <HeroSectionSlider/>
-      <div className='pt-28 space-y-16 mx-auto'>
+      <div className='pt-10 sm:pt-28 space-y-16 mx-auto'>
       <GamesSlider
       title = "Discover Something New"
       numbers = "25"
@@ -53,7 +53,7 @@ export default function Store() {
       genre = "fighting"
       numbers="30"
       />
-      <div className="grid grid-cols-3 gap-x-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 lg:gap-x-10">
       <GameGrid
       title = "Most Anticipated"
       border = "border-r border-gray-600"
@@ -64,7 +64,7 @@ export default function Store() {
       />
        <GameGrid
       title = "New Releases"
-      border = "border-none"
+      border = "border-r border-gray-600 lg:border-none"
       />
       </div>
       </div>

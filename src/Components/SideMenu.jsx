@@ -5,11 +5,13 @@ import { RiCoupon2Fill } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
 import { IoLogOut } from "react-icons/io5";
 import { IoWallet } from "react-icons/io5";
+import { BsBellFill } from "react-icons/bs";
 import { TiNews } from "react-icons/ti";
 import { IoTrophy } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
-export default function SideMenu({ SideMenu }) {
+
   const SideMenuContent = [
     { icon: <IoStorefront />, label: "Store" },
     { icon: <TiNews />, label: "News" },
@@ -21,9 +23,34 @@ export default function SideMenu({ SideMenu }) {
     { icon: <IoLogOut />, label: "Sign Out" },
   ];
 
+export default function SideMenu({ SideMenu }) {
+
+  const [menuItems, setMenuItems] = useState(SideMenuContent)
+
+    useEffect(() =>{
+
+  const InjectMenuItem = () => {
+     
+    if(window.innerWidth <= 768 ){
+       
+      setMenuItems([...SideMenuContent,{icon:<BsBellFill/>, label:"Notification" }])
+    }
+    else{
+      setMenuItems(SideMenuContent)
+    }
+  }
+
+  InjectMenuItem()
+
+  window.addEventListener('resize', InjectMenuItem)
+
+  return () => window.removeEventListener('resize', InjectMenuItem)
+
+  },[])
+
   return (
     <div
-      className={`absolute left-0 top-[4rem] bg-black h-[100vh] max-w-[18rem] z-10 w-full transition-all duration-300 ${
+      className={`absolute left-0 top-[4rem] bg-black min-h-[100vh] max-w-[18rem] z-10 w-full transition-all duration-300 ${
         SideMenu ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -46,7 +73,7 @@ export default function SideMenu({ SideMenu }) {
         <hr className="mt-6" />
       </div>
       <ul className="text-white space-y-2 py-5">
-        {SideMenuContent.map((item, index) => (
+        {menuItems.map((item, index) => (
           <li
             key={index}
             className="flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272]"

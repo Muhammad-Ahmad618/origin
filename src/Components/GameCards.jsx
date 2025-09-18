@@ -47,10 +47,10 @@ export default function GameCards({
 
   return (
     <div>
-      <h3 className="text-[1.8rem] text-white font-medium pb-8">{title}</h3>
-      <div className="grid grid-cols-3 gap-x-5 w-full">
+      <h3 className="text-[1.5rem] sm:text-[1.8rem] text-white font-medium pb-8">{title}</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
         {games.map((game) => (
-        <LargeGameCards game={game}/>
+        <LargeGameCards game={game} key={game.id}/>
         ))}
       </div>
     </div>

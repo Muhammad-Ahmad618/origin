@@ -29,12 +29,12 @@ export default function LargeGameCards({ game }) {
 
       <div className="py-4 space-y-4 w-full h-full">
         <h1
-          className="text-[1.5rem] font-bold cursor-pointer"
+          className="text-[1.3rem] sm:text-[1.5rem] font-bold cursor-pointer"
           style={{ textShadow: "1px 1px 2px black" }}
         >
           {game.name}
         </h1>
-        <p className="text-sm font-medium text-[#ff32bb] line-clamp-1">
+        <p className="text-xs sm:text-sm font-medium text-[#ff32bb] line-clamp-1">
           {game.publishers} | {game.developers}
         </p>
         <p className="text-sm text-gray-400  leading-relaxed line-clamp-2">
