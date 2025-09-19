@@ -36,7 +36,7 @@ export default function GameGrid({title, border, genre, numbers = 5, dates, spec
       </div>
   }
 
-  if(games.lenght === 0){
+  if(!games || games.length === 0){
     return <p className="text-red-500 text-center">Shit Found Nothing </p>
   }
 

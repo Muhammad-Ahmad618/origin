@@ -1,4 +1,5 @@
 import {useState, useEffect, useRef} from "react";
+import { useNavigate } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
 import { BsCart3 } from "react-icons/bs";
 import { BsBellFill } from "react-icons/bs";
@@ -13,6 +14,11 @@ export default function StoreNavBar() {
 
   const notificationRef = useRef(null);
   const notificationButtonRef = useRef(null);
+  const navigate = useNavigate()
+
+  const handleCart = () => {
+    navigate('Cart')
+  }
 
   const toggleSideMenu = () => {
     setSideMenu(!sideMenu);
@@ -42,7 +48,7 @@ export default function StoreNavBar() {
   }, []);
 
   return (
-    <div className="bg-black shadow-sm shadow-black p-4 flex items-center justify-between fixed w-full z-20">
+    <div className="bg-black shadow-sm shadow-black p-4 flex items-center justify-between top-0 fixed w-full z-20">
       <LuMenu 
         className="text-white text-[1.7rem] hover:text-purple-600 cursor-pointer" 
         onClick={toggleSideMenu} 
@@ -96,7 +102,7 @@ export default function StoreNavBar() {
             <span className="w-4 h-4 bg-purple-500 sm:hidden text-white flex items-center justify-center font-bold text-[0.65rem] rounded-full absolute -right-1 -top-1.5">
               1
             </span>
-           <BsCart3 className="text-white text-[1.6rem] cursor-pointer hover:text-purple-400"/>
+           <BsCart3 className="text-white text-[1.6rem] cursor-pointer hover:text-purple-400" onClick={() => {handleCart()}}/>
            </div>
         </div>
         <SideMenu SideMenu={sideMenu}/>

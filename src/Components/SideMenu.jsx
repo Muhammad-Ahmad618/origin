@@ -10,17 +10,19 @@ import { TiNews } from "react-icons/ti";
 import { IoTrophy } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
   const SideMenuContent = [
-    { icon: <IoStorefront />, label: "Store" },
-    { icon: <TiNews />, label: "News" },
-    { icon: <IoMdAddCircle />, label: "WishList" },
-    { icon: <IoLibrarySharp />, label: "My Library" },
-    { icon: <IoWallet />, label: "Wallet" },
-    { icon: <RiCoupon2Fill />, label: "Coupon" },
-    { icon: <IoMdSettings />, label: "Settings" },
-    { icon: <IoLogOut />, label: "Sign Out" },
+    { icon: <IoStorefront />, label: "Store" , path : "/"
+     },
+    { icon: <TiNews />, label: "News", path : "/" },
+    { icon: <IoMdAddCircle />, label: "WishList", path : "/" },
+    { icon: <IoLibrarySharp />, label: "My Library", path : "/" },
+    { icon: <IoWallet />, label: "Wallet", path : "/" },
+    { icon: <RiCoupon2Fill />, label: "Coupon",  path : "/" },
+    { icon: <IoMdSettings />, label: "Settings",  path : "/" },
+    { icon: <IoLogOut />, label: "Sign Out",  path : "/" },
   ];
 
 export default function SideMenu({ SideMenu }) {
@@ -74,13 +76,14 @@ export default function SideMenu({ SideMenu }) {
       </div>
       <ul className="text-white space-y-2 py-5">
         {menuItems.map((item, index) => (
-          <li
+          <Link
             key={index}
+            to={item.path}
             className="flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272]"
           >
             {item.icon}
             <p className="text-base font-medium">{item.label}</p>
-          </li>
+          </Link>
         ))}
       </ul>
     </div>
