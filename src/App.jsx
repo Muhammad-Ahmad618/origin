@@ -12,7 +12,6 @@ import StoreContent from './Screens/StoreContent/StoreContent';
 
 const queryClient = new QueryClient()
 
-
 function App() {
 
   return (
