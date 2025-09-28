@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = import.meta.env.VITE_EPIC_KEY;
+const API_KEY = import.meta.env.VITE_EPIC_API;
 
 const options = {
       method: 'GET',

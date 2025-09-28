@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { FetchNews } from "../api/News";
-import axios from "axios";
 
 export default function VideoGamesNews() {
   const {
