@@ -6,9 +6,16 @@ const useCartStore = create((set) => ({
 
     addToCart: (item) => 
        
-    set((state) => ({
-        cart:[...state.cart, item]
-    })),
+    set((state) => {
+
+        if(state.cart.find((cartItem) => cartItem.id === item.id)){
+           return {cart: state.cart}
+        }
+        else{
+           return { cart:[...state.cart, item] }
+        }
+        
+    }),
     
     removeFromCart: (id) => 
     

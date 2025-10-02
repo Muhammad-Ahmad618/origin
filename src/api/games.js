@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_KEY = import.meta.env.VITE_RAWG_KEY;
-
+const API_KEY = import.meta.env.VITE_RAWG_API;
+console.log(import.meta.env)
 export const fetchBaseGameData = async ({
   genre,
   numbers,

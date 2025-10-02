@@ -8,6 +8,7 @@ import GameDetail from './Components/Interface/GameDetails_Interface'
 import CartPage from './Screens/CartPage/CartPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StoreContent from './Screens/StoreContent/StoreContent';
+import { SpeedInsights } from "@vercel/speed-insights/react"  
 
 
 const queryClient = new QueryClient()
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
      <QueryClientProvider client={queryClient}>
+       <SpeedInsights />
       <Router>
       <Routes>
         <Route path='/' element={<LandingPage/>} />
