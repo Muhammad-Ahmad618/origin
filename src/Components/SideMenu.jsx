@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
     { icon: <IoStorefront />, label: "Store" , path : "/"
      },
     { icon: <TiNews />, label: "News", path : "/" },
-    { icon: <IoMdAddCircle />, label: "WishList", path : "/" },
+    { icon: <IoMdAddCircle />, label: "WishList", path : "/WishList" },
     { icon: <IoLibrarySharp />, label: "My Library", path : "/" },
     { icon: <IoWallet />, label: "Wallet", path : "/" },
     { icon: <RiCoupon2Fill />, label: "Coupon",  path : "/" },

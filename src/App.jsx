@@ -6,6 +6,7 @@ import Register from './Screens/LoginPage/SignIn';
 import Store from './Screens/StorePage/Store';
 import GameDetail from './Components/Interface/GameDetails_Interface'
 import CartPage from './Screens/CartPage/CartPage';
+import WishlistPage from './Screens/WishlistPage/WishlistPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StoreContent from './Screens/StoreContent/StoreContent';
 import { SpeedInsights } from "@vercel/speed-insights/react"  
@@ -14,7 +15,6 @@ import { SpeedInsights } from "@vercel/speed-insights/react"
 const queryClient = new QueryClient()
 
 function App() {
-
   return (
     <>
      <QueryClientProvider client={queryClient}>
@@ -27,6 +27,7 @@ function App() {
         <Route path='/Store' element={<Store/>}>
          <Route index element={<StoreContent/>} />
          <Route path='Cart' element={<CartPage/>}/>
+         <Route path='WishList' element={<WishlistPage/>}/>
         </Route>
         <Route path='/Store/GameDetail' element={<GameDetail/>} />
       </Routes>

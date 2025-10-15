@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
 import { BsCart3 } from "react-icons/bs";
 import { BsBellFill } from "react-icons/bs";
+import { FaRegBell } from "react-icons/fa6";
 import { IoIosSearch } from "react-icons/io";
 import { SiOrigin } from "react-icons/si"
 import { FaBell } from "react-icons/fa6";
@@ -74,8 +75,8 @@ export default function StoreNavBar() {
          
         <div className="flex items-center gap-x-8 relative">
           <div ref={notificationButtonRef} className="hidden md:block">
-            <BsBellFill 
-              className="text-[1.4rem] text-white hover:text-purple-600 cursor-pointer" 
+            <FaRegBell
+              className="text-[1.5rem] text-white hover:text-purple-600 cursor-pointer" 
               onClick={toggleNotifications}
             /> 
           </div>
