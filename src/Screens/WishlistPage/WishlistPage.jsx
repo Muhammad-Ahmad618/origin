@@ -1,15 +1,33 @@
 import CustomDropDown from "../../Components/CustomDropDown/CustomDropDown";
+import useWishlistStore from "../../Store/WishlistStore";
+import CustomButton from "../../Components/CustomButton/CustomButton";
+import { BsTrash } from "react-icons/bs";
+import { TbGhost2Filled } from "react-icons/tb"
+import { BsCart3 } from "react-icons/bs";
+import { MdWindow } from "react-icons/md"
+import { useNavigate } from "react-router-dom";
 
 const dropDownMenuItems = [
-     "Recently Added",
-     "Popularity",
-     "Price: High to Low",
-     "Price: Low to High",
-     "Released",
-]
-
+  "Recently Added",
+  "Popularity",
+  "Price: High to Low",
+  "Price: Low to High",
+  "Released",
+];
 
 function WishlistPage() {
+  
+  const wishList = useWishlistStore((state) => state.wishList);
+  const removeFromWishList = useWishlistStore(
+    (state) => state.removeFromWishList
+  );
+
+  const navigate = useNavigate()
+  
+  const handleBrowseGamesBtn = () => {
+      navigate('/Store')
+  }
+
   return (
     <div className="min-h-screen py-34 mx-24">
       <div className="space-y-5 text-white">
@@ -22,7 +40,7 @@ function WishlistPage() {
               <div className="flex gap-x-3 items-center">
                 <h3 className="font-medium text-white">Total Items</h3>
                 <span className="text-white px-5 py-0.5 text-sm  rounded-2xl font-medium bg-black border border-white">
-                  0
+                  {wishList.length}
                 </span>
               </div>
             </div>
@@ -40,10 +58,43 @@ function WishlistPage() {
             <div>
               <h5 className="text-sm font-medium">Sort By :</h5>
             </div>
-            <CustomDropDown MenuItems={dropDownMenuItems}/>
+            <CustomDropDown MenuItems={dropDownMenuItems} />
           </div>
         </div>
         <hr className="text-purple-500" />
+        {wishList.length === 0 ? (
+          <div className="flex flex-col items-center gap-y-5 mt-20 justify-center">
+            <TbGhost2Filled className="text-gray-200 text-[5rem]"/>
+            <h2 className="text-[2rem] font-black">You haven't added anything to your wishlist yet</h2>
+            <CustomButton label = "Browse Games" btnClick={handleBrowseGamesBtn} />
+          </div>
+        ) : (
+          <div className="space-y-5">
+            {wishList.map((game) => (
+              <div className="flex p-5 bg-black/30 gap-x-7 backdrop-blur-md rounded-xl"
+              key={game.id}>
+                <div className="basis-[30%]">
+                  <img src={game.background_image} alt="thumbnail" className="aspect-[9/5] object-cover rounded-md" />
+                </div>
+
+                <div className="basis-[70%] flex flex-col justify-between">
+                  <div className="flex justify-between items-center">
+                  <div className="bg-white/5 inline-block px-2 py-1 rounded-md">
+                  <h4 className="text-[#ff32bb] text-xs font-bold">Base Game</h4>
+                  </div>
+                  <h2 className="text-[1.4rem] font-bold">Free</h2>
+                  </div>
+                  <h1 className="text-[2rem] font-bold">{game.name}</h1>
+                  <span className="flex items-end gap-x-2 font-medium text-sm">Platform: <MdWindow className="text-[1.2rem]"/></span>
+                  <div className="flex gap-x-2 justify-end items-end">
+                     <CustomButton label = "Remove" styling ="bg-white/10 hover:bg-white/30" icon={<BsTrash/>} btnClick={() => removeFromWishList(game)}/>
+                     <CustomButton label = "Add to Cart" icon={<BsCart3/>}/>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

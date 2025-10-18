@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 
   const SideMenuContent = [
-    { icon: <IoStorefront />, label: "Store" , path : "/"
+    { icon: <IoStorefront />, label: "Store" , path : "/Store"
      },
     { icon: <TiNews />, label: "News", path : "/" },
     { icon: <IoMdAddCircle />, label: "WishList", path : "WishList" },

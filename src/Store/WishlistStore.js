@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useWishlistStore = create((set) => ({
+const useWishlistStore = create((set, get) => ({
 
     wishList:[],
 
@@ -20,6 +20,8 @@ const useWishlistStore = create((set) => ({
      wishList: state.wishList.filter((wishListItem) => (wishListItem.id !== item.id))
      
     })),
+
+    isInWishList: (id) => (get().wishList.some((wishListitem) => wishListitem.id === id)),
 
     clearWishList:() => set(() => ({
         wishList: []

@@ -2,7 +2,6 @@ import {useState, useEffect, useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
 import { BsCart3 } from "react-icons/bs";
-import { BsBellFill } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa6";
 import { IoIosSearch } from "react-icons/io";
 import { SiOrigin } from "react-icons/si"

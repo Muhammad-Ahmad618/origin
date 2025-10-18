@@ -9,7 +9,7 @@ function CustomDropDown({ MenuItems }) {
   };
 
   return (
-    <div className="relative space-y-1 ">
+    <div className="relative space-y-1 z-10">
       <div className="h-[2.5rem] bg-black rounded-md flex items-center gap-x-3 w-full py-2 px-5">
         <span className="font-medium text-sm">{MenuItems.slice(0, 1)}</span>
         <button onClick={handleDropDown}>

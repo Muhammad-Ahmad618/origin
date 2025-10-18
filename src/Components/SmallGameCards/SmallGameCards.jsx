@@ -1,8 +1,20 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa"
+import useWishlistStore from "../../Store/WishlistStore";
+import { IoMdCheckmark } from "react-icons/io"
 
 function SmallGameCards({game}) {
+
   const [toolTip, setToolTip] = useState(false);
+  const addToWishList = useWishlistStore(state => state.addToWishList)
+  const isInWishList = useWishlistStore(state => state.isInWishList(game.id))
+  const wishList = useWishlistStore(state => state.wishList)
+
+  const handleWishList = () => {
+    addToWishList(game)
+    console.log("✅ Current wishlist:", wishList);
+  }
+
   return (
     <div className="rounded-xl group cursor-pointer">
       <div className="relative w-full aspect-[4/5]">
@@ -19,8 +31,9 @@ function SmallGameCards({game}) {
           onMouseLeave={() => {
             setToolTip(false);
           }}
+          onClick={handleWishList}
         >
-          <FaPlus className="text-white text-xs" />
+         { isInWishList ? <IoMdCheckmark className="text-white text-sm"/> : <FaPlus className="text-white text-xs" />  }
         </span>
         {toolTip && (
           <div className="absolute top-1 right-10 rounded-md py-2 px-5 font-medium text-xs bg-gray-900 text-white">
