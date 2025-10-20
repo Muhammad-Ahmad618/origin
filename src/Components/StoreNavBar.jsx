@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa6";
@@ -15,6 +15,7 @@ export default function StoreNavBar() {
   const notificationRef = useRef(null);
   const notificationButtonRef = useRef(null);
   const navigate = useNavigate()
+  const {pathname} = useLocation()
 
   const handleCart = () => {
     navigate('Cart')
@@ -27,6 +28,12 @@ export default function StoreNavBar() {
   const toggleNotifications = () => {
     setNotificationTab(!notificationTab);
   };
+
+  useEffect(() => {
+    
+    setSideMenu(false)
+
+  },[pathname])
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -105,7 +112,7 @@ export default function StoreNavBar() {
            <BsCart3 className="text-white text-[1.6rem] cursor-pointer hover:text-purple-400" onClick={() => {handleCart()}}/>
            </div>
         </div>
-        <SideMenu SideMenu={sideMenu}/>
+        <SideMenu isOpen={sideMenu}/>
       </div>
     </div>
   );

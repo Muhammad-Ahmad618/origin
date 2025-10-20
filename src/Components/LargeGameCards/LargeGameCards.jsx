@@ -1,21 +1,42 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import CartBtn from "../Add_to_cart_Btn";
+import useWishlistStore from "../../Store/WishlistStore";
+import { FaCheck } from "react-icons/fa6"
 
 export default function LargeGameCards({ game }) {
   const [toolTip, setToolTip] = useState(false);
+  
+  const addToWishList = useWishlistStore(state => state.addToWishList)
+  const inWishList = useWishlistStore(state => state.isInWishList(game.id))
+  const removeFromWishList = useWishlistStore(state => state.removeFromWishList)
+  
+  const handleWishList = () => {
+
+    if(inWishList){
+      removeFromWishList(game)
+    }
+    else{
+      addToWishList(game)
+    }
+
+  } 
+
   return (
     <div className="flex flex-col gap-x-4 w-full text-white">
       {/* Game Image Container */}
       <div className="group aspect-[8/5] cursor-pointer relative">
         <span className="bg-gradient-to-r from-purple-400 hidden group-hover:block to-purple-600 p-2 shadow-sm shadow-black rounded-full absolute top-2 right-2 z-10"
          onMouseEnter={() => {setToolTip(true)}}
-          onMouseLeave={() => {setToolTip(false)}}>
-          <FaPlus className="text-white text-xs" />
+          onMouseLeave={() => {setToolTip(false)}}
+          onClick={handleWishList}
+          >
+          {inWishList ? <FaCheck className="text-white text-xs"/> : <FaPlus className="text-white text-xs" />  }  
+          
         </span>
         {toolTip && (
           <div className="absolute top-1 right-10 rounded-md py-2 px-5 bg-black text-xs font-medium text-white z-10">
-            Add to Wishlist
+           {inWishList ? "Remove From WishList" : "Add To WishList"} 
           </div>
         )}
         <img

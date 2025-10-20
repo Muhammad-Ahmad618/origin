@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
     { icon: <IoLogOut />, label: "Sign Out",  path : "/" },
   ];
 
-export default function SideMenu({ SideMenu }) {
+export default function SideMenu({ isOpen }) {
 
   const [menuItems, setMenuItems] = useState(SideMenuContent)
 
@@ -53,7 +53,7 @@ export default function SideMenu({ SideMenu }) {
   return (
     <div
       className={`absolute left-0 top-[4rem] bg-black min-h-[100vh] max-w-[18rem] z-10 w-full transition-all duration-300 ${
-        SideMenu ? "translate-x-0" : "-translate-x-full"
+        isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
       <div className="px-6 pt-12">

@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa"
 import useWishlistStore from "../../Store/WishlistStore";
-import { IoMdCheckmark } from "react-icons/io"
+import { FaCheck } from "react-icons/fa6"
 
 function SmallGameCards({game}) {
 
   const [toolTip, setToolTip] = useState(false);
   const addToWishList = useWishlistStore(state => state.addToWishList)
   const isInWishList = useWishlistStore(state => state.isInWishList(game.id))
-  const wishList = useWishlistStore(state => state.wishList)
+  const removeFromWishList = useWishlistStore(state => state.removeFromWishList)
 
   const handleWishList = () => {
+    
+    if(isInWishList){
+      removeFromWishList(game)
+    }
+    else{
     addToWishList(game)
-    console.log("✅ Current wishlist:", wishList);
+    }
   }
 
   return (
@@ -33,11 +38,11 @@ function SmallGameCards({game}) {
           }}
           onClick={handleWishList}
         >
-         { isInWishList ? <IoMdCheckmark className="text-white text-sm"/> : <FaPlus className="text-white text-xs" />  }
+         { isInWishList ? <FaCheck className="text-white text-sm"/> : <FaPlus className="text-white text-xs" />  }
         </span>
         {toolTip && (
           <div className="absolute top-1 right-10 rounded-md py-2 px-5 font-medium text-xs bg-gray-900 text-white">
-            Add to Wishlist
+            {isInWishList ? "Remove From WishList" : "Add To WishList"}
           </div>
         )}
       </div>

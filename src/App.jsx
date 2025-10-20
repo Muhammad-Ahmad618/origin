@@ -10,6 +10,7 @@ import WishlistPage from './Screens/WishlistPage/WishlistPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StoreContent from './Screens/StoreContent/StoreContent';
 import { SpeedInsights } from "@vercel/speed-insights/react"  
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 
 
 const queryClient = new QueryClient()
@@ -20,6 +21,7 @@ function App() {
      <QueryClientProvider client={queryClient}>
        <SpeedInsights />
       <Router>
+        <ScrollToTop/>
       <Routes>
         <Route path='/' element={<LandingPage/>} />
         <Route path='/SignIn' element={<SignIn heading='Sign in to your Account'/>} />
