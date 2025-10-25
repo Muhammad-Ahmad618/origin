@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useCartStore = create((set) => ({
+const useCartStore = create((set, get) => ({
 
     cart: [],
 
@@ -17,11 +17,13 @@ const useCartStore = create((set) => ({
         
     }),
     
-    removeFromCart: (id) => 
+    removeFromCart: (item) => 
     
     set((state) => ({
-        cart: state.cart.filter((cartItem) => cartItem.id !== id)
+        cart: state.cart.filter((cartItem) => cartItem.id !== item.id)
     })),
+
+    isInCart: (id) => (get().cart.some((CartItem) => CartItem.id === id)), 
     
     clearCart: () => set({cart:[]}),
 

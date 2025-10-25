@@ -1,5 +1,6 @@
 import {useState, useEffect, useRef} from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import useCartStore from "../Store/CartStore";
 import { LuMenu } from "react-icons/lu";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa6";
@@ -11,7 +12,7 @@ import SideMenu from "./SideMenu";
 export default function StoreNavBar() {
   const [sideMenu, setSideMenu] = useState(false);
   const [notificationTab, setNotificationTab] = useState(false);
-
+  const cart = useCartStore(state => state.cart)
   const notificationRef = useRef(null);
   const notificationButtonRef = useRef(null);
   const navigate = useNavigate()
@@ -106,8 +107,8 @@ export default function StoreNavBar() {
           </div>
            
            <div className="relative">
-            <span className="w-4 h-4 bg-purple-500 sm:hidden text-white flex items-center justify-center font-bold text-[0.65rem] rounded-full absolute -right-1 -top-1.5">
-              1
+            <span className="w-4 h-4 bg-purple-500 text-white flex items-center justify-center font-bold text-[0.65rem] rounded-full absolute -right-1 -top-1.5">
+              {cart.length === 0 ? "0" : cart.length }
             </span>
            <BsCart3 className="text-white text-[1.6rem] cursor-pointer hover:text-purple-400" onClick={() => {handleCart()}}/>
            </div>

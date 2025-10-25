@@ -6,7 +6,7 @@ function CustomButton(props) {
       }  rounded-lg font-medium text-sm cursor-pointer`}
       onClick={props.btnClick}
     >
-      <span className="text-[1.1rem]">{props.icon}</span>
+      <span className="text-[1rem]">{props.icon}</span>
       {props.label}
     </button>
   );
