@@ -10,7 +10,7 @@ import { TiNews } from "react-icons/ti";
 import { IoTrophy } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
   const SideMenuContent = [
@@ -76,14 +76,15 @@ export default function SideMenu({ isOpen }) {
       </div>
       <ul className="text-white space-y-2 py-5">
         {menuItems.map((item, index) => (
-          <Link
+          <NavLink
             key={index}
             to={item.path}
-            className="flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272]"
+            end
+            className= {({isActive}) => `flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272] ${isActive ? 'text-purple-500' : 'text-white'}`}
           >
             {item.icon}
             <p className="text-base font-medium">{item.label}</p>
-          </Link>
+          </NavLink>
         ))}
       </ul>
     </div>

@@ -68,7 +68,7 @@ function WishlistPage() {
         {wishList.length === 0 ? (
           <div className="flex flex-col items-center gap-y-5 mt-20 justify-center">
             <TbGhost2Filled className="text-gray-200 text-[5rem]" />
-            <h2 className="text-[2rem] font-black">
+            <h2 className="text-[2rem] font-black text-center">
               You haven't added anything to your wishlist yet
             </h2>
             <CustomButton

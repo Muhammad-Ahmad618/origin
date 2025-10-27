@@ -1,5 +1,17 @@
 import axios from "axios";
 
+
+const getGamePrice = (gameId) => {
+  
+  const storedPrice = localStorage.getItem(`price-${gameId}`)
+  if(storedPrice) return parseFloat(storedPrice)
+   
+  const price = (Math.random()* 60 + 40).toFixed(2)
+  console.log(`Generated new price for ${gameId}:`, price)
+  localStorage.setItem(`price-${gameId}`,price)
+  return parseFloat(price)
+}
+
 const API_KEY = import.meta.env.VITE_RAWG_API;
 console.log(import.meta.env)
 export const fetchBaseGameData = async ({
@@ -19,7 +31,13 @@ export const fetchBaseGameData = async ({
   }
 
   const { data } = await axios.get(API_url);
-  return data.results || [];
+
+  const gamesWithPrice = data.results.map((game) => ({
+    ...game,
+    price: getGamePrice(game.id)
+  }))
+
+  return gamesWithPrice  || [];
 };
 
 export const fetchDetailedGameData = async ({
@@ -40,7 +58,7 @@ export const fetchDetailedGameData = async ({
       const { data: gameDetails } = await axios.get(
         `https://api.rawg.io/api/games/${game.id}?key=${API_KEY}`
       );
-
+ 
       return {
         ...game,
         description: gameDetails.description_raw,
