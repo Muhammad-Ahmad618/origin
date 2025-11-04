@@ -39,8 +39,8 @@ function CartPage() {
 
       {cart.length === 0 ? (
         <div className="text-white mt-24 flex flex-col items-center gap-y-5">
-          <FaCartPlus className="text-[4rem]" />
-          <h1 className="text-[2.5rem] font-bold">Your Cart is Empty</h1>
+          <FaCartPlus className="text-[3rem] sm:text-[4rem]" />
+          <h1 className="text-[1.7rem] sm:text-[2.5rem] font-bold">Your Cart is Empty</h1>
           <CustomButton label="Shop For Games" btnClick={handleShopButton} />
         </div>
       ) : (

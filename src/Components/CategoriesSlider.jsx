@@ -97,7 +97,7 @@ export default function SlickSlider() {
         }}
         breakpoints={{
           320: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 10,
           },
           640: {
@@ -119,17 +119,17 @@ export default function SlickSlider() {
         }}
       >
         {data.map((category, index) => (
-          <SwiperSlide>
-            <div
-              key={index}
-              className="group relative aspect-[4/5] w-full cursor-pointer overflow-hidden"
-            >
+          <SwiperSlide
+            key={index}
+            className="max-w-[15rem] sm:max-w-[18rem] md:max-w-[20rem]"
+          >
+            <div className="group relative cursor-pointer aspect-[4/5]">
               <img
                 src={category.image}
                 alt="categoryImage"
                 className="w-full h-full"
               />
-              <div className="absolute bottom-0 md:bottom-1 bg-black/50 backdrop-blur-md w-full p-3 rounded-b-lg transform translate-y-80 transition-transform duration-500 group-hover:translate-y-0">
+              <div className=" bg-white/5 backdrop-blur-md w-full p-3 rounded-lg my-2">
                 <h4 className="text-xs sm:text-sm lg:text-base text-white font-medium">
                   {category.text}
                 </h4>

@@ -48,14 +48,17 @@ function StoreContent() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 lg:gap-x-10">
       <GameGrid
       title = "Most Anticipated"
+      genre="adventure"
       border = "border-r border-gray-600"
       />
        <GameGrid
       title = "Most Played"
+      genre="role-playing-games-rpg"
       border = "border-r border-gray-600"
       />
        <GameGrid
       title = "New Releases"
+      genre="fighting"
       border = "border-r border-gray-600 lg:border-none"
       />
       </div>

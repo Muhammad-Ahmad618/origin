@@ -6,6 +6,7 @@ import useCartStore from "../../Store/CartStore";
 import { useNavigate } from "react-router-dom";
 import { FaCheck } from "react-icons/fa6";
 
+
 export default function LargeGameCards({ game }) {
   const [toolTip, setToolTip] = useState(false);
 
@@ -17,11 +18,11 @@ export default function LargeGameCards({ game }) {
   const isInCart = useCartStore((state) => state.isInCart(game.id));
   const addToCart = useCartStore((state) => state.addToCart);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleNavigation = () => {
-    navigate('Cart')
-  }
+    navigate("Cart");
+  };
 
   const handleWishList = () => {
     if (inWishList) {
@@ -38,7 +39,7 @@ export default function LargeGameCards({ game }) {
   return (
     <div className="flex flex-col gap-x-4 w-full text-white">
       {/* Game Image Container */}
-      <div className="group aspect-[8/5] cursor-pointer relative">
+      <div className="group cursor-pointer relative">
         <span
           className="bg-gradient-to-r from-purple-400 hidden group-hover:block to-purple-600 p-2 shadow-sm shadow-black rounded-full absolute top-2 right-2 z-10"
           onMouseEnter={() => {
@@ -63,7 +64,7 @@ export default function LargeGameCards({ game }) {
         <img
           src={game.background_image}
           alt={game.name}
-          className="rounded-md w-full h-full object-cover group-hover:opacity-80 transition-all duration-300"
+          className="rounded-md w-full aspect-[8/5] object-cover group-hover:opacity-80 transition-all duration-300"
         />
       </div>
 
@@ -82,7 +83,11 @@ export default function LargeGameCards({ game }) {
         <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 my-4">
           {game.description}
         </p>
-        <CartBtn btnClick={handleAddToCart} isInCart={isInCart} Navigation={handleNavigation}/>
+        <CartBtn
+          btnClick={handleAddToCart}
+          isInCart={isInCart}
+          Navigation={handleNavigation}
+        />
       </div>
     </div>
   );
