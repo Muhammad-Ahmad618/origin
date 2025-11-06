@@ -31,7 +31,7 @@ function WishlistPage() {
   };
 
   return (
-    <div className="min-h-screen py-34 px-5 lg:mx-24">
+    <div className="max-w-screen-2xl min-h-screen py-34 mx-auto px-5 lg:px-24">
       <div className="space-y-5 text-white">
         <div className="flex justify-between items-center gap-5 sm:items-end flex-wrap">
           <div>
@@ -48,7 +48,7 @@ function WishlistPage() {
             </div>
           </div>
         </div>
-        <div className="flex justify-between lg:justify-end items-center gap-x-5 flex-wrap gap-y-5">
+        <div className="flex justify-between items-center gap-x-5 flex-wrap gap-y-5">
           <div className="bg-gray-700  items-center max-w-[23rem] w-full px-2 rounded-lg flex">
             <IoSearch className="text-[1.2rem]"/>
             <input

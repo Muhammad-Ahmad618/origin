@@ -17,7 +17,7 @@ function CartPage() {
   };
 
   return (
-    <div className="py-34 px-5 lg:mx-24">
+    <div className="max-w-screen-2xl min-h-screen mx-auto py-34 px-5 lg:px-24">
       <div className="flex justify-between items-end mb-3 flex-wrap gap-5">
         <h1 className="text-white font-black text-[2.5rem]">My Cart</h1>
         <div className="flex flex-wrap gap-5">

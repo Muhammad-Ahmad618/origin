@@ -11,9 +11,19 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StoreContent from './Screens/StoreContent/StoreContent';
 import { SpeedInsights } from "@vercel/speed-insights/react"  
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
+import CouponPage from './Screens/CouponPage/CouponPage';
 
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions:{
+    queries:{
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      staleTime: Infinity,
+      cacheTime: Infinity,
+  },
+}
+})
 
 function App() {
   return (
@@ -30,6 +40,7 @@ function App() {
          <Route index element={<StoreContent/>} />
          <Route path='Cart' element={<CartPage/>}/>
          <Route path='WishList' element={<WishlistPage/>}/>
+         <Route path='Coupons' element={<CouponPage/>}/>
         </Route>
         <Route path='/Store/GameDetail' element={<GameDetail/>} />
       </Routes>

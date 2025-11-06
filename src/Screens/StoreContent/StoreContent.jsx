@@ -49,17 +49,17 @@ function StoreContent() {
       <GameGrid
       title = "Most Anticipated"
       genre="adventure"
-      border = "border-r border-gray-600"
+      border = "sm:border-r border-gray-600"
       />
        <GameGrid
       title = "Most Played"
       genre="role-playing-games-rpg"
-      border = "border-r border-gray-600"
+      border = "sm:border-r border-gray-600"
       />
        <GameGrid
       title = "New Releases"
       genre="fighting"
-      border = "border-r border-gray-600 lg:border-none"
+      border = "sm:border-r border-gray-600 lg:border-none"
       />
       </div>
       </div>

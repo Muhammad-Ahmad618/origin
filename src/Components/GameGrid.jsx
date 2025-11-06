@@ -29,7 +29,7 @@ export default function GameGrid({
               key={index}
               className="flex w-full items-center group cursor-pointer hover:bg-white/10 p-2 rounded-xl"
             >
-              <div className="basis-[20%] bg-white/10 animate-pulse aspect-[4/5] rounded-md"></div>
+              <div className="basis-[23%] bg-white/10 animate-pulse aspect-[4/5] rounded-md"></div>
 
               <div className="space-y-5 px-4 text-white basis-[80%] ">
                 <h1 className="bg-white/10 h-2 rounded-md animate-pulse"></h1>
@@ -53,7 +53,7 @@ export default function GameGrid({
   }
 
   return (
-    <div className={`sm:${border} my-5 sm:my-10`}>
+    <div className={`${border} my-5 sm:my-10`}>
       <div className="pb-5 ">
         <a className="group text-[1.2rem] md:text-[1.5rem] text-white font-bold cursor-pointer flex items-center gap-x-2">
           {title}
@@ -72,6 +72,7 @@ export default function GameGrid({
           >
             <div className="basis-[20%]">
               <img
+                loading="lazy"
                 src={game.background_image}
                 alt={game.name}
                 className="object-cover aspect-[4/5] rounded-[10px]"

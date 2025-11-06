@@ -20,7 +20,7 @@ import { NavLink } from "react-router-dom";
     { icon: <IoMdAddCircle />, label: "WishList", path : "WishList" },
     { icon: <IoLibrarySharp />, label: "My Library", path : "/" },
     { icon: <IoWallet />, label: "Wallet", path : "/" },
-    { icon: <RiCoupon2Fill />, label: "Coupon",  path : "/" },
+    { icon: <RiCoupon2Fill />, label: "Coupon",  path : "Coupons" },
     { icon: <IoMdSettings />, label: "Settings",  path : "/" },
     { icon: <IoLogOut />, label: "Sign Out",  path : "/" },
   ];
@@ -52,7 +52,7 @@ export default function SideMenu({ isOpen }) {
 
   return (
     <div
-      className={`absolute left-0 top-[4rem] bg-black min-h-[100vh] max-w-[18rem] z-10 w-full transition-all duration-300 ${
+      className={`absolute left-0 top-[4.4rem] bg-black/80 backdrop-blur-md min-h-[100vh] max-w-[18rem] z-10 w-full transition-all duration-300 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -72,7 +72,7 @@ export default function SideMenu({ isOpen }) {
             </div>
           </div>
         </div>
-        <hr className="mt-6" />
+        <hr className="mt-6 text-white" />
       </div>
       <ul className="text-white space-y-2 py-5">
         {menuItems.map((item, index) => (
