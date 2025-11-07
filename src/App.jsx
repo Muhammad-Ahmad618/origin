@@ -12,6 +12,7 @@ import StoreContent from './Screens/StoreContent/StoreContent';
 import { SpeedInsights } from "@vercel/speed-insights/react"  
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 import CouponPage from './Screens/CouponPage/CouponPage';
+import WalletPage from './Screens/WalletPage/WalletPage';
 
 
 const queryClient = new QueryClient({
@@ -41,6 +42,7 @@ function App() {
          <Route path='Cart' element={<CartPage/>}/>
          <Route path='WishList' element={<WishlistPage/>}/>
          <Route path='Coupons' element={<CouponPage/>}/>
+         <Route path='Wallet' element={<WalletPage/>}/>
         </Route>
         <Route path='/Store/GameDetail' element={<GameDetail/>} />
       </Routes>

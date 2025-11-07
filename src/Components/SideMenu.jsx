@@ -12,43 +12,38 @@ import { FaUserCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-
-  const SideMenuContent = [
-    { icon: <IoStorefront />, label: "Store" , path : "/Store"
-     },
-    { icon: <TiNews />, label: "News", path : "/" },
-    { icon: <IoMdAddCircle />, label: "WishList", path : "WishList" },
-    { icon: <IoLibrarySharp />, label: "My Library", path : "/" },
-    { icon: <IoWallet />, label: "Wallet", path : "/" },
-    { icon: <RiCoupon2Fill />, label: "Coupon",  path : "Coupons" },
-    { icon: <IoMdSettings />, label: "Settings",  path : "/" },
-    { icon: <IoLogOut />, label: "Sign Out",  path : "/" },
-  ];
+const SideMenuContent = [
+  { icon: <IoStorefront />, label: "Store", path: "/Store" },
+  { icon: <TiNews />, label: "News", path: "/" },
+  { icon: <IoMdAddCircle />, label: "WishList", path: "WishList" },
+  { icon: <IoLibrarySharp />, label: "My Library", path: "/" },
+  { icon: <IoWallet />, label: "Wallet", path: "Wallet" },
+  { icon: <RiCoupon2Fill />, label: "Coupon", path: "Coupons" },
+  { icon: <IoMdSettings />, label: "Settings", path: "/" },
+  { icon: <IoLogOut />, label: "Sign Out", path: "/" },
+];
 
 export default function SideMenu({ isOpen }) {
+  const [menuItems, setMenuItems] = useState(SideMenuContent);
 
-  const [menuItems, setMenuItems] = useState(SideMenuContent)
+  useEffect(() => {
+    const InjectMenuItem = () => {
+      if (window.innerWidth <= 768) {
+        setMenuItems([
+          ...SideMenuContent,
+          { icon: <BsBellFill />, label: "Notification" },
+        ]);
+      } else {
+        setMenuItems(SideMenuContent);
+      }
+    };
 
-    useEffect(() =>{
+    InjectMenuItem();
 
-  const InjectMenuItem = () => {
-     
-    if(window.innerWidth <= 768 ){
-       
-      setMenuItems([...SideMenuContent,{icon:<BsBellFill/>, label:"Notification" }])
-    }
-    else{
-      setMenuItems(SideMenuContent)
-    }
-  }
+    window.addEventListener("resize", InjectMenuItem);
 
-  InjectMenuItem()
-
-  window.addEventListener('resize', InjectMenuItem)
-
-  return () => window.removeEventListener('resize', InjectMenuItem)
-
-  },[])
+    return () => window.removeEventListener("resize", InjectMenuItem);
+  }, []);
 
   return (
     <div
@@ -80,7 +75,11 @@ export default function SideMenu({ isOpen }) {
             key={index}
             to={item.path}
             end
-            className= {({isActive}) => `flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272] ${isActive ? 'text-purple-500' : 'text-white'}`}
+            className={({ isActive }) =>
+              `flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272] ${
+                isActive ? "text-purple-500" : "text-white"
+              }`
+            }
           >
             {item.icon}
             <p className="text-base font-medium">{item.label}</p>
