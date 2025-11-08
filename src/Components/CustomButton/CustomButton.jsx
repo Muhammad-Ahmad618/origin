@@ -1,7 +1,7 @@
 function CustomButton(props) {
   return (
     <button
-      className={`flex items-center gap-x-2 px-5  ${
+      className={`flex items-center ${props.icon ? "gap-x-2" : " " } px-5  ${
         props.styling ? props.styling : "bg-purple-700 hover:bg-purple-500 py-2 rounded-lg"
       }   font-medium text-sm cursor-pointer`}
       onClick={props.btnClick}
