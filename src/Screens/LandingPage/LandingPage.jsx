@@ -43,7 +43,7 @@ export default function LandingPage() {
       <Navbar handleSignIn={handleSignIn} />
       <div className="max-w-screen-2xl mx-auto px-5 sm:px-14 lg:px-28">
         {/* Cover Section */}
-        <div className="flex items-center content-center justify-center sm:justify-between h-[90vh] pt-32">
+        <div className=" flex items-center content-center justify-center sm:justify-between h-[90vh] pt-32">
           <div className="text-white space-y-5 text-center md:text-start md:basis-[45%] w-full ">
             <h1 className="text-[3rem] 2xl:text-[4rem] font-bold">
               Origin Store

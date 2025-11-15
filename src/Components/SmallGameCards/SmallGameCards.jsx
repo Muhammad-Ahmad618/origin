@@ -21,7 +21,8 @@ function SmallGameCards({game}) {
   }
 
   return (
-    <div className="rounded-xl group cursor-pointer">
+    <div className="rounded-xl group cursor-pointer"
+    >
       <div className="relative w-full aspect-[4/5]">
         <img
           src={game.background_image}
