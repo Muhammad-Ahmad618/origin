@@ -75,7 +75,7 @@ function CartPage() {
                     <CustomButton
                       label="Remove"
                       icon={<BsTrash />}
-                      styling="bg-white/10 hover:bg-white/20"
+                      styling="bg-white/10 hover:bg-white/20 py-2.5 rounded-lg"
                       btnClick={() => removeFromCart(game)}
                     />
                   </div>

@@ -49,8 +49,8 @@ function WishlistPage() {
           </div>
         </div>
         <div className="flex justify-between items-center gap-x-5 flex-wrap gap-y-5">
-          <div className="bg-gray-700  items-center max-w-[23rem] w-full px-2 rounded-lg flex">
-            <IoSearch className="text-[1.2rem]"/>
+          <div className="bg-white/10 backdrop-blur-md items-center max-w-[23rem] w-full px-2 rounded-lg flex">
+            <IoSearch className="text-[1.3rem]"/>
             <input
               type="text"
               className="text-gray-200 w-full py-1.5 px-2 focus:outline-0"
@@ -59,7 +59,7 @@ function WishlistPage() {
           </div>
           <div className="flex gap-x-2 items-center">
             <div>
-              <h5 className="text-sm font-medium">Sort By :</h5>
+              <h5 className="text-base font-medium">Sort By :</h5>
             </div>
             <CustomDropDown MenuItems={dropDownMenuItems} />
           </div>
@@ -107,7 +107,7 @@ function WishlistPage() {
                   <div className="flex gap-x-2 justify-end items-end mt-5">
                     <CustomButton
                       label="Remove"
-                      styling="bg-white/10 hover:bg-white/30"
+                      styling="bg-white/10 hover:bg-white/30 py-2.5 rounded-lg"
                       icon={<BsTrash />}
                       btnClick={() => removeFromWishList(game)}
                     />
