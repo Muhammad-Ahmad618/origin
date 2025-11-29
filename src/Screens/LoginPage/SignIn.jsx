@@ -18,7 +18,6 @@ export default function SignIn({ heading }) {
   const [confirmPassPlaceholder, setConfirmPassPlaceholder] = useState(true);
   const [splashScreen, setSplashScreen] = useState(false);
   const [loading, setLoading] = useState(false);
-  
 
   const handlerSignUp = (response) => {
     setSplashScreen(response);
@@ -31,7 +30,7 @@ export default function SignIn({ heading }) {
   };
 
   const handleSignIn = () => {
-    navigate("/Store");
+    navigate("/store");
   };
 
   return (
@@ -64,9 +63,8 @@ export default function SignIn({ heading }) {
         </div>
       </nav>
       <div className="flex justify-center items-center mt-7 w-full">
-
-        <div className="hidden lg:block" >
-         <AuthenticationSlider/>
+        <div className="hidden lg:block">
+          <AuthenticationSlider />
         </div>
 
         <div className="text-white bg-white/10 backdrop-blur-md px-4 mx-3 md:mx-0 md:px-10 py-[1.39rem] rounded-lg lg:rounded-r-lg w-[27rem] h-[33rem] overflow-hidden">
@@ -78,7 +76,7 @@ export default function SignIn({ heading }) {
             <p className="text-[0.8rem] py-2 text-center md:text-left">
               If you don’t have an account{" "}
               <Link
-                to="/Register"
+                to="/register"
                 className="text-purple-400 hover:text-purple-500 hover:underline"
               >
                 Register{" "}
@@ -89,7 +87,7 @@ export default function SignIn({ heading }) {
             <p className="text-[0.8rem] py-2 text-center md:text-left">
               Already have an Account{" "}
               <Link
-                to="/SignIn"
+                to="/signIn"
                 className="text-purple-400 hover:text-purple-500 hover:underline"
               >
                 Sign In

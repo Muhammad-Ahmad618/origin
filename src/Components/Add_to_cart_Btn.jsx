@@ -24,7 +24,7 @@ export default function Add_to_cart_Btn({ btnClick, isInCart, Navigation }) {
   return (
     <>
       <button
-        className="bg-purple-600 min-w-[9rem] justify-center h-[2.3rem] text-xs font-medium md:text-sm rounded-sm self-end transition-all duration-300 hover:bg-purple-800 flex items-center gap-x-3"
+        className="bg-purple-600 min-w-[9rem] justify-center h-[2.4rem] text-xs font-medium md:text-sm rounded-sm self-end transition-all duration-300 hover:bg-purple-800 flex items-center gap-x-3"
         onClick={handleClick}
       >
         {loading ? (

@@ -8,12 +8,12 @@ import { useNavigate } from "react-router-dom";
 function CartPage() {
   const cart = useCartStore((state) => state.cart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
-  const TotalPrice = useCartStore((state) => state.getTotalPrice)
+  const TotalPrice = useCartStore((state) => state.getTotalPrice);
 
   const navigate = useNavigate();
 
   const handleShopButton = () => {
-    navigate("/Store");
+    navigate("/store");
   };
 
   return (
@@ -40,7 +40,9 @@ function CartPage() {
       {cart.length === 0 ? (
         <div className="text-white mt-24 flex flex-col items-center gap-y-5">
           <FaCartPlus className="text-[3rem] sm:text-[4rem]" />
-          <h1 className="text-[1.7rem] sm:text-[2.5rem] font-bold">Your Cart is Empty</h1>
+          <h1 className="text-[1.7rem] sm:text-[2.5rem] font-bold">
+            Your Cart is Empty
+          </h1>
           <CustomButton label="Shop For Games" btnClick={handleShopButton} />
         </div>
       ) : (
@@ -67,7 +69,9 @@ function CartPage() {
                     </div>
                     <h2 className="text-[1.4rem] font-bold">${game.price}</h2>
                   </div>
-                  <h1 className="text-[1.4rem] sm:text-[1.7rem] font-bold">{game.name}</h1>
+                  <h1 className="text-[1.4rem] sm:text-[1.7rem] font-bold">
+                    {game.name}
+                  </h1>
                   <span className="font-medium text-sm flex items-end gap-x-2">
                     PlatForm : <MdWindow className="text-[1.1rem] " />
                   </span>
@@ -100,7 +104,7 @@ function CartPage() {
               </div>
               <hr className="text-purple-600" />
               <div className="flex justify-between font-bold">
-                <p >SubTotal</p>
+                <p>SubTotal</p>
                 <p>${TotalPrice().toFixed(2)}</p>
               </div>
 

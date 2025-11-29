@@ -1,28 +1,32 @@
 import { useState } from "react";
-import { FaPlus } from "react-icons/fa"
+import { FaPlus } from "react-icons/fa";
 import useWishlistStore from "../../Store/WishlistStore";
-import { FaCheck } from "react-icons/fa6"
+import { FaCheck } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
-function SmallGameCards({game}) {
-
+function SmallGameCards({ game }) {
   const [toolTip, setToolTip] = useState(false);
-  const addToWishList = useWishlistStore(state => state.addToWishList)
-  const isInWishList = useWishlistStore(state => state.isInWishList(game.id))
-  const removeFromWishList = useWishlistStore(state => state.removeFromWishList)
+  const addToWishList = useWishlistStore((state) => state.addToWishList);
+  const isInWishList = useWishlistStore((state) => state.isInWishList(game.id));
+  const removeFromWishList = useWishlistStore(
+    (state) => state.removeFromWishList
+  );
+  const navigate = useNavigate();
 
   const handleWishList = () => {
-    
-    if(isInWishList){
-      removeFromWishList(game)
+    if (isInWishList) {
+      removeFromWishList(game);
+    } else {
+      addToWishList(game);
     }
-    else{
-    addToWishList(game)
-    }
-  }
+  };
+
+  const handleNavigation = () => {
+    navigate(`${game.id}`);
+  };
 
   return (
-    <div className="rounded-xl group cursor-pointer"
-    >
+    <div className="rounded-xl group cursor-pointer" onClick={handleNavigation}>
       <div className="relative w-full aspect-[4/5]">
         <img
           src={game.background_image}
@@ -39,7 +43,11 @@ function SmallGameCards({game}) {
           }}
           onClick={handleWishList}
         >
-         { isInWishList ? <FaCheck className="text-white text-sm"/> : <FaPlus className="text-white text-xs" />  }
+          {isInWishList ? (
+            <FaCheck className="text-white text-sm" />
+          ) : (
+            <FaPlus className="text-white text-xs" />
+          )}
         </span>
         {toolTip && (
           <div className="absolute top-1 right-10 rounded-md py-2 px-5 font-medium text-xs bg-gray-900 text-white">
