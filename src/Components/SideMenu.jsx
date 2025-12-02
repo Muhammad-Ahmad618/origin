@@ -53,9 +53,9 @@ export default function SideMenu({ isOpen }) {
     >
       <div className="px-6 pt-12">
         <div className="flex items-center gap-x-3">
-          <FaUserCircle className="text-[3rem] text-gray-300" />
+          <FaUserCircle className="text-[3rem] text-white" />
           <div className="w-full">
-            <h4 className="text-gray-300 text-sm font-medium">
+            <h4 className="text-white text-sm font-medium">
               SensitiveMetal99x0
             </h4>
             <div className="text-gray-300 flex justify-between">
@@ -69,15 +69,15 @@ export default function SideMenu({ isOpen }) {
         </div>
         <hr className="mt-6 text-white" />
       </div>
-      <ul className="text-white space-y-2 py-5">
+      <ul className="text-white space-y-2 py-5 px-5">
         {menuItems.map((item, index) => (
           <NavLink
             key={index}
             to={item.path}
             end
             className={({ isActive }) =>
-              `flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272] ${
-                isActive ? "text-purple-500" : "text-white"
+              `flex items-center gap-x-4 px-4 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272] ${
+                isActive ? "bg-[#727272]" : "text-white"
               }`
             }
           >

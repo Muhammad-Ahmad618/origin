@@ -52,7 +52,7 @@ export default function LandingPage() {
             <h3 className="text-[1.4rem] 2xl:text-[1.8rem] font-medium">
               Your go-to destination for Latest games and next-gen adventure
             </h3>
-            <button className="px-8 py-1.5 mt-4 bg-purple-600 font-medium rounded-sm hover:bg-purple-800 ease-in duration-150 text-base">
+            <button className="px-8 py-2 sm:py-3 mt-4 bg-purple-600 font-medium rounded-sm hover:bg-purple-800 ease-in duration-150 text-base">
               Explore Now
             </button>
           </div>
@@ -92,15 +92,15 @@ export default function LandingPage() {
               <h1 className="text-[2.1rem] font-bold">
                 Assassin's Creed Shadow
               </h1>
-              <h4 className="text-[1.2rem] text-white sm:text-purple-600 font-semibold py-3">
+              <h4 className="text-[1.2rem] bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent font-bold py-3">
                 Pre-Order Now and Save Big !
               </h4>
               <p className="leading-6">
                 Secure your copy today and enjoy an exclusive discount. Be the
                 first to experience the thrill!
               </p>
-              <button className="py-2 border-2 border-purple-600 transition-all duration-500 ease-in-out rounded-full w-[10rem] font-semibold hover:bg-purple-600 mt-8">
-                Pre-Order Now
+              <button className="py-2 sm:py-2.5 cursor-pointer bg-gradient-to-r from-red-600 via-red-400 to-red-700 transition-all duration-500 ease-in-out rounded-full w-[10rem] font-semibold mt-8 hover:opacity-90">
+                Pre-order Now
               </button>
             </div>
           </div>
@@ -148,20 +148,20 @@ export default function LandingPage() {
         {/* NewsLetter Section */}
         <div className=" flex items-center justify-center lg:justify-around h-[60vh] text-white space-y-7 md:space-y-10 bg-black rounded-xl my-20 px-10 ">
           <div className="space-y-7 lg:max-w-[60%] w-full text-center lg:text-start">
-            <h2 className="text-[1.7rem] xl:text-[2rem] font-bold bg-gradient-to-r from-purple-800 to-purple-400 bg-clip-text text-transparent">
+            <h2 className="text-[1.7rem] xl:text-[2rem] font-bold bg-gradient-to-r from-purple-500 via-purple-400 to-purple-500 bg-clip-text text-transparent">
               Subscribe to our News Letter
             </h2>
-            <p className="text-xs md:text-base leading-6">
+            <p className="text-sm font-medium md:text-base leading-6">
               Level Up Your Inbox Subscribe to Our Newsletter for Exclusive Game
               Deals and Exciting Updates!
             </p>
             <input
               type="email"
               name="email"
-              className="py-2 px-4 sm:py-3 sm:px-6 rounded-3xl bg-white text-purple-900 text-sm lg:text-base w-full max-w-[30rem] mr-5"
+              className="py-2 px-4 sm:py-3 sm:px-6 rounded-3xl bg-white text-black text-sm lg:text-base w-full max-w-[30rem] mr-5 focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Email Address"
             />
-            <button className="bg-white text-purple-800 py-2 sm:py-3 px-4 transition-all duration-500 ease-in-out sm:px-6 md:px-9 rounded-3xl font-medium text-sm lg:text-base  w-auto hover:bg-purple-600 hover:text-white">
+            <button className="bg-white text-black py-2 sm:py-3 px-4 transition-all duration-500 ease-in-out sm:px-6 md:px-9 rounded-3xl font-medium text-sm lg:text-base  w-auto hover:bg-purple-600 hover:text-white">
               Subscribe
             </button>
           </div>
