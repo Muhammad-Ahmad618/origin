@@ -1,3 +1,3 @@
 export default function GameDetailLayout() {
-  return <div></div>;
+  return <div className="min-h-screen"></div>;
 }

@@ -36,7 +36,7 @@ export default function AuthenticationSlider() {
 
   return (
     <div
-      className="slider-container rounded-lg"
+      className="slider-container rounded-lg lg:rounded-r-none"
       style={{ width: "27rem", height: "33rem" }}
     >
       <Slider

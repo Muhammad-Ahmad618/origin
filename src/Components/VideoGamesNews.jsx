@@ -132,7 +132,7 @@ export default function VideoGamesNews() {
                 />
               </div>
               <div className="text-white max-w-[55%] w-full p-3 flex flex-col justify-between">
-                <h1 className="md:line-clamp-2 text-sm font-medium">
+                <h1 className="line-clamp-3 md:line-clamp-2 text-sm font-medium">
                   {article.title}
                 </h1>
                 <div className="mt-5 space-y-2">

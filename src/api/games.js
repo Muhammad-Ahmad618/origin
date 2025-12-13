@@ -69,3 +69,39 @@ export const fetchDetailedGameData = async ({
     })
   );
 };
+
+// fetches detailed game data for a single game
+// used for game detail page
+
+export const fetchFullGameData = async(id) => {
+   
+  const gameReq = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
+
+  const screenShotReq = await axios.get(`https://api.rawg.io/api/games/${id}/screenshots?key=${API_KEY}`)
+
+  const movieReq = await axios.get(`https://api.rawg.io/api/games/${game.id}/movies?key=${API_KEY}`)
+
+  const [gameRes, screenShotRes, movieRes] = await Promise.all([
+    gameReq,
+    screenShotReq,
+    movieReq
+  ])
+
+  const game = gameRes.data
+
+  return{
+    id:game.id,
+    title:game.title,
+    description:game.description,
+    rating:game.rating,
+    genres:game.genres?.map((g)=>g.name).join(", ")||"",
+    tags: game.tags?.mao((t) => t.name).join(", ")||"",
+    developers:game.developers?.map((d) => d.name).join(", ")||"",
+    publishers:game.publishers?.map((p) => p.name).join(", ")||"",
+    background:game.background_image,
+    screenshots:screenShotRes.data.results,
+    gameplay:movieRes.data.results,
+    requirements:game.platforms?.find((p) => p.platform.name === 'PC')?.requirements || null,
+    price:getGamePrice(game.id)
+  }
+}

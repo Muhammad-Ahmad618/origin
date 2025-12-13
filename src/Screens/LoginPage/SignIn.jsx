@@ -7,7 +7,7 @@ import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoXbox } from "react-icons/io";
 import { FaSteam } from "react-icons/fa";
-import HashLoader from "react-spinners/HashLoader";
+import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen";
 import AuthenticationSlider from "../../Components/AuthenticationSlider";
 
 export default function SignIn({ heading }) {
@@ -17,16 +17,12 @@ export default function SignIn({ heading }) {
   const [emailPlaceholder, setemailPlaceHolder] = useState(true);
   const [confirmPassPlaceholder, setConfirmPassPlaceholder] = useState(true);
   const [splashScreen, setSplashScreen] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const handlerSignUp = (response) => {
     setSplashScreen(response);
-    setLoading(true);
-
     setTimeout(() => {
       setSplashScreen(false);
-      setLoading(false);
-    }, 9000);
+    }, 3000);
   };
 
   const handleSignIn = () => {
@@ -34,40 +30,20 @@ export default function SignIn({ heading }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-black to-purple-800 ">
-      <div
-        className={`min-h-screen w-full bg-custom-black-80 gap-y-10 absolute z-10 ${
-          splashScreen ? "flex flex-col justify-center items-center" : "hidden"
-        }`}
-      >
-        <div className="text-white flex items-center">
-          <SiOrigin className="text-[4rem] rotate-45" />
-          <h3 className="text-[2.2rem] font-medium">rigin</h3>
-        </div>
-
-        <h3 className="text-white text-[1.2rem]">Processing Please wait !</h3>
-
-        <HashLoader
-          color={"#7F2EE9"}
-          loading={loading}
-          size={30}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-
-      <nav className="flex justify-center items-center py-7 px-10">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-black to-purple-800 relative">
+      <LoadingScreen splashScreen={splashScreen} />
+      <nav className="flex justify-center items-center h-full pb-7 px-10">
         <div className="text-white flex items-center hover:text-[#c945ce] ease-in-out duration-150 cursor-pointer">
           <SiOrigin className="text-[2rem] sm:text-[3rem] rotate-45" />
           <h3 className="text-[1.4rem] sm:text-[1.7rem] font-medium">rigin</h3>
         </div>
       </nav>
-      <div className="flex justify-center items-center mt-7 w-full">
+      <div className="flex justify-center items-center w-full">
         <div className="hidden lg:block">
           <AuthenticationSlider />
         </div>
 
-        <div className="text-white bg-white/10 backdrop-blur-md px-4 mx-3 md:mx-0 md:px-10 py-[1.39rem] rounded-lg lg:rounded-r-lg w-[27rem] h-[33rem] overflow-hidden">
+        <div className="text-white bg-white/10 backdrop-blur-md px-4 mx-3 md:mx-0 md:px-10 py-[1.39rem] rounded-lg  lg:rounded-l-none w-[27rem] h-[33rem] overflow-hidden">
           <h2 className="text-[1.4rem] text-center md:text-left md:text-[1.6rem] font-bold">
             {heading}
           </h2>

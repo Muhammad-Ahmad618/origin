@@ -6,7 +6,6 @@ import useCartStore from "../../Store/CartStore";
 import { useNavigate } from "react-router-dom";
 import { FaCheck } from "react-icons/fa6";
 
-
 export default function LargeGameCards({ game }) {
   const [toolTip, setToolTip] = useState(false);
 
@@ -36,8 +35,15 @@ export default function LargeGameCards({ game }) {
     addToCart(game);
   };
 
+  const handleDetailPageNaviagtion = () => {
+    navigate(`${game.id}`);
+  };
+
   return (
-    <div className="flex flex-col gap-x-4 w-full text-white">
+    <div
+      className="flex flex-col gap-x-4 w-full text-white"
+      onClick={handleDetailPageNaviagtion}
+    >
       {/* Game Image Container */}
       <div className="group cursor-pointer relative">
         <span
