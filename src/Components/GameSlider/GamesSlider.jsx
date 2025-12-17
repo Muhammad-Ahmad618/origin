@@ -6,8 +6,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useRef } from "react";
-import { fetchBaseGameData } from "../api/games";
-import SmallGameCards from "./SmallGameCards/SmallGameCards";
+import { fetchBaseGameData } from "../../api/games";
+import SmallGameCards from "../SmallGameCards/SmallGameCards";
 
 export default function GamesSlider({
   title,
@@ -108,8 +108,8 @@ export default function GamesSlider({
   };
 
   return (
-    <div className="mb-10" 
-    ref={containerRef}>
+    <div className="mb-10"
+      ref={containerRef}>
       <div className="flex items-center justify-between">
         <a className="group text-[1.2rem] sm:text-[1.5rem] text-white font-bold cursor-pointer flex items-center gap-x-2">
           {title}
@@ -119,16 +119,14 @@ export default function GamesSlider({
         </a>
         <div className="text-[#efeeee71] text-sm text-end flex items-center text-[2rem] gap-x-2">
           <span
-            className={`${prevBtnClass} p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 ${
-              isLoading ? "opacity-50 pointer-events-none" : ""
-            }`}
+            className={`${prevBtnClass} p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 ${isLoading ? "opacity-50 pointer-events-none" : ""
+              }`}
           >
             <FaAngleLeft className="text-white text-xs" />
           </span>
           <span
-            className={`${nextBtnClass} p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 ${
-              isLoading ? "opacity-50 pointer-events-none" : ""
-            }`}
+            className={`${nextBtnClass} p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 ${isLoading ? "opacity-50 pointer-events-none" : ""
+              }`}
           >
             <FaAngleRight className="text-white text-xs" />
           </span>
@@ -136,7 +134,7 @@ export default function GamesSlider({
       </div>
 
       <div className="pt-8"
-      ref={containerRef}
+        ref={containerRef}
       >
         {isLoading && (
           <Swiper {...loadingConfig}>
@@ -158,13 +156,13 @@ export default function GamesSlider({
               </SwiperSlide>
             ))}
           </Swiper>
-        ) }
+        )}
 
         {error && (
           <p className="text-red-500 text-center">Error fetching games !</p>
-        ) }
+        )}
 
-        {!error &&!isLoading && games.length > 0 && (
+        {!error && !isLoading && games.length > 0 && (
 
           <Swiper {...loadedConfig} >
             {games?.map((game) => (
@@ -172,11 +170,11 @@ export default function GamesSlider({
                 key={game.id}
                 className="max-w-[15rem] sm:max-w-[18rem] md:max-w-[20rem]"
               >
-                <SmallGameCards game={game}/>
+                <SmallGameCards game={game} />
               </SwiperSlide>
             ))}
           </Swiper>
-          )}
+        )}
       </div>
     </div>
   );

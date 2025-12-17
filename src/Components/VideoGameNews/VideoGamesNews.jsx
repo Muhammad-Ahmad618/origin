@@ -1,17 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import { FetchNews } from "../api/News";
+import { FetchNews } from "../../api/News";
 import { useEffect, useRef } from "react";
 import { MdError } from "react-icons/md";
 
-export default function VideoGamesNews() {
+export default function VideoGamesNews({ limit }) {
   const {
     data: news,
     isLoading,
     error,
     refetch,
   } = useQuery({
-    queryKey: ["news"],
-    queryFn: FetchNews,
+    queryKey: ["news", limit], // Include limit in queryKey for cache invalidation
+    queryFn: () => FetchNews(limit),
     enabled: false,
   });
 
@@ -117,33 +117,36 @@ export default function VideoGamesNews() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] xl:grid-cols-1 xl:max-w-[35%] w-full gap-5">
-        {news?.length > 1 &&
-          news?.slice(1).map((article, index) => (
-            <div
-              key={index}
-              className="flex flex-row-reverse h-[10rem] md:h-[8rem] w-full gap-x-3 bg-[#32313156] rounded-xl"
-            >
-              <div className="max-w-[45%] w-full h-full">
-                <img
-                  src={article.trendingImage}
-                  alt={article.title}
-                  className="w-full object-cover h-full rounded-r-xl "
-                />
-              </div>
-              <div className="text-white max-w-[55%] w-full p-3 flex flex-col justify-between">
-                <h1 className="md:line-clamp-2 text-sm font-medium">
-                  {article.title}
-                </h1>
-                <div className="mt-5 space-y-2">
-                  <p className="text-xs line-clamp-1">{article.author}</p>
-                  <p className="text-xs line-clamp-1">
-                    {new Date(article.date).toDateString()}
-                  </p>
+      {/* Wrapper for the right column to handle relative positioning on XL screens */}
+      <div className="w-full xl:w-[35%] xl:relative">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] xl:grid-cols-1 w-full gap-5 xl:absolute xl:inset-0 xl:h-full xl:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+          {news?.length > 1 &&
+            news?.slice(1).map((article, index) => (
+              <div
+                key={index}
+                className="flex flex-row-reverse h-[10rem] md:h-[8rem] w-full gap-x-3 bg-[#32313156] rounded-xl"
+              >
+                <div className="max-w-[45%] w-full h-full">
+                  <img
+                    src={article.trendingImage}
+                    alt={article.title}
+                    className="w-full object-cover h-full rounded-r-xl"
+                  />
+                </div>
+                <div className="text-white max-w-[55%] w-full p-3 flex flex-col justify-between">
+                  <h1 className="md:line-clamp-2 text-sm font-medium">
+                    {article.title}
+                  </h1>
+                  <div className="mt-5 space-y-2">
+                    <p className="text-xs line-clamp-1">{article.author}</p>
+                    <p className="text-xs line-clamp-1">
+                      {new Date(article.date).toDateString()}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
     </div>
   );

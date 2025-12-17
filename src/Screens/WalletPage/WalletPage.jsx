@@ -3,6 +3,7 @@ import { FaPaypal } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6"
 import { useForm } from "react-hook-form";
 import CustomButton from "../../Components/CustomButton/CustomButton";
+import PageHeader from "../../Components/PageHeader/PageHeader";
 import { useState } from "react";
 
 function WalletPage() {
@@ -22,14 +23,7 @@ function WalletPage() {
 
   return (
     <div className="max-w-screen-2xl min-h-screen pt-34 pb-10 text-white mx-auto px-5 lg:px-24">
-      <div className="space-y-2">
-        <h1 className="text-[2rem] sm:text-[2.5rem] font-bold">My Wallet</h1>
-        <p className="text-gray-400">
-          Manage your account balance, transactions, and payment methods
-        </p>
-        <hr className="text-purple-500 mt-5"/>
-      </div>
-
+      <PageHeader title="My Wallet" description="Manage your account balance, transactions, and payment methods" />
       <div className="my-10 space-y-2">
         <h3 className="text-[1.5rem] font-medium">Account balance</h3>
         <p className="text-gray-400">
@@ -44,11 +38,11 @@ function WalletPage() {
             <h3 className="text-[1.5rem] font-semibold">Current Balance</h3>
             <h1 className="text-[3rem] sm:text-[4rem] ">$0.00</h1>
           </div>
-        <div className="my-5 flex items-center flex-wrap-reverse gap-5">  
-        <CustomButton label="View Transaction" 
-        styling="border border-purple-600 rounded-md transition-all duration-300 ease-in-out py-3 hover:bg-purple-600"/>
-        <CustomButton label="Add Funds" icon={<FaPlus/>} styling="bg-gradient-to-r from-purple-600 to-purple-800 transition-all duration-300 ease-in-out rounded-md py-3 hover:opacity-80 "/>
-        </div>
+          <div className="my-5 flex items-center flex-wrap-reverse gap-5">
+            <CustomButton label="View Transaction"
+              styling="border border-purple-600 rounded-md transition-all duration-300 ease-in-out py-3 hover:bg-purple-600" />
+            <CustomButton label="Add Funds" icon={<FaPlus />} styling="bg-gradient-to-r from-purple-600 to-purple-800 transition-all duration-300 ease-in-out rounded-md py-3 hover:opacity-80 " />
+          </div>
         </div>
 
         <div className="basis-[60%]">
@@ -69,12 +63,11 @@ function WalletPage() {
               <div
                 onClick={() => setIsOpen(prev => ({
                   ...prev,
-                  tab1:true
+                  tab1: true
                 }))}
 
-                className={`bg-white/5 p-4 my-5 rounded-md border cursor-pointer ${
-                  isOpen.tab1 ? "min-h-fit border-purple-300" : "h-[3.5rem] border-white/20"
-                } overflow-hidden`}
+                className={`bg-white/5 p-4 my-5 rounded-md border cursor-pointer ${isOpen.tab1 ? "min-h-fit border-purple-300" : "h-[3.5rem] border-white/20"
+                  } overflow-hidden`}
               >
                 <div className="flex gap-x-5 items-center mb-4">
                   <FaRegCreditCard className="text-white" />
@@ -89,10 +82,10 @@ function WalletPage() {
                       <br />
                       <input
                         type="text"
-                        {...register("cardNumber", {required: true})}
+                        {...register("cardNumber", { required: true })}
                         className="border-[0.5px] my-2 border-gray-300 p-3 w-full rounded-lg"
                         placeholder="0000 0000 0000"
-                        
+
                       ></input>
                     </div>
                     <div className="basis-[50%]">
@@ -102,7 +95,7 @@ function WalletPage() {
                       <br />
                       <input
                         type="text"
-                        {...register("cardName", {required:true})}
+                        {...register("cardName", { required: true })}
                         className="border-[0.5px] border-gray-300 p-3 w-full rounded-lg my-2"
                         placeholder="John Doe"
                       ></input>
@@ -116,7 +109,7 @@ function WalletPage() {
                       <br />
                       <input
                         type="text"
-                        {...register("Expires", {required:true})}
+                        {...register("Expires", { required: true })}
                         className="border-[0.5px] my-2 border-gray-300 p-3 w-full rounded-lg"
                         placeholder="MM/YY"
                       ></input>
@@ -128,7 +121,7 @@ function WalletPage() {
                       <br />
                       <input
                         type="text"
-                        {...register("CVV", {required:true})}
+                        {...register("CVV", { required: true })}
                         className="border-[0.5px] border-gray-300 p-3 w-full rounded-lg my-2"
                         placeholder="CVV"
                       ></input>
@@ -149,7 +142,7 @@ function WalletPage() {
                       className="bg-purple-600 font-medium text-sm py-2 px-4 rounded-md cursor-pointer hover:bg-purple-800"
                     />
                     <input
-                        type="button"
+                      type="button"
                       value="Cancel"
                       className="ml-5 bg-white/10 px-4 py-2 text-sm font-medium rounded-md cursor-pointer hover:bg-white/20"
                       onClick={(e) => {
@@ -166,30 +159,31 @@ function WalletPage() {
               </div>
 
               <div className={`bg-white/5 p-4 my-5 rounded-md border ${isOpen.tab2 ? "min-h-fit border-purple-400" : "h-[3.5rem] border-white/20 "} overflow-hidden cursor-pointer`}
-               onClick={() => setIsOpen(prev => ({
-                ...prev,
-                tab2:true
-               }))}
+                onClick={() => setIsOpen(prev => ({
+                  ...prev,
+                  tab2: true
+                }))}
               >
                 <div className="flex gap-x-5 items-center">
-                <FaPaypal className="text-blue-500" />
-                <p>Paypal</p>
+                  <FaPaypal className="text-blue-500" />
+                  <p>Paypal</p>
                 </div>
                 <div className="mt-5 space-y-3">
-                 <p className="text-xs font-medium leading-6">By saving your payment information, this payment method will be set as the default for all purchases made using your Epic Games Account on PC and mobile. You can delete your saved payment information anytime on this payment screen or by logging in to your Epic Games Account and selecting payment management in your account settings.</p> 
-                <div className="mt-5 flex items-center gap-5">
-                <CustomButton label="Connect to Paypal" 
-                icon={<FaPaypal/>} 
-                styling="bg-purple-600 font-medium text-sm py-2 rounded-md cursor-pointer hover:bg-purple-800"/>
-                <CustomButton label="Cancel" 
-                styling="bg-white/10 py-2 text-sm font-medium rounded-md cursor-pointer hover:bg-white/20"
-                btnClick={(e) => {
-                  e.stopPropagation();
-                  setIsOpen(prev => ({
-                  ...prev,
-                  tab2: false
-                }))}}/>
-                </div>
+                  <p className="text-xs font-medium leading-6">By saving your payment information, this payment method will be set as the default for all purchases made using your Epic Games Account on PC and mobile. You can delete your saved payment information anytime on this payment screen or by logging in to your Epic Games Account and selecting payment management in your account settings.</p>
+                  <div className="mt-5 flex items-center gap-5">
+                    <CustomButton label="Connect to Paypal"
+                      icon={<FaPaypal />}
+                      styling="bg-purple-600 font-medium text-sm py-2 rounded-md cursor-pointer hover:bg-purple-800" />
+                    <CustomButton label="Cancel"
+                      styling="bg-white/10 py-2 text-sm font-medium rounded-md cursor-pointer hover:bg-white/20"
+                      btnClick={(e) => {
+                        e.stopPropagation();
+                        setIsOpen(prev => ({
+                          ...prev,
+                          tab2: false
+                        }))
+                      }} />
+                  </div>
                 </div>
               </div>
             </div>

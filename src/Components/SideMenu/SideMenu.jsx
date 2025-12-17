@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 
 const SideMenuContent = [
   { icon: <IoStorefront />, label: "Store", path: "/Store" },
-  { icon: <TiNews />, label: "News", path: "/" },
+  { icon: <TiNews />, label: "News", path: "News" },
   { icon: <IoMdAddCircle />, label: "WishList", path: "WishList" },
   { icon: <IoLibrarySharp />, label: "My Library", path: "/" },
   { icon: <IoWallet />, label: "Wallet", path: "Wallet" },
@@ -47,9 +47,8 @@ export default function SideMenu({ isOpen }) {
 
   return (
     <div
-      className={`absolute left-0 top-[4.4rem] bg-black/80 backdrop-blur-md min-h-[100vh] max-w-[18rem] z-10 w-full transition-all duration-300 ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      }`}
+      className={`absolute left-0 top-[4.4rem] bg-black/80 backdrop-blur-md h-[calc(100vh-4.4rem)] max-w-[18rem] z-10 w-full transition-all duration-300 overflow-y-auto custom-scrollbar ${isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
     >
       <div className="px-6 pt-12">
         <div className="flex items-center gap-x-3">
@@ -76,8 +75,7 @@ export default function SideMenu({ isOpen }) {
             to={item.path}
             end
             className={({ isActive }) =>
-              `flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-[#727272] ${
-                isActive ? "text-purple-500" : "text-white"
+              `flex items-center gap-x-4 px-6 text-[1.3rem] rounded-lg py-3 cursor-pointer hover:bg-white/20 ${isActive ? "bg-white/20" : ""
               }`
             }
           >
