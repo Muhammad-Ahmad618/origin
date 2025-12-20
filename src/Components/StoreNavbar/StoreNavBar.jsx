@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import useCartStore from "../Store/CartStore";
+import useCartStore from "../../Store/CartStore";
 import { LuMenu } from "react-icons/lu";
-import { BsCart3 } from "react-icons/bs";
-import { FaRegBell } from "react-icons/fa6";
+import { IoCart } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 import { SiOrigin } from "react-icons/si";
-import { FaBell } from "react-icons/fa6";
-import SideMenu from "./SideMenu";
+import { GoBellFill } from "react-icons/go";
+import { FaRegBell } from "react-icons/fa6";
+import SideMenu from "../SideMenu/SideMenu";
 
 export default function StoreNavBar() {
   const [sideMenu, setSideMenu] = useState(false);
@@ -66,8 +66,8 @@ export default function StoreNavBar() {
           <h3 className="text-[1.2rem] sm:text-[1.3rem] font-medium">rigin</h3>
         </div>
 
-        <div className="w-full flex bg-none md:bg-[#262626] md:max-w-[24rem] justify-end md:justify-between items-center py-2 px-2 rounded-sm">
-          <IoIosSearch className="text-white md:text-gray-400 text-[1.8rem] md:text-[1.2rem] hover:text-gray-800 mr-3" />
+        <div className="w-full flex bg-none md:bg-[#262626] md:max-w-[24rem] justify-end md:justify-between items-center py-2 px-2 rounded-full">
+          <IoIosSearch className="text-white text-[2rem] md:text-[1.2rem] hover:text-gray-800 mr-3" />
           <input
             type="search"
             name="Search"
@@ -78,8 +78,8 @@ export default function StoreNavBar() {
 
         <div className="flex items-center gap-x-8 relative">
           <div ref={notificationButtonRef} className="hidden md:block">
-            <FaRegBell
-              className="text-[1.5rem] text-white hover:text-purple-600 cursor-pointer"
+            <GoBellFill
+              className="text-[1.6rem] text-white hover:text-purple-600 cursor-pointer"
               onClick={toggleNotifications}
             />
           </div>
@@ -98,7 +98,7 @@ export default function StoreNavBar() {
             </div>
             <div className="w-full h-full flex justify-center items-center">
               <div className="text-center mb-14">
-                <FaBell className="text-[3rem] w-full m-auto mb-5 text-white" />
+                <FaRegBell className="text-[3rem] w-full m-auto mb-5 text-white" />
                 <h3 className="font-semibold text-white">No Notifications</h3>
               </div>
             </div>
@@ -108,8 +108,8 @@ export default function StoreNavBar() {
             <span className="w-4 h-4 bg-purple-500 text-white flex items-center justify-center font-bold text-[0.65rem] rounded-full absolute -right-1 -top-1.5">
               {cart.length === 0 ? "0" : cart.length}
             </span>
-            <BsCart3
-              className="text-white text-[1.6rem] cursor-pointer hover:text-purple-400"
+            <IoCart
+              className="text-white text-[1.8rem] cursor-pointer hover:text-purple-400"
               onClick={() => {
                 handleCart();
               }}

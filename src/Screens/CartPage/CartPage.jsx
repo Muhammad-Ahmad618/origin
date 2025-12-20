@@ -57,7 +57,7 @@ function CartPage() {
                   <img
                     src={game.background_image}
                     alt="thumbail"
-                    className="aspect-[9/5] sm:aspect-[8/5] object-cover rounded-md"
+                    className="aspect-[9/5] sm:aspect-[8/5] w-full h-full object-cover rounded-md"
                   />
                 </div>
                 <div className="space-y-5 basis-[65%]">

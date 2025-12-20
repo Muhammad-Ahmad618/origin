@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../Components/Navbar";
-import Category from "../../Components/CategoriesSlider";
-import News from "../../Components/VideoGamesNews";
+import Navbar from "../../Components/Navbar/Navbar";
+import Category from "../../Components/CategoriesSlider/CategoriesSlider";
+import VideoGamesNews from "../../Components/VideoGameNews/VideoGamesNews";
 import Avatar from "../../assets/avatar.png";
-import PopularGames from "../../Components/popularGames";
-import Footer from "../../Components/Footer";
+import PopularGames from "../../Components/popularGames/popularGames";
+import Footer from "../../Components/Footer/Footer";
 import { FaMoneyBill, FaDownload, FaTrophy } from "react-icons/fa6";
 import { MdAccessAlarm } from "react-icons/md";
 
@@ -52,7 +52,7 @@ export default function LandingPage() {
             <h3 className="text-[1.4rem] 2xl:text-[1.8rem] font-medium">
               Your go-to destination for Latest games and next-gen adventure
             </h3>
-            <button className="px-8 py-2 sm:py-3 mt-4 bg-purple-600 font-medium rounded-sm hover:bg-purple-800 ease-in duration-150 text-base">
+            <button className="px-8 py-2.5 mt-4 bg-purple-600 font-medium rounded-sm hover:bg-purple-800 ease-in duration-150 text-base">
               Explore Now
             </button>
           </div>
@@ -142,7 +142,7 @@ export default function LandingPage() {
         {/* News Section */}
         <div>
           <h2 className="text-white text-[2rem] font-bold">Latest News</h2>
-          <News />
+          <VideoGamesNews limit={5} />
         </div>
 
         {/* NewsLetter Section */}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import CartBtn from "../Add_to_cart_Btn";
+import CartBtn from "../Add_to_cart_Btn/Add_to_cart_Btn";
 import useWishlistStore from "../../Store/WishlistStore";
 import useCartStore from "../../Store/CartStore";
 import { useNavigate } from "react-router-dom";

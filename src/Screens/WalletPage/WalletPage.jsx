@@ -4,6 +4,7 @@ import { FaPlus } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import CustomButton from "../../Components/CustomButton/CustomButton";
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen";
+import PageHeader from "../../Components/PageHeader/PageHeader";
 import { useState } from "react";
 
 function WalletPage() {
@@ -45,6 +46,15 @@ function WalletPage() {
             Your balance is non-refundable
           </p>
         </div>
+    <div className="max-w-screen-2xl min-h-screen pt-34 pb-10 text-white mx-auto px-5 lg:px-24">
+      <PageHeader title="My Wallet" description="Manage your account balance, transactions, and payment methods" />
+      <div className="my-10 space-y-2">
+        <h3 className="text-[1.5rem] font-medium">Account balance</h3>
+        <p className="text-gray-400">
+          Use your account balance to buy games, V-Bucks, and in-game items.
+          Your balance is non-refundable
+        </p>
+      </div>
 
         <div className="flex gap-10 md:flex-row flex-col">
           <div className="basis-[40%]">

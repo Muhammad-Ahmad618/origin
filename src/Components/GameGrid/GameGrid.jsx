@@ -1,6 +1,6 @@
 import { MdArrowForwardIos } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
-import { fetchBaseGameData } from "../api/games";
+import { fetchBaseGameData } from "../../api/games";
 import { useEffect, useRef } from "react";
 import { MdError } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
