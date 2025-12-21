@@ -13,7 +13,8 @@ function SmallGameCards({ game }) {
   );
   const navigate = useNavigate();
 
-  const handleWishList = () => {
+  const handleWishList = (e) => {
+    e.stopPropagation();
     if (isInWishList) {
       removeFromWishList(game);
     } else {

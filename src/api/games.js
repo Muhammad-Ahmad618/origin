@@ -79,7 +79,7 @@ export const fetchFullGameData = async(id) => {
 
   const screenShotReq = await axios.get(`https://api.rawg.io/api/games/${id}/screenshots?key=${API_KEY}`)
 
-  const movieReq = await axios.get(`https://api.rawg.io/api/games/${game.id}/movies?key=${API_KEY}`)
+  const movieReq = await axios.get(`https://api.rawg.io/api/games/${id}/movies?key=${API_KEY}`)
 
   const [gameRes, screenShotRes, movieRes] = await Promise.all([
     gameReq,
@@ -88,19 +88,30 @@ export const fetchFullGameData = async(id) => {
   ])
 
   const game = gameRes.data
+  const screenshots = screenShotRes.data.results.map((s) => ({
+    type:"image",
+    src:s.image
+  }))
+
+  const video = movieRes.data.results.map((v) => ({
+    type:"video",
+    src: v.data.max,
+    preview: v.preview
+  }))
+
+  const media = [...screenshots, ...video]
 
   return{
     id:game.id,
-    title:game.title,
+    name:game.name,
     description:game.description,
     rating:game.rating,
-    genres:game.genres?.map((g)=>g.name).join(", ")||"",
-    tags: game.tags?.mao((t) => t.name).join(", ")||"",
+    genres:game.genres?.map((g)=>g.name)|| [],
+    tags: game.tags?.map((t) => t.name).join(", ")||"",
     developers:game.developers?.map((d) => d.name).join(", ")||"",
     publishers:game.publishers?.map((p) => p.name).join(", ")||"",
     background:game.background_image,
-    screenshots:screenShotRes.data.results,
-    gameplay:movieRes.data.results,
+    media,
     requirements:game.platforms?.find((p) => p.platform.name === 'PC')?.requirements || null,
     price:getGamePrice(game.id)
   }

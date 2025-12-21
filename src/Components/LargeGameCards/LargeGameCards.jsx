@@ -23,7 +23,8 @@ export default function LargeGameCards({ game }) {
     navigate("Cart");
   };
 
-  const handleWishList = () => {
+  const handleWishList = (e) => {
+    e.stopPropagation();
     if (inWishList) {
       removeFromWishList(game);
     } else {
@@ -40,12 +41,12 @@ export default function LargeGameCards({ game }) {
   };
 
   return (
-    <div
-      className="flex flex-col gap-x-4 w-full text-white"
-      onClick={handleDetailPageNaviagtion}
-    >
+    <div className="flex flex-col gap-x-4 w-full text-white">
       {/* Game Image Container */}
-      <div className="group cursor-pointer relative">
+      <div
+        className="group cursor-pointer relative"
+        onClick={handleDetailPageNaviagtion}
+      >
         <span
           className="bg-gradient-to-r from-purple-400 hidden group-hover:block to-purple-600 p-2 shadow-sm shadow-black rounded-full absolute top-2 right-2 z-10"
           onMouseEnter={() => {
@@ -80,6 +81,7 @@ export default function LargeGameCards({ game }) {
         <h1
           className="text-[1.3rem] sm:text-[1.5rem] font-bold cursor-pointer"
           style={{ textShadow: "1px 1px 2px black" }}
+          onClick={handleDetailPageNaviagtion}
         >
           {game.name}
         </h1>

@@ -5,7 +5,8 @@ import { useState } from "react";
 export default function Add_to_cart_Btn({ btnClick, isInCart, Navigation }) {
   const [loading, setLoading] = useState(false);
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.stopPropagation();
     if (isInCart) {
       Navigation();
       return;
@@ -17,7 +18,7 @@ export default function Add_to_cart_Btn({ btnClick, isInCart, Navigation }) {
     } catch (error) {
       console.error("Failed to add item to cart:", error);
     } finally {
-      setTimeout(() => setLoading(false),2000)
+      setTimeout(() => setLoading(false), 2000);
     }
   };
 

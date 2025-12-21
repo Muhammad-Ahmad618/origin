@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import HeroSectionSlides from "../HeroSectionSlides/HeroSectionSlides";
+import HeroSectionSlides from "./HeroSectionSlides";
 import {
   Navigation,
   FreeMode,
@@ -16,7 +16,7 @@ function HeroSectionSlider() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const data = [
-    {  
+    {
       id: 15344,
       background_image:
         "https://cdn1.epicgames.com/spt-assets/73eb5be092f44daf8f4101a19c4a21fa/ys-x-nordics-u90vy.jpg",
@@ -25,7 +25,7 @@ function HeroSectionSlider() {
         "Embark on a high-seas journey where steel clashes with destiny, and legends are born across the Nordic seas.",
       price: "$ 59.99",
     },
-    { 
+    {
       id: 15345,
       background_image:
         "https://images.igdb.com/igdb/image/upload/t_720p/ar3394.webp",
@@ -34,7 +34,7 @@ function HeroSectionSlider() {
         "Gather your allies, shape your story, and confront the mysteries that lurk beyond the Veil in a world of magic and betrayal.",
       price: "$ 39.99",
     },
-    {  
+    {
       id: 15346,
       background_image:
         "https://images.igdb.com/igdb/image/upload/t_720p/ar2ye7.webp",
@@ -52,7 +52,7 @@ function HeroSectionSlider() {
         "Enter the deadly Zone, scavenging for survival while uncovering dark secrets hidden in its radioactive heart.",
       price: "$ 39.99",
     },
-    { 
+    {
       id: 15348,
       background_image:
         "https://cdn1.epicgames.com/spt-assets/d1147ce48e1046bbb84a41081bd7af81/gran-saga-1dgvp.jpg",
@@ -84,7 +84,7 @@ function HeroSectionSlider() {
       >
         {data.map((game, index) => (
           <SwiperSlide key={index}>
-           <HeroSectionSlides game={game} />
+            <HeroSectionSlides game={game} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -100,7 +100,11 @@ function HeroSectionSlider() {
         >
           {data.map((game, index) => (
             <SwiperSlide key={index}>
-              <img src={game.background_image} alt={game.name} className="rounded-xl" />
+              <img
+                src={game.background_image}
+                alt={game.name}
+                className="rounded-xl"
+              />
             </SwiperSlide>
           ))}
         </Swiper>

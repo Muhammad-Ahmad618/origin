@@ -1,19 +1,19 @@
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import LandingPage from "./Screens/LandingPage/LandingPage";
-import SignIn from "./Screens/LoginPage/SignIn";
-import Register from "./Screens/LoginPage/SignIn";
-import Store from "./Screens/StorePage/Store";
-import GameDetail from "./Components/Interface/GameDetails_Interface";
-import CartPage from "./Screens/CartPage/CartPage";
-import WishlistPage from "./Screens/WishlistPage/WishlistPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
+import SignIn from "./Pages/LoginPage/SignIn";
+import Register from "./Pages/LoginPage/SignIn";
+import Store from "./Pages/StorePage/Store";
+import CartPage from "./Pages/CartPage/CartPage";
+import WishlistPage from "./Pages/WishlistPage/WishlistPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import StoreContent from "./Screens/StoreContent/StoreContent";
+import StoreContent from "./Pages/StoreContent/StoreContent";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
-import CouponPage from "./Screens/CouponPage/CouponPage";
-import WalletPage from "./Screens/WalletPage/WalletPage";
-import NewsPage from "./Screens/NewsPage/NewsPage";
+import CouponPage from "./Pages/CouponPage/CouponPage";
+import WalletPage from "./Pages/WalletPage/WalletPage";
+import NewsPage from "./Pages/NewsPage/NewsPage";
+import GameDetailsPage from "./Pages/GameDetailsPage/GameDetailsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -50,8 +50,8 @@ function App() {
               <Route path="Coupons" element={<CouponPage />} />
               <Route path="Wallet" element={<WalletPage />} />
               <Route path="News" element={<NewsPage />} />
+              <Route path=":id" element={<GameDetailsPage />} />
             </Route>
-            <Route path="/Store/GameDetail" element={<GameDetail />} />
           </Routes>
         </Router>
       </QueryClientProvider>
