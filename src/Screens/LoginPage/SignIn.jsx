@@ -31,7 +31,7 @@ export default function SignIn({ heading }) {
   };
 
   const handleSignIn = () => {
-    navigate("/Store");
+    navigate("/store");
   };
 
   return (

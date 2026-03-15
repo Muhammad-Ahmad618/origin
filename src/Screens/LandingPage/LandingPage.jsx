@@ -12,7 +12,7 @@ export default function LandingPage() {
   const navigate = useNavigate();
 
   const handleSignIn = () => {
-    navigate("/SignIn");
+    navigate("/sign-in");
   };
 
   const SellingPoints = [

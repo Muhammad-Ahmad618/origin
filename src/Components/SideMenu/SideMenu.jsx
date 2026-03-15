@@ -13,12 +13,12 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const SideMenuContent = [
-  { icon: <IoStorefront />, label: "Store", path: "/Store" },
-  { icon: <TiNews />, label: "News", path: "News" },
-  { icon: <IoMdAddCircle />, label: "WishList", path: "WishList" },
-  { icon: <IoLibrarySharp />, label: "My Library", path: "/" },
-  { icon: <IoWallet />, label: "Wallet", path: "Wallet" },
-  { icon: <RiCoupon2Fill />, label: "Coupon", path: "Coupons" },
+  { icon: <IoStorefront />, label: "Store", path: "/store" },
+  { icon: <TiNews />, label: "News", path: "news" },
+  { icon: <IoMdAddCircle />, label: "WishList", path: "wishList" },
+  { icon: <IoLibrarySharp />, label: "My Library", path: "library" },
+  { icon: <IoWallet />, label: "Wallet", path: "wallet" },
+  { icon: <RiCoupon2Fill />, label: "Coupon", path: "coupons" },
   { icon: <IoMdSettings />, label: "Settings", path: "/" },
   { icon: <IoLogOut />, label: "Sign Out", path: "/" },
 ];

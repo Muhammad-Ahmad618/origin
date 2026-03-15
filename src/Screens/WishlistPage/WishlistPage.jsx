@@ -22,7 +22,7 @@ function WishlistPage() {
   const removeFromWishList = useWishlistStore(
     (state) => state.removeFromWishList
   );
-  const addToCart = useCartStore(state => state.addToCart)
+  const addToCart = useCartStore((state) => state.addToCart);
 
   const navigate = useNavigate();
 
@@ -35,7 +35,9 @@ function WishlistPage() {
       <div className="space-y-5 text-white">
         <div className="flex justify-between items-center gap-5 sm:items-end flex-wrap">
           <div>
-            <h2 className="text-[2rem] sm:text-[2.5rem] font-black text-white">My WishList</h2>
+            <h2 className="text-[2rem] sm:text-[2.5rem] font-black text-white">
+              My WishList
+            </h2>
           </div>
           <div>
             <div className="flex gap-x-6">
@@ -50,7 +52,7 @@ function WishlistPage() {
         </div>
         <div className="flex justify-between items-center gap-x-5 flex-wrap gap-y-5">
           <div className="bg-white/10 backdrop-blur-md items-center max-w-[23rem] w-full px-2 rounded-lg flex">
-            <IoSearch className="text-[1.3rem]"/>
+            <IoSearch className="text-[1.3rem]" />
             <input
               type="text"
               className="text-gray-200 w-full py-1.5 px-2 focus:outline-0"
@@ -98,9 +100,13 @@ function WishlistPage() {
                         Base Game
                       </h4>
                     </div>
-                    <h2 className="text-[1.2rem] sm:text-[1.4rem] font-bold">Free</h2>
+                    <h2 className="text-[1.2rem] sm:text-[1.4rem] font-bold">
+                      Free
+                    </h2>
                   </div>
-                  <h1 className="text-[1.5rem] sm:text-[1.7rem] lg:text-[2rem] font-bold">{game.name}</h1>
+                  <h1 className="text-[1.5rem] sm:text-[1.7rem] lg:text-[2rem] font-bold">
+                    {game.name}
+                  </h1>
                   <span className="flex items-end gap-x-2 font-medium text-sm">
                     Platform: <MdWindow className="text-[1.2rem]" />
                   </span>
@@ -111,7 +117,11 @@ function WishlistPage() {
                       icon={<BsTrash />}
                       btnClick={() => removeFromWishList(game)}
                     />
-                    <CustomButton label="Add to Cart" icon={<BsCart3 />} btnClick={() => addToCart(game)}/>
+                    <CustomButton
+                      label="Add to Cart"
+                      icon={<BsCart3 />}
+                      btnClick={() => addToCart(game)}
+                    />
                   </div>
                 </div>
               </div>

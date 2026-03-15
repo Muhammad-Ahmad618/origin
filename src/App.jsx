@@ -14,6 +14,7 @@ import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 import CouponPage from './Screens/CouponPage/CouponPage';
 import WalletPage from './Screens/WalletPage/WalletPage';
 import NewsPage from './Screens/NewsPage/NewsPage';
+import LibraryPage from './Screens/LibraryPage/LibraryPage';
 
 
 const queryClient = new QueryClient({
@@ -36,15 +37,16 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path='/' element={<LandingPage />} />
-            <Route path='/SignIn' element={<SignIn heading='Sign in to your Account' />} />
-            <Route path='/Register' element={<Register heading={`Create an Account`} />} />
-            <Route path='/Store' element={<Store />}>
+            <Route path='/sign-in' element={<SignIn heading='Sign in to your Account' />} />
+            <Route path='/register' element={<Register heading={`Create an Account`} />} />
+            <Route path='/store' element={<Store />}>
               <Route index element={<StoreContent />} />
-              <Route path='Cart' element={<CartPage />} />
-              <Route path='WishList' element={<WishlistPage />} />
-              <Route path='Coupons' element={<CouponPage />} />
-              <Route path='Wallet' element={<WalletPage />} />
-              <Route path='News' element={<NewsPage />} />
+              <Route path='cart' element={<CartPage />} />
+              <Route path='wishList' element={<WishlistPage />} />
+              <Route path='coupons' element={<CouponPage />} />
+              <Route path='wallet' element={<WalletPage />} />
+              <Route path='news' element={<NewsPage />} />
+              <Route path='library' element={<LibraryPage />} />
             </Route>
             <Route path='/Store/GameDetail' element={<GameDetail />} />
           </Routes>
