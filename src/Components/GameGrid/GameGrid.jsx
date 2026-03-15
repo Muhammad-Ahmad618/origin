@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchBaseGameData } from "../../api/games";
 import { useEffect, useRef } from "react";
 import { MdError } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 export default function GameGrid({
   title,
@@ -46,10 +47,14 @@ export default function GameGrid({
     };
   }, [refetch]);
 
+  const navigate = useNavigate();
+
+  const handleDetailPageNaviagtion = (id) => {
+    navigate(`${id}`);
+  };
+
   return (
-    <div className={`${border} my-5 sm:my-10`}
-      ref={gridRef}
-    >
+    <div className={`${border} my-5 sm:my-10`} ref={gridRef}>
       {isLoading && (
         <div className="w-full">
           <div className="h-3 w-[50%] bg-white/10 animate-pulse mb-5 sm:mb-10"></div>
@@ -81,9 +86,10 @@ export default function GameGrid({
         </div>
       )}
 
-      {!games || games?.length === 0 && (
-        <p className="text-red-500 text-center">Found Nothing </p>
-      )}
+      {!games ||
+        (games?.length === 0 && (
+          <p className="text-red-500 text-center">Found Nothing </p>
+        ))}
 
       {!error && !isLoading && games?.length > 0 && (
         <>
@@ -102,6 +108,7 @@ export default function GameGrid({
               <div
                 key={index}
                 className="flex w-full items-center group cursor-pointer hover:bg-white/10 p-2 rounded-xl"
+                onClick={() => handleDetailPageNaviagtion(game.id)}
               >
                 <div className="basis-[20%]">
                   <img
@@ -126,7 +133,8 @@ export default function GameGrid({
               </div>
             ))}
           </div>
-        </>)}
+        </>
+      )}
     </div>
   );
 }

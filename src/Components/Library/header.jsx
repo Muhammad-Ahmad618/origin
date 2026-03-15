@@ -1,4 +1,4 @@
-import CustomDropDown from "../CustomDropDown/CustomDropDown";
+import CustomDropDown from "../../Components/custom/CustomDropDown";
 
 export function LibraryHeader({ title }) {
   const options = ["All Games", "Installed", "Not Installed", "Favorite"];
