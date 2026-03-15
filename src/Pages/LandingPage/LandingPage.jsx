@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../Components/Navbar/Navbar";
-import Category from "../../Components/CategoriesSlider/CategoriesSlider";
+import Navbar from "../../Components/custom/Navbar";
+import Category from "../../Components/Sliders/CategoriesSlider";
 import VideoGamesNews from "../../Components/VideoGameNews/VideoGamesNews";
 import Avatar from "../../assets/avatar.png";
 import PopularGames from "../../Components/popularGames/popularGames";
-import Footer from "../../Components/Footer/Footer";
+import Footer from "../../Components/custom/Footer";
 import { FaMoneyBill, FaDownload, FaTrophy } from "react-icons/fa6";
 import { MdAccessAlarm } from "react-icons/md";
 
@@ -140,7 +140,7 @@ export default function LandingPage() {
         </div>
 
         {/* News Section */}
-        <div>
+        <div className="space-y-5">
           <h2 className="text-white text-[2rem] font-bold">Latest News</h2>
           <VideoGamesNews limit={5} />
         </div>

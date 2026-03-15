@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useRef } from "react";
 import { fetchBaseGameData } from "../../api/games";
-import SmallGameCards from "../SmallGameCards/SmallGameCards";
+import SmallGameCards from "../shared/SmallGameCards";
 
 export default function GamesSlider({
   title,
@@ -41,7 +41,7 @@ export default function GamesSlider({
       },
       {
         threshold: 0.1,
-      }
+      },
     );
 
     if (element) {
@@ -52,7 +52,6 @@ export default function GamesSlider({
       if (element) observer.unobserve(element);
     };
   }, [refetch]);
-
 
   const unique_id = Math.random().toString(36).substring(2, 9);
   const prevBtnClass = `custom-prev-${unique_id}`;
@@ -108,8 +107,7 @@ export default function GamesSlider({
   };
 
   return (
-    <div className="mb-10"
-      ref={containerRef}>
+    <div className="mb-10" ref={containerRef}>
       <div className="flex items-center justify-between">
         <a className="group text-[1.2rem] sm:text-[1.5rem] text-white font-bold cursor-pointer flex items-center gap-x-2">
           {title}
@@ -119,23 +117,23 @@ export default function GamesSlider({
         </a>
         <div className="text-[#efeeee71] text-sm text-end flex items-center text-[2rem] gap-x-2">
           <span
-            className={`${prevBtnClass} p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 ${isLoading ? "opacity-50 pointer-events-none" : ""
-              }`}
+            className={`${prevBtnClass} p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 ${
+              isLoading ? "opacity-50 pointer-events-none" : ""
+            }`}
           >
             <FaAngleLeft className="text-white text-xs" />
           </span>
           <span
-            className={`${nextBtnClass} p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 ${isLoading ? "opacity-50 pointer-events-none" : ""
-              }`}
+            className={`${nextBtnClass} p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20 ${
+              isLoading ? "opacity-50 pointer-events-none" : ""
+            }`}
           >
             <FaAngleRight className="text-white text-xs" />
           </span>
         </div>
       </div>
 
-      <div className="pt-8"
-        ref={containerRef}
-      >
+      <div className="pt-8" ref={containerRef}>
         {isLoading && (
           <Swiper {...loadingConfig}>
             {[...Array(10)].map((_, index) => (
@@ -163,8 +161,7 @@ export default function GamesSlider({
         )}
 
         {!error && !isLoading && games.length > 0 && (
-
-          <Swiper {...loadedConfig} >
+          <Swiper {...loadedConfig}>
             {games?.map((game) => (
               <SwiperSlide
                 key={game.id}

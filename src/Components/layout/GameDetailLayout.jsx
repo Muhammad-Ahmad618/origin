@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
-import StarRating from "../StarRating/StarRating";
-import EpicStyleSlider from "../Sliders/EpicStyleSlider/EpicStyleSlider";
+import StarRating from "../ui/StarRating";
+import EpicStyleSlider from "../Sliders/EpicStyleSlider";
 
 export default function GameDetailLayout({ game, isLoading, error }) {
   const location = useLocation();

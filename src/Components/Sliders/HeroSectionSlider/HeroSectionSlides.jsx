@@ -1,15 +1,12 @@
 import { IoAddCircleOutline } from "react-icons/io5";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
-import useWishlistStore from "../../Store/WishlistStore";
+import useWishlistStore from "../../../Store/WishlistStore";
 
-function HeroSectionSlides({game}) {
-
-  const inWishList = useWishlistStore((state) =>
-    state.isInWishList(game.id)
-  );
+function HeroSectionSlides({ game }) {
+  const inWishList = useWishlistStore((state) => state.isInWishList(game.id));
   const addToWishList = useWishlistStore((state) => state.addToWishList);
   const removeFromWishList = useWishlistStore(
-    (state) => state.removeFromWishList
+    (state) => state.removeFromWishList,
   );
 
   const handleWishList = () => {

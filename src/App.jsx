@@ -9,7 +9,7 @@ import WishlistPage from "./Pages/WishlistPage/WishlistPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import StoreContent from "./Pages/StoreContent/StoreContent";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import ScrollToTop from "./Components/utility/ScrollToTop/ScrollToTop";
 import CouponPage from "./Pages/CouponPage/CouponPage";
 import WalletPage from "./Pages/WalletPage/WalletPage";
 import NewsPage from "./Pages/NewsPage/NewsPage";

@@ -1,5 +1,5 @@
 import { IoCart } from "react-icons/io5";
-import { ClipLoader } from "react-spinners";
+import { SpinnerCircularFixed } from "spinners-react";
 import { useState } from "react";
 
 export default function Add_to_cart_Btn({ btnClick, isInCart, Navigation }) {
@@ -29,7 +29,13 @@ export default function Add_to_cart_Btn({ btnClick, isInCart, Navigation }) {
         onClick={handleClick}
       >
         {loading ? (
-          <ClipLoader color="#fff" loading={true} size={20} />
+          <SpinnerCircularFixed
+            size={25}
+            thickness={160}
+            speed={200}
+            color="rgba(255, 255, 255, 1)"
+            secondaryColor="rgba(0, 0, 0, 0.44)"
+          />
         ) : (
           <>
             <IoCart className="text-[1rem] md:text-[1.2rem]" />

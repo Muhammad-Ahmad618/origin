@@ -1,5 +1,5 @@
 import { SiOrigin } from "react-icons/si";
-import HashLoader from "react-spinners/HashLoader";
+import { SpinnerDotted } from "spinners-react";
 
 function LoadingScreen({ splashScreen }) {
   return (
@@ -15,12 +15,11 @@ function LoadingScreen({ splashScreen }) {
 
       <h3 className="text-white text-[1.2rem]">Processing Please wait !</h3>
 
-      <HashLoader
-        color={"#7F2EE9"}
-        loading={splashScreen}
-        size={30}
-        aria-label="Loading Spinner"
-        data-testid="loader"
+      <SpinnerDotted
+        size={42}
+        thickness={180}
+        speed={106}
+        color="rgba(125, 57, 172, 1)"
       />
     </div>
   );

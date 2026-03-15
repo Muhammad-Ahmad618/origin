@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { FetchNews } from "../../api/News";
 import { useEffect, useRef } from "react";
-import { MdError } from "react-icons/md";
+import { ErrorNotFound } from "../ui/ErrorNotFound";
 
 export default function VideoGamesNews({ limit }) {
   const {
@@ -27,7 +27,7 @@ export default function VideoGamesNews({ limit }) {
           observer.disconnect(); // stop observing after fetch
         }
       },
-      { threshold: 0.1 } // trigger when 10% visible
+      { threshold: 0.1 }, // trigger when 10% visible
     );
 
     if (element) {
@@ -75,15 +75,7 @@ export default function VideoGamesNews({ limit }) {
       </div>
     );
 
-  if (error)
-    return (
-      <div className="min-h-[20rem] gap-y-5 flex flex-col items-center justify-center">
-        <MdError className="text-[4rem] text-red-600" />
-        <h1 className="text-[2rem] text-red-600 font-bold">
-          Error 404 Not Found
-        </h1>
-      </div>
-    );
+  if (error) return <ErrorNotFound />;
 
   return (
     <div

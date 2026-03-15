@@ -1,6 +1,6 @@
 import useCartStore from "../../Store/CartStore";
 import { MdWindow } from "react-icons/md";
-import CustomButton from "../../Components/CustomButton/CustomButton";
+import CustomButton from "../../Components/custom/CustomButton";
 import { BsTrash } from "react-icons/bs";
 import { FaCartPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";

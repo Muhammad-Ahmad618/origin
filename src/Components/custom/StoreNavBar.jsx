@@ -7,7 +7,7 @@ import { IoIosSearch } from "react-icons/io";
 import { SiOrigin } from "react-icons/si";
 import { GoBellFill } from "react-icons/go";
 import { FaRegBell } from "react-icons/fa6";
-import SideMenu from "../SideMenu/SideMenu";
+import SideMenu from "./SideMenu";
 
 export default function StoreNavBar() {
   const [sideMenu, setSideMenu] = useState(false);
@@ -116,7 +116,7 @@ export default function StoreNavBar() {
             />
           </div>
         </div>
-        <SideMenu isOpen={sideMenu} />
+        <SideMenu isOpen={sideMenu} setSideMenu={setSideMenu} />
       </div>
     </div>
   );

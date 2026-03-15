@@ -1,14 +1,14 @@
-import HeroSectionSlider from '../../Components/HeroSectionSlider/HeroSectionSlider'
-import GameGrid from '../../Components/GameGrid/GameGrid'
-import GamesSlider from '../../Components/GameSlider/GamesSlider'
-import Categories from '../../Components/CategoriesSlider/CategoriesSlider'
-import GameCards from '../../Components/GameCard/GameCards'
+import HeroSectionSlider from "../../Components/Sliders/HeroSectionSlider/HeroSectionSlider";
+import GameGrid from "../../Components/GameGrid/GameGrid";
+import GamesSlider from "../../Components/Sliders/GamesSlider";
+import Categories from "../../Components/Sliders/CategoriesSlider";
+import GameCards from "../../Components/GameCard/GameCards";
 
 function StoreContent() {
   return (
-    <div className='pt-28 pb-10 sm:py-28 max-w-screen-2xl px-5 lg:px-24 mx-auto'>
+    <div className="pt-28 pb-10 sm:py-28 max-w-screen-2xl px-5 lg:px-24 mx-auto">
       <HeroSectionSlider />
-      <div className='pt-10 sm:pt-28 space-y-16 mx-auto'>
+      <div className="pt-10 sm:pt-28 space-y-16 mx-auto">
         <GamesSlider
           title="Discover Something New"
           numbers="25"
@@ -18,26 +18,23 @@ function StoreContent() {
         <GamesSlider
           title="Top Speed"
           genre="racing"
-          numbers='20'
+          numbers="20"
           dates="2020-01-01,2025-01-30"
           specifics="Need for Speed Forza Horizon,MotoGP Dirt F1,Assetto Corsa Project Cars The Crew,GranTurismo "
         />
         <GameCards
           title="Game of the Year"
-          genre='role-playing-games-rpg'
+          genre="role-playing-games-rpg"
           dates="2020-01-01,2025-08-30"
           specifics="Black Desert,Elden Ring"
         />
-        <div className='space-y-4'>
+        <div className="space-y-4">
           <GamesSlider
             title="Top Seller"
             dates="2020-01-01,2025-07-30"
             genre="3"
           />
-          <GameCards
-            genre='action'
-            dates="2020-01-01,2025-01-30"
-          />
+          <GameCards genre="action" dates="2020-01-01,2025-01-30" />
         </div>
         <GamesSlider
           title="Action"
@@ -64,7 +61,7 @@ function StoreContent() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default StoreContent
+export default StoreContent;

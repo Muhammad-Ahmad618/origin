@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import CartBtn from "../Add_to_cart_Btn/Add_to_cart_Btn";
+import CartBtn from "../custom/Add_to_cart_Btn";
 import useWishlistStore from "../../Store/WishlistStore";
 import useCartStore from "../../Store/CartStore";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ export default function LargeGameCards({ game }) {
   const addToWishList = useWishlistStore((state) => state.addToWishList);
   const inWishList = useWishlistStore((state) => state.isInWishList(game.id));
   const removeFromWishList = useWishlistStore(
-    (state) => state.removeFromWishList
+    (state) => state.removeFromWishList,
   );
   const isInCart = useCartStore((state) => state.isInCart(game.id));
   const addToCart = useCartStore((state) => state.addToCart);

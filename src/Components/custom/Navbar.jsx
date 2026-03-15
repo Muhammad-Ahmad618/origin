@@ -1,6 +1,6 @@
 import { SiOrigin } from "react-icons/si";
 import { Link } from "react-router-dom";
-import VortexButton from "../VortexBtn/VortexButton";
+import VortexButton from "./VortexButton";
 
 export default function Navbar({ handleSignIn }) {
   return (
