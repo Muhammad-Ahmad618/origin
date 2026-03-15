@@ -62,7 +62,9 @@ function CouponPage() {
   return (
     <div className="max-w-screen-2xl mx-auto px-5 lg:px-14 xl:px-24 pt-34 pb-10">
       <div>
-        <h1 className="text-[2rem] sm:text-[2.5rem] font-bold text-white">My Coupons</h1>
+        <h1 className="text-[2rem] sm:text-[2.5rem] font-bold text-white">
+          My Coupons
+        </h1>
       </div>
       <hr className="text-purple-500 my-3" />
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-7 my-10">
@@ -73,19 +75,31 @@ function CouponPage() {
                 <RiCoupon2Fill className="text-[clamp(3rem,5vw,6rem)] text-white" />
               </div>
               <div className="basis-[75%] text-center lg:text-start">
-                <h4 className="text-[1.2rem] lg:text-[1.4em] font-bold py-2">{coupon.couponName}</h4>
+                <h4 className="text-[1.2rem] lg:text-[1.4em] font-bold py-2">
+                  {coupon.couponName}
+                </h4>
                 <p className="font-medium text-sm">{coupon.description}</p>
               </div>
             </div>
             <div className="pt-5 text-sm font-medium space-y-3">
-              
               <p>Minimum Purchase: ${coupon.minPurchase}</p>
               <div className="flex justify-between flex-col xl:flex-row gap-3">
-              <p>
-                Expiration Date:{" "}
-                <span className="text-[#ff32bb] ">{coupon.expirationDate}</span>
-              </p>
-              <p>Status: <span className={`${coupon.isActive ? "text-green-400" : "text-red-500"}`}>{coupon.isActive ? "Valid" : "Invalid"}</span></p>
+                <p>
+                  Expiration Date:{" "}
+                  <span className="text-[#ff32bb] ">
+                    {coupon.expirationDate}
+                  </span>
+                </p>
+                <p>
+                  Status:{" "}
+                  <span
+                    className={`${
+                      coupon.isActive ? "text-green-400" : "text-red-500"
+                    }`}
+                  >
+                    {coupon.isActive ? "Valid" : "Invalid"}
+                  </span>
+                </p>
               </div>
             </div>
           </div>

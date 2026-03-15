@@ -14,6 +14,7 @@ import CouponPage from "./Pages/CouponPage/CouponPage";
 import WalletPage from "./Pages/WalletPage/WalletPage";
 import NewsPage from "./Pages/NewsPage/NewsPage";
 import GameDetailsPage from "./Pages/GameDetailsPage/GameDetailsPage";
+import LibraryPage from "./Screens/LibraryPage/LibraryPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,20 +37,21 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route
-              path="/SignIn"
+              path="/sign-in"
               element={<SignIn heading="Sign in to your Account" />}
             />
             <Route
-              path="/Register"
+              path="/register"
               element={<Register heading={`Create an Account`} />}
             />
-            <Route path="/Store" element={<Store />}>
+            <Route path="/store" element={<Store />}>
               <Route index element={<StoreContent />} />
-              <Route path="Cart" element={<CartPage />} />
-              <Route path="WishList" element={<WishlistPage />} />
-              <Route path="Coupons" element={<CouponPage />} />
-              <Route path="Wallet" element={<WalletPage />} />
-              <Route path="News" element={<NewsPage />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path="wishList" element={<WishlistPage />} />
+              <Route path="coupons" element={<CouponPage />} />
+              <Route path="wallet" element={<WalletPage />} />
+              <Route path="news" element={<NewsPage />} />
+              <Route path="library" element={<LibraryPage />} />
               <Route path=":id" element={<GameDetailsPage />} />
             </Route>
           </Routes>
