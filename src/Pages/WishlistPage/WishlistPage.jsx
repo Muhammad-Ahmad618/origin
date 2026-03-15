@@ -63,7 +63,10 @@ function WishlistPage() {
             <div>
               <h5 className="text-base font-medium">Sort By :</h5>
             </div>
-            <CustomDropDown MenuItems={dropDownMenuItems} />
+            <CustomDropDown
+              options={dropDownMenuItems}
+              style="w-[7rem] sm:w-[11rem]"
+            />
           </div>
         </div>
         <hr className="text-purple-500" />

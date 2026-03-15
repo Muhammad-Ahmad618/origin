@@ -19,7 +19,7 @@ const SideMenuContent = [
   { icon: <IoStorefront />, label: "Store", path: "/Store" },
   { icon: <TiNews />, label: "News", path: "News" },
   { icon: <IoMdAddCircle />, label: "WishList", path: "WishList" },
-  { icon: <IoLibrarySharp />, label: "My Library", path: "/" },
+  { icon: <IoLibrarySharp />, label: "My Library", path: "library" },
   { icon: <IoWallet />, label: "Wallet", path: "wallet" },
   { icon: <RiCoupon2Fill />, label: "Coupon", path: "coupons" },
   { icon: <IoMdSettings />, label: "Settings", path: "/" },
@@ -125,7 +125,7 @@ export default function SideMenu({ isOpen, setSideMenu }) {
         title="Sign Out"
         handleClick={(e) => {
           e.stopPropagation();
-          navigate("/signIn");
+          navigate("/sign-In");
         }}
         open={open}
       >
