@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import CartBtn from "../custom/Add_to_cart_Btn";
+import CartBtn from "../custom/AddToCartBtn";
 import useWishlistStore from "../../Store/WishlistStore";
 import useCartStore from "../../Store/CartStore";
 import { useNavigate } from "react-router-dom";
 import { FaCheck } from "react-icons/fa6";
+import { CustomToast } from "../custom/CustomToast";
 
 export default function LargeGameCards({ game }) {
   const [toolTip, setToolTip] = useState(false);
@@ -20,20 +21,34 @@ export default function LargeGameCards({ game }) {
   const navigate = useNavigate();
 
   const handleNavigation = () => {
-    navigate("Cart");
+    navigate("cart");
   };
 
   const handleWishList = (e) => {
     e.stopPropagation();
     if (inWishList) {
+      CustomToast({
+        title: "Removed from wishlist",
+        description: "Game removed from wishlist successfully",
+      });
       removeFromWishList(game);
     } else {
+      CustomToast({
+        title: "Added to wishlist",
+        description: "Game added to wishlist successfully",
+      });
       addToWishList(game);
     }
   };
 
   const handleAddToCart = () => {
     addToCart(game);
+    setTimeout(() => {
+      CustomToast({
+        title: "Added to cart",
+        description: "Game added to cart successfully",
+      });
+    }, 2000);
   };
 
   const handleDetailPageNaviagtion = () => {
@@ -89,12 +104,14 @@ export default function LargeGameCards({ game }) {
           {game.publishers} | {game.developers}
         </p>
         <p className="text-sm text-gray-400 leading-relaxed line-clamp-2 my-4">
-          {game.description}
+          {game.description?.replace(/<[^>]*>?/gm, "")}
         </p>
         <CartBtn
           btnClick={handleAddToCart}
           isInCart={isInCart}
           Navigation={handleNavigation}
+          width="max-w-[10rem] w-full"
+          height="h-[2.6rem]"
         />
       </div>
     </div>

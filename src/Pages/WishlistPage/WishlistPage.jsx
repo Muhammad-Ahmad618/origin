@@ -2,6 +2,7 @@ import CustomDropDown from "../../Components/custom/CustomDropDown";
 import useWishlistStore from "../../Store/WishlistStore";
 import CustomButton from "../../Components/custom/CustomButton";
 import useCartStore from "../../Store/CartStore";
+import { CustomToast } from "../../Components/custom/CustomToast";
 import { IoSearch } from "react-icons/io5";
 import { BsTrash } from "react-icons/bs";
 import { TbGhost2Filled } from "react-icons/tb";
@@ -118,12 +119,24 @@ function WishlistPage() {
                       label="Remove"
                       styling="bg-white/10 hover:bg-white/30 py-2.5 rounded-lg"
                       icon={<BsTrash />}
-                      btnClick={() => removeFromWishList(game)}
+                      btnClick={() => {
+                        CustomToast({
+                          title: "Removed from Wishlist",
+                          description: "Game successfully removed",
+                        });
+                        removeFromWishList(game);
+                      }}
                     />
                     <CustomButton
                       label="Add to Cart"
                       icon={<BsCart3 />}
-                      btnClick={() => addToCart(game)}
+                      btnClick={() => {
+                        CustomToast({
+                          title: "Added to Cart",
+                          description: "Game successfully added",
+                        });
+                        addToCart(game);
+                      }}
                     />
                   </div>
                 </div>

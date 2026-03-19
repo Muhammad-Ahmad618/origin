@@ -2,7 +2,13 @@ import { IoCart } from "react-icons/io5";
 import { SpinnerCircularFixed } from "spinners-react";
 import { useState } from "react";
 
-export default function Add_to_cart_Btn({ btnClick, isInCart, Navigation }) {
+export default function AddToCartBtn({
+  btnClick,
+  isInCart,
+  Navigation,
+  width,
+  height,
+}) {
   const [loading, setLoading] = useState(false);
 
   const handleClick = async (e) => {
@@ -25,7 +31,7 @@ export default function Add_to_cart_Btn({ btnClick, isInCart, Navigation }) {
   return (
     <>
       <button
-        className="bg-purple-600 min-w-[9rem] justify-center h-[2.4rem] text-xs font-medium md:text-sm rounded-sm self-end transition-all duration-300 hover:bg-purple-800 flex items-center gap-x-3"
+        className={`bg-purple-600 ${width} justify-center ${height} text-xs font-medium md:text-sm rounded-sm self-end transition-all duration-300 hover:bg-purple-800 flex items-center gap-x-3 cursor-pointer`}
         onClick={handleClick}
       >
         {loading ? (

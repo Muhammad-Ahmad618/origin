@@ -14,7 +14,8 @@ import CouponPage from "./Pages/CouponPage/CouponPage";
 import WalletPage from "./Pages/WalletPage/WalletPage";
 import NewsPage from "./Pages/NewsPage/NewsPage";
 import GameDetailsPage from "./Pages/GameDetailsPage/GameDetailsPage";
-import LibraryPage from "./Screens/LibraryPage/LibraryPage";
+import LibraryPage from "./Pages/LibraryPage/LibraryPage";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +31,13 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 500,
+        }}
+      />
       <QueryClientProvider client={queryClient}>
         <SpeedInsights />
         <Router>

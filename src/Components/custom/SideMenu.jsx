@@ -16,9 +16,9 @@ import { AppDialogBox } from "../ui/AppDialogBox";
 import { useNavigate } from "react-router-dom";
 
 const SideMenuContent = [
-  { icon: <IoStorefront />, label: "Store", path: "/Store" },
-  { icon: <TiNews />, label: "News", path: "News" },
-  { icon: <IoMdAddCircle />, label: "WishList", path: "WishList" },
+  { icon: <IoStorefront />, label: "Store", path: "/store" },
+  { icon: <TiNews />, label: "News", path: "news" },
+  { icon: <IoMdAddCircle />, label: "WishList", path: "wishlist" },
   { icon: <IoLibrarySharp />, label: "My Library", path: "library" },
   { icon: <IoWallet />, label: "Wallet", path: "wallet" },
   { icon: <RiCoupon2Fill />, label: "Coupon", path: "coupons" },

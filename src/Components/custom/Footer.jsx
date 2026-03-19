@@ -58,18 +58,18 @@ export default function Footer() {
         <div className="text-white basis-[70%] grid grid-cols-2 md:grid-cols-4 gap-y-8 px-5 pb-14 gap-x-5 md:gap-x-8 w-full lg:gap-x-12">
           {LinkSection.map((section, index) => (
             <div className="space-y-7" key={index}>
-              <h4 className="text-[1.2rem] lg:text-[1.4rem] font-bold bg-gradient-to-r from-purple-800 to-purple-400 bg-clip-text text-transparent">
+              <h4 className="text-[1.2rem] lg:text-[1.4rem] font-bold text-white">
                 {section.heading}
               </h4>
               {section.links.map((link, linkIndex) => (
                 <ul
-                  className=" space-y-5 lg:space-y-6 text-sm text-gray-300 "
+                  className=" space-y-5 lg:space-y-6 text-sm text-gray-400 "
                   key={linkIndex}
                 >
                   <li>
                     <a
                       href="/"
-                      className="flex items-center font-medium hover:text-purple-500"
+                      className="flex items-center hover:text-purple-500"
                     >
                       <IoChevronForward /> {link}
                     </a>
@@ -81,7 +81,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-[20rem] mx-auto w-full">
+      <div className="w-full">
+        <div className="border-t border-gray-800 mb-5 max-w-[90%] w-full mx-auto"></div>
         <p className="text-gray-300 text-center font-medium cursor-pointer hover:text-purple-500 hover:underline  text-[0.7rem] lg:text-[0.8rem]">
           © 2025, Origin, Inc. All rights reserved.
         </p>
