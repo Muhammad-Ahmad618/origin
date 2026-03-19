@@ -23,7 +23,7 @@ function HeroSectionSlider() {
       name: "Ys X",
       tagline:
         "Embark on a high-seas journey where steel clashes with destiny, and legends are born across the Nordic seas.",
-      price: "$ 59.99",
+      price: 59.99,
     },
     {
       id: 15345,
@@ -32,7 +32,7 @@ function HeroSectionSlider() {
       name: "Dragon Age The Veilguard",
       tagline:
         "Gather your allies, shape your story, and confront the mysteries that lurk beyond the Veil in a world of magic and betrayal.",
-      price: "$ 39.99",
+      price: 39.99,
     },
     {
       id: 15346,
@@ -41,7 +41,7 @@ function HeroSectionSlider() {
       name: "Call of Duty 6",
       tagline:
         "Step into the chaos of modern warfare, where every mission tests your skill, and every decision shapes the battlefield.",
-      price: "$ 56.99",
+      price: 56.99,
     },
     {
       id: 15347,
@@ -50,7 +50,7 @@ function HeroSectionSlider() {
       name: "S.T.A.L.K.E.R",
       tagline:
         "Enter the deadly Zone, scavenging for survival while uncovering dark secrets hidden in its radioactive heart.",
-      price: "$ 39.99",
+      price: 39.99,
     },
     {
       id: 15348,
@@ -59,7 +59,7 @@ function HeroSectionSlider() {
       name: "Gran Saga",
       tagline:
         "Unite with powerful heroes, battle colossal foes, and write your own saga in a breathtaking fantasy world.",
-      price: "$ 19.99",
+      price: 19.99,
     },
   ];
 
