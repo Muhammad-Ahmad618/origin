@@ -87,11 +87,11 @@ function WishlistPage() {
             {wishList.map((game) => (
               <div
                 className="flex flex-wrap sm:flex-nowrap gap-y-5 p-5 bg-black/30 gap-x-7 backdrop-blur-md rounded-xl"
-                key={game.id}
+                key={game?.id}
               >
                 <div className="basis-[100%] sm:basis-[30%]">
                   <img
-                    src={game.background_image}
+                    src={game?.background_image}
                     alt="thumbnail"
                     className="h-full w-full aspect-[9/5] object-cover rounded-md"
                   />
@@ -105,7 +105,7 @@ function WishlistPage() {
                       </h4>
                     </div>
                     <h2 className="text-[1.2rem] sm:text-[1.4rem] font-bold">
-                      Free
+                      {game?.price === 0 ? "Free" : "$" + game?.price}
                     </h2>
                   </div>
                   <h1 className="text-[1.5rem] sm:text-[1.7rem] lg:text-[2rem] font-bold">
