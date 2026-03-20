@@ -140,9 +140,9 @@ export default function LandingPage() {
         </div>
 
         {/* News Section */}
-        <div className="space-y-5">
+        <div>
           <h2 className="text-white text-[2rem] font-bold">Latest News</h2>
-          <VideoGamesNews limit={5} />
+          <VideoGamesNews limit={10} />
         </div>
 
         {/* NewsLetter Section */}

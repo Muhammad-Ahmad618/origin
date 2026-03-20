@@ -69,7 +69,7 @@ export default function SlickSlider() {
   return (
     <div className="text-center py-10">
       <div className="flex justify-between items-center">
-        <h2 className="text-white text-[1.5rem] font-bold pb-14 text-left">
+        <h2 className="text-white text-[2rem] font-bold pb-7 text-left">
           Categories
         </h2>
         <div className="text-[#efeeee71] text-sm text-end flex items-center text-[2rem] gap-x-2">

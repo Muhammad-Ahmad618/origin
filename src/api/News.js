@@ -2,6 +2,8 @@ import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_EPIC_API;
 
+const NEWS_API_KEY = import.meta.env.VITE_NEWS_API;
+
 export const FetchNews = async (limit) => {
 
     const options = {
@@ -20,4 +22,17 @@ export const FetchNews = async (limit) => {
     catch (error) {
         console.log("Error Cannnot Fetch Data", error)
     }
+}
+
+export const FetchGameNews = async (limit) => {
+
+    try {
+
+        const response = await axios.get(`https://newsapi.org/v2/everything?q=video%20games&pageSize=${limit}&apiKey=${NEWS_API_KEY}`)
+        return response.data.articles
+    }
+    catch (error) {
+        console.log("Error Cannnot Fetch Data", error)
+    }
+
 }

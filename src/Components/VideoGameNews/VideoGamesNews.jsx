@@ -1,17 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
 import { FetchNews } from "../../api/News";
+import { FetchGameNews } from "../../api/News";
 import { useEffect, useRef } from "react";
 import { ErrorNotFound } from "../ui/ErrorNotFound";
 
 export default function VideoGamesNews({ limit }) {
+  // const {
+  //   data: news,
+  //   isLoading,
+  //   error,
+  //   refetch,
+  // } = useQuery({
+  //   queryKey: ["news", limit], // Include limit in queryKey for cache invalidation
+  //   queryFn: () => FetchNews(limit),
+  //   enabled: false,
+  // });
+
   const {
     data: news,
     isLoading,
     error,
     refetch,
   } = useQuery({
-    queryKey: ["news", limit], // Include limit in queryKey for cache invalidation
-    queryFn: () => FetchNews(limit),
+    queryKey: ["news", limit],
+    queryFn: () => FetchGameNews(limit),
     enabled: false,
   });
 
@@ -86,23 +98,28 @@ export default function VideoGamesNews({ limit }) {
         <div className="xl:max-w-[65%] w-full ">
           <div>
             <img
-              src={news[0].trendingImage}
-              alt={news[0].title}
+              src={news[0]?.urlToImage}
+              alt={news[0]?.title}
               className="rounded-xl"
             />
           </div>
 
           <div className="space-y-5 sm:space-y-3 pt-3 text-white">
-            <h1 className="text-[2rem] font-bold">{news[0].title}</h1>
-            <p className="">{news[0].short}</p>
+            <h1
+              className="text-[2rem] font-bold cursor-pointer hover:text-purple-500 transition-colors"
+              onClick={() => window.open(news[0]?.url, "_blank")}
+            >
+              {news[0]?.title}
+            </h1>
+            <p className="">{news[0]?.description}</p>
             <div className="flex justify-between flex-wrap">
               <p className="text-xs ">
                 <b className="text-purple-400">Author : </b>
-                {news[0].author}
+                {news[0]?.author}
               </p>
               <p className="text-xs">
                 <b className="text-purple-400">Date : </b>{" "}
-                {new Date(news[0].date).toDateString()}
+                {new Date(news[0]?.publishedAt).toDateString()}
               </p>
             </div>
           </div>
@@ -120,19 +137,30 @@ export default function VideoGamesNews({ limit }) {
               >
                 <div className="max-w-[45%] w-full h-full">
                   <img
-                    src={article.trendingImage}
-                    alt={article.title}
+                    src={
+                      article?.urlToImage ||
+                      "https://placehold.co/400x250?text=No+Image+Available"
+                    }
+                    alt={article?.title}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "https://placehold.co/400x250?text=No+Image+Available";
+                    }}
                     className="w-full object-cover h-full rounded-r-xl"
                   />
                 </div>
                 <div className="text-white max-w-[55%] w-full p-3 flex flex-col justify-between">
-                  <h1 className="md:line-clamp-2 text-sm font-medium">
-                    {article.title}
+                  <h1
+                    className="md:line-clamp-2 text-sm font-medium cursor-pointer hover:text-purple-400 transition-colors"
+                    onClick={() => window.open(article?.url, "_blank")}
+                  >
+                    {article?.title}
                   </h1>
                   <div className="mt-5 space-y-2">
-                    <p className="text-xs line-clamp-1">{article.author}</p>
+                    <p className="text-xs line-clamp-1">{article?.author}</p>
                     <p className="text-xs line-clamp-1">
-                      {new Date(article.date).toDateString()}
+                      {new Date(article?.publishedAt).toDateString()}
                     </p>
                   </div>
                 </div>
