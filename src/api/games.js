@@ -102,17 +102,24 @@ export const fetchFullGameData = async(id) => {
   const media = [...screenshots, ...video]
 
   return{
-    id:game.id,
-    name:game.name,
-    description:game.description,
-    rating:game.rating,
-    genres:game.genres?.map((g)=>g.name)|| [],
-    tags: game.tags?.map((t) => t.name).join(", ")||"",
-    developers:game.developers?.map((d) => d.name).join(", ")||"",
-    publishers:game.publishers?.map((p) => p.name).join(", ")||"",
-    background:game.background_image,
+    id:game?.id,
+    name:game?.name,
+    description_raw:game?.description_raw,
+    rating:game?.rating,
+    developers:game?.developers,
+    platforms:game?.platforms?.map((p) => p.name).join(", ") || "",
+    publishers:game?.publishers,
+    release_date:game?.released,
+    platform:game?.platforms?.map((p) => p.platform.name).join(", ") || "",
+    reviews_count:game?.reviews_count,
+    genres:game?.genres?.map((g)=>g.name)|| [],
+    tags: game?.tags?.map((t) => t.name) || [],
+    developers:game?.developers?.map((d) => d.name).join(", ")||"",
+    publishers:game?.publishers?.map((p) => p.name).join(", ")||"",
+    background_image:game?.background_image,
     media,
-    requirements:game.platforms?.find((p) => p.platform.name === 'PC')?.requirements || null,
+    min_requirements:game?.platforms?.find((p) => p.platform.name === 'PC')?.requirements?.minimum || null,
+    rec_requirements:game?.platforms?.find((p) => p.platform.name === 'PC')?.requirements?.recommended || null,
     price:getGamePrice(game.id)
   }
 }

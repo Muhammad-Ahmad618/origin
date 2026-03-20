@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import useWishlistStore from "../../Store/WishlistStore";
 import { FaCheck } from "react-icons/fa6";
+import { CustomToast } from "../custom/CustomToast";
 import { useNavigate } from "react-router-dom";
 
 function SmallGameCards({ game }) {
@@ -9,15 +10,23 @@ function SmallGameCards({ game }) {
   const addToWishList = useWishlistStore((state) => state.addToWishList);
   const isInWishList = useWishlistStore((state) => state.isInWishList(game.id));
   const removeFromWishList = useWishlistStore(
-    (state) => state.removeFromWishList
+    (state) => state.removeFromWishList,
   );
   const navigate = useNavigate();
 
   const handleWishList = (e) => {
     e.stopPropagation();
     if (isInWishList) {
+      CustomToast({
+        title: "Removed from wishlist",
+        description: "Game removed from wishlist successfully",
+      });
       removeFromWishList(game);
     } else {
+      CustomToast({
+        title: "Added to wishlist",
+        description: "Game added to wishlist successfully",
+      });
       addToWishList(game);
     }
   };

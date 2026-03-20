@@ -4,6 +4,7 @@ import CustomButton from "../../Components/custom/CustomButton";
 import { BsTrash } from "react-icons/bs";
 import { FaCartPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { CustomToast } from "../../Components/custom/CustomToast";
 
 function CartPage() {
   const cart = useCartStore((state) => state.cart);
@@ -80,7 +81,13 @@ function CartPage() {
                       label="Remove"
                       icon={<BsTrash />}
                       styling="bg-white/10 hover:bg-white/20 py-2.5 rounded-lg"
-                      btnClick={() => removeFromCart(game)}
+                      btnClick={() => {
+                        removeFromCart(game);
+                        CustomToast({
+                          title: "Removed from Cart",
+                          description: "Game successfully removed",
+                        });
+                      }}
                     />
                   </div>
                 </div>

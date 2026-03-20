@@ -1,6 +1,7 @@
 import { IoAddCircleOutline } from "react-icons/io5";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import useWishlistStore from "../../../Store/WishlistStore";
+import { CustomToast } from "../../custom/CustomToast";
 
 function HeroSectionSlides({ game }) {
   const inWishList = useWishlistStore((state) => state.isInWishList(game.id));
@@ -11,8 +12,16 @@ function HeroSectionSlides({ game }) {
 
   const handleWishList = () => {
     if (inWishList) {
+      CustomToast({
+        title: "Removed from wishlist",
+        description: "Game removed from wishlist successfully",
+      });
       removeFromWishList(game);
     } else {
+      CustomToast({
+        title: "Added to wishlist",
+        description: "Game added to wishlist successfully",
+      });
       addToWishList(game);
     }
   };
