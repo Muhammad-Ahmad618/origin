@@ -100,6 +100,11 @@ export default function VideoGamesNews({ limit }) {
             <img
               src={news[0]?.urlToImage}
               alt={news[0]?.title}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src =
+                  "https://placehold.co/850x450?text=No+Image+Available";
+              }}
               className="rounded-xl"
             />
           </div>
