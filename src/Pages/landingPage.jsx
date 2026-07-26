@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../Components/custom/Navbar";
-import Category from "../../Components/Sliders/CategoriesSlider";
-import VideoGamesNews from "../../Components/VideoGameNews/VideoGamesNews";
-import PopularGames from "../../Components/popularGames/popularGames";
-import Footer from "../../Components/custom/Footer";
-import HeroSectionSlider from "../../Components/Sliders/HeroSectionSlider/HeroSectionSlider";
+import Navbar from "../Components/custom/Navbar";
+import Category from "../Components/Sliders/CategoriesSlider";
+import VideoGamesNews from "../Components/VideoGameNews/VideoGamesNews";
+import PopularGames from "../Components/popularGames/popularGames";
+import Footer from "../Components/custom/Footer";
+import HeroSectionSlider from "../Components/Sliders/HeroSectionSlider/HeroSectionSlider";
 import {
   FaMoneyBill,
   FaDownload,

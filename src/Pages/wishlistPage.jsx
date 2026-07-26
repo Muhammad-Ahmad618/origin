@@ -1,14 +1,14 @@
-import CustomDropDown from "../../Components/custom/CustomDropDown";
-import useWishlistStore from "../../Store/WishlistStore";
-import CustomButton from "../../Components/custom/CustomButton";
-import useCartStore from "../../Store/CartStore";
-import { CustomToast } from "../../Components/custom/CustomToast";
+import CustomDropDown from "../Components/custom/CustomDropDown";
+import useWishlistStore from "../context/WishlistStore";
+import CustomButton from "../Components/custom/CustomButton";
+import useCartStore from "../context/CartStore";
+import { CustomToast } from "../Components/custom/CustomToast";
 import { IoSearch } from "react-icons/io5";
 import { BsTrash } from "react-icons/bs";
-import { TbGhost2Filled } from "react-icons/tb";
+import { SlGhost } from "react-icons/sl";
 import { BsCart3 } from "react-icons/bs";
 import { MdWindow } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { CustomBanner } from "../Components/custom/CustomBanner";
 
 const dropDownMenuItems = [
   "Recently Added",
@@ -24,12 +24,6 @@ function WishlistPage() {
     (state) => state.removeFromWishList,
   );
   const addToCart = useCartStore((state) => state.addToCart);
-
-  const navigate = useNavigate();
-
-  const handleBrowseGamesBtn = () => {
-    navigate("/Store");
-  };
 
   return (
     <div className="max-w-screen-2xl min-h-screen py-34 mx-auto px-5 lg:px-24">
@@ -72,16 +66,12 @@ function WishlistPage() {
         </div>
         <hr className="text-purple-500" />
         {wishList.length === 0 ? (
-          <div className="flex flex-col items-center gap-y-5 mt-20 justify-center">
-            <TbGhost2Filled className="text-gray-200 text-[4rem] sm:text-[5rem]" />
-            <h2 className="text-[1.7rem] sm:text-[2rem] font-black text-center">
-              You haven't added anything to your wishlist yet
-            </h2>
-            <CustomButton
-              label="Browse Games"
-              btnClick={handleBrowseGamesBtn}
-            />
-          </div>
+          <CustomBanner
+            Icon={<SlGhost />}
+            title="You haven't added anything to your wishlist yet"
+            description="Your wishlist is Empty, Games added to wishlist will be displayed here. Start exploring now!"
+            button="Browse Games"
+          />
         ) : (
           <div className="space-y-5">
             {wishList.map((game) => (

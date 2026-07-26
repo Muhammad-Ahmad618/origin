@@ -22,7 +22,7 @@ const SideMenuContent = [
   { icon: <IoLibrarySharp />, label: "My Library", path: "library" },
   { icon: <IoWallet />, label: "Wallet", path: "wallet" },
   { icon: <RiCoupon2Fill />, label: "Coupon", path: "coupons" },
-  { icon: <IoMdSettings />, label: "Settings", path: "/" },
+  { icon: <IoMdSettings />, label: "Settings", path: "settings" },
   { icon: <IoLogOut />, label: "Sign Out" },
 ];
 

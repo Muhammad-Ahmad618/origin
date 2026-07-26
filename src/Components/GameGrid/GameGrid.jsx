@@ -1,7 +1,7 @@
 import { MdArrowForwardIos } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { fetchBaseGameData } from "../../api/games";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MdError } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
@@ -37,7 +37,7 @@ export default function GameGrid({
       },
       {
         threshold: 0.1,
-      }
+      },
     );
     if (element) {
       observer.observe(element);
@@ -52,6 +52,8 @@ export default function GameGrid({
   const handleDetailPageNaviagtion = (id) => {
     navigate(`${id}`);
   };
+
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <div className={`${border} my-5 sm:my-10`} ref={gridRef}>
@@ -103,7 +105,7 @@ export default function GameGrid({
             <div className="bg-gradient-to-r from-purple-600 via-purple-400 to-blue-600 h-1 max-w-[13rem] w-full rounded-full mt-2"></div>
           </div>
 
-          <div className="space-y-5 pr-3">
+          <div className="space-y-5">
             {games.map((game, index) => (
               <div
                 key={index}
@@ -112,22 +114,28 @@ export default function GameGrid({
               >
                 <div className="basis-[20%]">
                   <img
+                    src={game?.background_image}
+                    alt={game?.name}
                     loading="lazy"
-                    src={game.background_image}
-                    alt={game.name}
-                    className="object-cover aspect-[4/5] rounded-[10px]"
+                    decoding="async"
+                    onLoad={() => {
+                      setLoaded(true);
+                    }}
+                    className={`object-cover aspect-[5/7] rounded-[10px] transition-all duration-150 ease-in-out ${
+                      loaded ? "opacity-100 " : "opacity-0"
+                    }`}
                   />
                 </div>
 
                 <div className="space-y-2 px-4 text-white basis-[80%] ">
                   <h1 className="font-medium text-base md:text-[1.1rem]">
-                    {game.name}
+                    {game?.name || "Name Not Available"}
                   </h1>
                   <p className="line-clamp-3 text-xs text-gray-400 font-medium leading-6">
-                    Rating : {game.rating}
+                    Rating : {game?.rating || "5.0/5"}
                   </p>
                   <p className="text-xs md:text-sm font-semibold text-[#ca2dbd]">
-                    ${game.price}
+                    ${game?.price || "$0.00"}
                   </p>
                 </div>
               </div>

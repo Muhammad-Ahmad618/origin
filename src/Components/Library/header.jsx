@@ -1,6 +1,6 @@
 import CustomDropDown from "../../Components/custom/CustomDropDown";
 
-export function LibraryHeader({ title }) {
+export function LibraryHeader({ title, onFilterChange }) {
   const options = ["All Games", "Installed", "Not Installed", "Favorite"];
 
   return (
@@ -9,7 +9,11 @@ export function LibraryHeader({ title }) {
         <h1 className="text-[2rem] sm:text-[2.5rem] font-bold text-white">
           {title}
         </h1>
-        <CustomDropDown options={options} style="w-[7rem] sm:w-[10rem]" />
+        <CustomDropDown
+          options={options}
+          onChange={onFilterChange}
+          style="w-[7rem] sm:w-[10rem]"
+        />
       </div>
       <hr className="text-purple-500 mt-5" />
     </div>

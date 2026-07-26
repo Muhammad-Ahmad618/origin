@@ -1,5 +1,5 @@
-import PageHeader from "../../Components/shared/PageHeader";
-import VideoGamesNews from "../../Components/VideoGameNews/VideoGamesNews";
+import PageHeader from "../Components/shared/PageHeader";
+import VideoGamesNews from "../Components/VideoGameNews/VideoGamesNews";
 
 function NewsPage() {
   return (

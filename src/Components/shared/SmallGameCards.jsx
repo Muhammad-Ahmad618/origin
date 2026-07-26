@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import useWishlistStore from "../../Store/WishlistStore";
+import useWishlistStore from "../../context/WishlistStore";
 import { FaCheck } from "react-icons/fa6";
 import { CustomToast } from "../custom/CustomToast";
 import { useNavigate } from "react-router-dom";
 
 function SmallGameCards({ game }) {
   const [toolTip, setToolTip] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const addToWishList = useWishlistStore((state) => state.addToWishList);
   const isInWishList = useWishlistStore((state) => state.isInWishList(game.id));
   const removeFromWishList = useWishlistStore(
@@ -43,7 +44,12 @@ function SmallGameCards({ game }) {
           alt={game.name}
           loading="lazy"
           decoding="async"
-          className="object-cover w-full h-full rounded-lg transition-all duration-150 group-hover:opacity-70"
+          onLoad={() => {
+            setLoaded(true);
+          }}
+          className={`object-cover w-full h-full rounded-lg transition-all duration-150 group-hover:opacity-70 ease-in-out ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
         />
         <span
           className="bg-gradient-to-r from-purple-400 hidden group-hover:block to-purple-600 p-1.5 shadow-sm shadow-black rounded-full absolute top-2 right-2"

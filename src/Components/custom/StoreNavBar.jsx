@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import useCartStore from "../../Store/CartStore";
+import useCartStore from "../../context/CartStore";
 import { LuMenu } from "react-icons/lu";
 import { IoCart } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";

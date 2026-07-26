@@ -1,20 +1,21 @@
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import LandingPage from "./Pages/LandingPage/LandingPage";
-import SignIn from "./Pages/LoginPage/SignIn";
-import Register from "./Pages/LoginPage/SignIn";
+import LandingPage from "./Pages/landingPage";
+import SignIn from "./Pages/authPage";
+import Register from "./Pages/authPage";
 import Store from "./Pages/StorePage/Store";
-import CartPage from "./Pages/CartPage/CartPage";
-import WishlistPage from "./Pages/WishlistPage/WishlistPage";
+import CartPage from "./Pages/cartPage";
+import WishlistPage from "./Pages/wishlistPage";
+import SettingPage from "./Pages/settingPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import StoreContent from "./Pages/StoreContent/StoreContent";
+import StoreContent from "./Pages/StorePage/StoreContent";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import ScrollToTop from "./Components/utility/ScrollToTop/ScrollToTop";
-import CouponPage from "./Pages/CouponPage/CouponPage";
-import WalletPage from "./Pages/WalletPage/WalletPage";
-import NewsPage from "./Pages/NewsPage/NewsPage";
+import CouponPage from "./Pages/couponPage";
+import WalletPage from "./Pages/walletPage";
+import NewsPage from "./Pages/newsPage";
 import GameDetailsPage from "./Pages/GameDetailsPage/GameDetailsPage";
-import LibraryPage from "./Pages/LibraryPage/LibraryPage";
+import LibraryPage from "./Pages/libraryPage";
 import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
@@ -59,6 +60,7 @@ function App() {
               <Route path="coupons" element={<CouponPage />} />
               <Route path="wallet" element={<WalletPage />} />
               <Route path="news" element={<NewsPage />} />
+              <Route path="settings" element={<SettingPage />} />
               <Route path="library" element={<LibraryPage />} />
               <Route path=":id" element={<GameDetailsPage />} />
             </Route>

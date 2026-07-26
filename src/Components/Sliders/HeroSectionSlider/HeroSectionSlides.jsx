@@ -1,7 +1,7 @@
 import { IoAddCircleOutline } from "react-icons/io5";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { FaShoppingCart, FaStar } from "react-icons/fa";
-import useWishlistStore from "../../../Store/WishlistStore";
+import useWishlistStore from "../../../context/WishlistStore";
 import { CustomToast } from "../../custom/CustomToast";
 
 function HeroSectionSlides({ game }) {
@@ -50,7 +50,9 @@ function HeroSectionSlides({ game }) {
       <div className="absolute top-5 left-5 sm:top-7 sm:left-8">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-          <span className="text-purple-300 text-[0.65rem] font-bold uppercase tracking-widest">Featured</span>
+          <span className="text-purple-300 text-[0.65rem] font-bold uppercase tracking-widest">
+            Featured
+          </span>
         </div>
       </div>
 
@@ -81,8 +83,12 @@ function HeroSectionSlides({ game }) {
           {/* Price */}
           {game.price > 0 && (
             <div className="flex items-baseline gap-3">
-              <span className="text-gray-500 text-sm line-through">${(game.price * 1.3).toFixed(2)}</span>
-              <span className="text-2xl font-black text-white">${game.price}</span>
+              <span className="text-gray-500 text-sm line-through">
+                ${(game.price * 1.3).toFixed(2)}
+              </span>
+              <span className="text-2xl font-black text-white">
+                ${game.price}
+              </span>
               <span className="bg-green-500/15 border border-green-500/30 text-green-400 text-[0.65rem] font-bold px-2 py-0.5 rounded-md">
                 SAVE 23%
               </span>

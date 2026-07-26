@@ -1,21 +1,15 @@
-import useCartStore from "../../Store/CartStore";
+import useCartStore from "../context/CartStore";
 import { MdWindow } from "react-icons/md";
-import CustomButton from "../../Components/custom/CustomButton";
+import CustomButton from "../Components/custom/CustomButton";
 import { BsTrash } from "react-icons/bs";
-import { FaCartPlus } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import { CustomToast } from "../../Components/custom/CustomToast";
+import { IoCartOutline } from "react-icons/io5";
+import { CustomToast } from "../Components/custom/CustomToast";
+import { CustomBanner } from "../Components/custom/CustomBanner";
 
 function CartPage() {
   const cart = useCartStore((state) => state.cart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const TotalPrice = useCartStore((state) => state.getTotalPrice);
-
-  const navigate = useNavigate();
-
-  const handleShopButton = () => {
-    navigate("/store");
-  };
 
   return (
     <div className="max-w-screen-2xl min-h-screen mx-auto py-34 px-5 lg:px-24">
@@ -39,13 +33,12 @@ function CartPage() {
       <hr className="text-purple-400" />
 
       {cart.length === 0 ? (
-        <div className="text-white mt-24 flex flex-col items-center gap-y-5">
-          <FaCartPlus className="text-[3rem] sm:text-[4rem]" />
-          <h1 className="text-[1.7rem] sm:text-[2.5rem] font-bold">
-            Your Cart is Empty
-          </h1>
-          <CustomButton label="Shop For Games" btnClick={handleShopButton} />
-        </div>
+        <CustomBanner
+          Icon={<IoCartOutline />}
+          title="Your Cart is Empty"
+          description="Games will be added here automatically once they have been bought. Start exploring now!"
+          button="Browse Store"
+        />
       ) : (
         <div className="flex flex-col lg:flex-row my-12 gap-5">
           <div className="basis-[70%] space-y-5">
