@@ -67,23 +67,32 @@ export default function SlickSlider() {
   ];
 
   return (
-    <div className="text-center py-10">
-      <div className="flex justify-between items-center">
-        <h2 className="text-white text-[2rem] font-bold pb-7 text-left">
-          Categories
-        </h2>
-        <div className="text-[#efeeee71] text-sm text-end flex items-center text-[2rem] gap-x-2">
-          <span className="custom-cat-prev p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20">
-            <FaAngleLeft className="text-white text-xs" />
+    <div className="py-10">
+      <div className="flex justify-between items-center mb-6">
+        <div className="space-y-2">
+          <span className="text-purple-400 text-xs font-bold uppercase tracking-widest">Browse by</span>
+          <h2 className="text-white text-[2rem] font-black">Categories</h2>
+          <div className="h-0.5 w-16 rounded-full bg-gradient-to-r from-purple-500 to-blue-500" />
+        </div>
+        <div className="flex items-center gap-2">
+          <span
+            className="custom-cat-prev w-9 h-9 flex items-center justify-center rounded-full cursor-pointer transition-all duration-200"
+            style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)" }}
+          >
+            <FaAngleLeft className="text-white text-sm" />
           </span>
-          <span className="custom-cat-next p-2 rounded-full bg-white/10 backdrop-blur-md cursor-pointer hover:bg-white/20">
-            <FaAngleRight className="text-white text-xs" />
+          <span
+            className="custom-cat-next w-9 h-9 flex items-center justify-center rounded-full cursor-pointer transition-all duration-200"
+            style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)" }}
+          >
+            <FaAngleRight className="text-white text-sm" />
           </span>
         </div>
       </div>
+
       <Swiper
         modules={[Navigation, Autoplay]}
-        spaceBetween={40}
+        spaceBetween={12}
         slidesPerView={5}
         autoplay={{
           delay: 3000,
@@ -96,43 +105,39 @@ export default function SlickSlider() {
           prevEl: ".custom-cat-prev",
         }}
         breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          640: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-          1280: {
-            slidesPerView: 5,
-            spaceBetween: 40,
-          },
+          320: { slidesPerView: 2, spaceBetween: 8 },
+          640: { slidesPerView: 3, spaceBetween: 10 },
+          768: { slidesPerView: 3, spaceBetween: 12 },
+          1024: { slidesPerView: 4, spaceBetween: 12 },
+          1280: { slidesPerView: 5, spaceBetween: 14 },
         }}
       >
         {data.map((category, index) => (
-          <SwiperSlide
-            key={index}
-            className="max-w-[15rem] sm:max-w-[18rem] md:max-w-[20rem]"
-          >
-            <div className="group relative cursor-pointer aspect-[4/5]">
+          <SwiperSlide key={index}>
+            <div className="group relative cursor-pointer aspect-[4/5] rounded-xl overflow-hidden">
               <img
                 src={category.image}
-                alt="categoryImage"
-                className="w-full h-full"
+                alt={category.text}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className=" bg-white/5 backdrop-blur-md w-full p-3 rounded-lg my-2">
-                <h4 className="text-xs sm:text-sm lg:text-base text-white font-medium">
-                  {category.text}
-                </h4>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+              {/* Purple hover tint */}
+              <div className="absolute inset-0 bg-purple-600/0 group-hover:bg-purple-600/15 transition-colors duration-300" />
+              {/* Label */}
+              <div className="absolute bottom-0 left-0 right-0 p-3">
+                <div
+                  className="w-full py-2 px-3 rounded-lg text-center"
+                  style={{
+                    background: "rgba(255,255,255,0.07)",
+                    backdropFilter: "blur(8px)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                  }}
+                >
+                  <h4 className="text-white text-[0.65rem] sm:text-xs font-bold tracking-wider">
+                    {category.text}
+                  </h4>
+                </div>
               </div>
             </div>
           </SwiperSlide>

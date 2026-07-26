@@ -86,6 +86,8 @@ export default function LargeGameCards({ game }) {
         <img
           src={game.background_image}
           alt={game.name}
+          loading="lazy"
+          decoding="async"
           className="rounded-md w-full aspect-[8/5] object-cover group-hover:opacity-80 transition-all duration-300"
         />
       </div>

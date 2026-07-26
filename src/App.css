@@ -1,9 +1,60 @@
-body{
-  background-color:#1a1919;
+body {
+  background-color: #0d0d0f;
+  color: #fff;
 }
 
-.gradientline{
+.gradientline {
   background: linear-gradient(to right, #3b82f6, #9333ea);
+}
+
+/* ─── Hero Thumb Swiper ─── */
+.hero-thumbs-swiper {
+  padding: 4px 0 !important;
+}
+
+.hero-thumb-slide {
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hero-thumb-slide:hover {
+  opacity: 0.85;
+}
+
+.swiper-slide-thumb-active.hero-thumb-slide {
+  opacity: 1;
+  outline: 2px solid rgba(139, 92, 246, 0.8);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.swiper-slide-thumb-active .thumb-active-indicator {
+  opacity: 1 !important;
+}
+
+/* ─── Keyframe Animations ─── */
+@keyframes float-glow {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-20px) scale(1.05); opacity: 0.9; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease forwards;
+}
+
+/* ─── Section divider glow line ─── */
+.glow-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.5), transparent);
+  border: none;
+  margin: 0;
 }
 
 

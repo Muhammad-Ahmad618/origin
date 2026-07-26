@@ -41,6 +41,8 @@ function SmallGameCards({ game }) {
         <img
           src={game.background_image}
           alt={game.name}
+          loading="lazy"
+          decoding="async"
           className="object-cover w-full h-full rounded-lg transition-all duration-150 group-hover:opacity-70"
         />
         <span
