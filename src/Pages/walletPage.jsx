@@ -2,7 +2,7 @@ import { FaRegCreditCard } from "react-icons/fa";
 import { FaPaypal } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
-import CustomButton from "../Components/custom/CustomButton";
+import { CustomButton } from "../Components/custom/CustomButton";
 import LoadingScreen from "../Components/ui/LoadingScreen";
 import PageHeader from "../Components/shared/PageHeader";
 import { useState } from "react";

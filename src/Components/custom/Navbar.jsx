@@ -1,6 +1,7 @@
 import { SiOrigin } from "react-icons/si";
 import { Link } from "react-router-dom";
 import VortexButton from "./VortexButton";
+import { CustomButton } from "./CustomButton";
 
 export default function Navbar({ handleSignIn }) {
   return (
@@ -27,9 +28,10 @@ export default function Navbar({ handleSignIn }) {
       </div>
       <div className="flex gap-x-5 items-center">
         <VortexButton label="Sign In" click={handleSignIn} />
-        <button className="bg-gray-600 px-5 py-2 rounded-md text-white font-medium hover:bg-gray-500 text-xs lg:text-sm hidden sm:block">
-          Download
-        </button>
+        <CustomButton
+          label="Download"
+          styling="bg-gray-600 px-5 py-2 rounded-sm text-white font-medium hover:bg-gray-500 text-xs lg:text-sm hidden sm:block"
+        />
       </div>
     </nav>
   );

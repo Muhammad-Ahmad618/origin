@@ -1,6 +1,6 @@
 import CustomDropDown from "../Components/custom/CustomDropDown";
 import useWishlistStore from "../context/WishlistStore";
-import CustomButton from "../Components/custom/CustomButton";
+import { CustomButton } from "../Components/custom/CustomButton";
 import useCartStore from "../context/CartStore";
 import { CustomToast } from "../Components/custom/CustomToast";
 import { IoSearch } from "react-icons/io5";

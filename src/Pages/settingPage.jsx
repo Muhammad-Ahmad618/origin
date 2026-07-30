@@ -8,11 +8,13 @@ import { MdFolder } from "react-icons/md";
 export default function SettingPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("General");
-  
+
   // General State
   const [runStartup, setRunStartup] = useState(true);
   const [language, setLanguage] = useState("English (US)");
-  const [installPath, setInstallPath] = useState("C:\\Program Files (x86)\\Origin\\Games");
+  const [installPath, setInstallPath] = useState(
+    "C:\\Program Files (x86)\\Origin\\Games",
+  );
   const [autoUpdate, setAutoUpdate] = useState(true);
 
   // Account State
@@ -53,7 +55,9 @@ export default function SettingPage() {
           onClick={onChange}
           type="button"
           className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-300 cursor-pointer outline-none ${
-            checked ? "bg-purple-600 shadow-[0_0_8px_rgba(147,51,234,0.5)]" : "bg-white/10"
+            checked
+              ? "bg-purple-600 shadow-[0_0_8px_rgba(147,51,234,0.5)]"
+              : "bg-white/10"
           }`}
         >
           <span
@@ -69,7 +73,11 @@ export default function SettingPage() {
   const tabs = [
     { id: "General", label: "General", icon: <IoSettingsOutline /> },
     { id: "Account", label: "My Account", icon: <FaRegUser /> },
-    { id: "Notifications", label: "Notifications", icon: <IoNotificationsOutline /> },
+    {
+      id: "Notifications",
+      label: "Notifications",
+      icon: <IoNotificationsOutline />,
+    },
     { id: "Privacy", label: "Privacy & Security", icon: <FaLock /> },
   ];
 
@@ -79,7 +87,9 @@ export default function SettingPage() {
         <h1 className="text-[2.2rem] sm:text-[2.8rem] font-black tracking-wide bg-gradient-to-r from-white via-white to-purple-400 bg-clip-text text-transparent">
           Settings
         </h1>
-        <p className="text-gray-400 text-xs sm:text-sm">Configure your Origin client and profile settings.</p>
+        <p className="text-gray-400 text-xs sm:text-sm">
+          Configure your Origin client and profile settings.
+        </p>
         <hr className="text-purple-500/30 mt-4" />
       </div>
 
@@ -112,15 +122,17 @@ export default function SettingPage() {
             <div className="relative z-10">
               {activeTab === "General" && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold border-b border-white/5 pb-2 text-left">General Settings</h2>
-                  
+                  <h2 className="text-xl font-bold border-b border-white/5 pb-2 text-left">
+                    General Settings
+                  </h2>
+
                   <div className="space-y-2">
                     <ToggleSwitch
                       checked={runStartup}
                       onChange={() => setRunStartup(!runStartup)}
                       label="Run Origin on system startup"
                     />
-                    
+
                     <ToggleSwitch
                       checked={autoUpdate}
                       onChange={() => setAutoUpdate(!autoUpdate)}
@@ -128,7 +140,9 @@ export default function SettingPage() {
                     />
 
                     <div className="flex flex-col gap-2 pt-4 text-left">
-                      <label className="text-sm font-medium text-gray-300">Client Language</label>
+                      <label className="text-sm font-medium text-gray-300">
+                        Client Language
+                      </label>
                       <select
                         value={language}
                         onChange={(e) => setLanguage(e.target.value)}
@@ -142,7 +156,9 @@ export default function SettingPage() {
                     </div>
 
                     <div className="flex flex-col gap-2 pt-4 text-left">
-                      <label className="text-sm font-medium text-gray-300">Game Installation Path</label>
+                      <label className="text-sm font-medium text-gray-300">
+                        Game Installation Path
+                      </label>
                       <div className="flex gap-2">
                         <div className="relative flex-grow">
                           <input
@@ -158,7 +174,8 @@ export default function SettingPage() {
                           onClick={() => {
                             CustomToast({
                               title: "Select Directory",
-                              description: "Path selection is handled by the OS file explorer.",
+                              description:
+                                "Path selection is handled by the OS file explorer.",
                             });
                           }}
                           className="px-4 py-2 text-sm bg-white/10 hover:bg-white/15 rounded-lg transition-colors cursor-pointer border border-white/5 font-semibold text-gray-200"
@@ -173,11 +190,15 @@ export default function SettingPage() {
 
               {activeTab === "Account" && (
                 <div className="space-y-6 text-left">
-                  <h2 className="text-xl font-bold border-b border-white/5 pb-2">Account Profile</h2>
-                  
+                  <h2 className="text-xl font-bold border-b border-white/5 pb-2">
+                    Account Profile
+                  </h2>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-2">
-                      <label className="text-sm font-medium text-gray-300">Username</label>
+                      <label className="text-sm font-medium text-gray-300">
+                        Username
+                      </label>
                       <input
                         type="text"
                         value={username}
@@ -186,7 +207,9 @@ export default function SettingPage() {
                       />
                     </div>
                     <div className="flex flex-col gap-2">
-                      <label className="text-sm font-medium text-gray-300">Email Address</label>
+                      <label className="text-sm font-medium text-gray-300">
+                        Email Address
+                      </label>
                       <input
                         type="email"
                         value={email}
@@ -195,7 +218,9 @@ export default function SettingPage() {
                       />
                     </div>
                     <div className="flex flex-col gap-2">
-                      <label className="text-sm font-medium text-gray-300">Online Status</label>
+                      <label className="text-sm font-medium text-gray-300">
+                        Online Status
+                      </label>
                       <select
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
@@ -207,7 +232,9 @@ export default function SettingPage() {
                       </select>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <label className="text-sm font-medium text-gray-300">Account Tier</label>
+                      <label className="text-sm font-medium text-gray-300">
+                        Account Tier
+                      </label>
                       <div className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-purple-400 font-bold flex items-center h-[38px]">
                         Standard Origin Member
                       </div>
@@ -221,12 +248,18 @@ export default function SettingPage() {
                         <FaWallet />
                       </div>
                       <div>
-                        <h4 className="font-bold text-sm text-white">Wallet Balance</h4>
-                        <p className="text-xs text-gray-400">Add funds to purchase games instantly.</p>
+                        <h4 className="font-bold text-sm text-white">
+                          Wallet Balance
+                        </h4>
+                        <p className="text-xs text-gray-400">
+                          Add funds to purchase games instantly.
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between sm:justify-end gap-6">
-                      <span className="text-xl font-black text-purple-300">$0.00</span>
+                      <span className="text-xl font-black text-purple-300">
+                        $0.00
+                      </span>
                       <button
                         type="button"
                         onClick={() => navigate("/store/wallet")}
@@ -241,8 +274,10 @@ export default function SettingPage() {
 
               {activeTab === "Notifications" && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold border-b border-white/5 pb-2 text-left">Notification Settings</h2>
-                  
+                  <h2 className="text-xl font-bold border-b border-white/5 pb-2 text-left">
+                    Notification Settings
+                  </h2>
+
                   <div className="space-y-2">
                     <ToggleSwitch
                       checked={downloadAlert}
@@ -270,11 +305,15 @@ export default function SettingPage() {
 
               {activeTab === "Privacy" && (
                 <div className="space-y-6 text-left">
-                  <h2 className="text-xl font-bold border-b border-white/5 pb-2">Privacy & Security</h2>
-                  
+                  <h2 className="text-xl font-bold border-b border-white/5 pb-2">
+                    Privacy & Security
+                  </h2>
+
                   <div className="space-y-6">
                     <div className="flex flex-col gap-2">
-                      <label className="text-sm font-medium text-gray-300">Profile Visibility</label>
+                      <label className="text-sm font-medium text-gray-300">
+                        Profile Visibility
+                      </label>
                       <select
                         value={visibility}
                         onChange={(e) => setVisibility(e.target.value)}
@@ -284,7 +323,10 @@ export default function SettingPage() {
                         <option value="Friends Only">Friends Only</option>
                         <option value="Private">Private (Just Me)</option>
                       </select>
-                      <p className="text-[11px] text-gray-500">Controls who can search for your profile and view your status.</p>
+                      <p className="text-[11px] text-gray-500">
+                        Controls who can search for your profile and view your
+                        status.
+                      </p>
                     </div>
 
                     <div className="space-y-2 pt-2">

@@ -7,7 +7,7 @@ import useWishlistStore from "../../context/WishlistStore";
 import { FiPlusCircle } from "react-icons/fi";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { SkeletonTheme } from "react-loading-skeleton";
-import CustomButton from "../custom/CustomButton";
+import { CustomButton } from "../custom/CustomButton";
 import { ErrorNotFound } from "../ui/ErrorNotFound";
 import Skeleton from "react-loading-skeleton";
 import { CustomToast } from "../custom/CustomToast";

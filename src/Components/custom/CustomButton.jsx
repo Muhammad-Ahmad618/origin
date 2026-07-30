@@ -1,4 +1,4 @@
-function CustomButton(props) {
+export function CustomButton(props) {
   return (
     <button
       className={`flex items-center justify-center ${props.icon ? "gap-x-2" : " "} px-5  ${
@@ -13,5 +13,3 @@ function CustomButton(props) {
     </button>
   );
 }
-
-export default CustomButton;

@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-orbFloat: orbFloat 8s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.06); }
+  66% { transform: translate(-20px, 20px) scale(0.96); }
+}
