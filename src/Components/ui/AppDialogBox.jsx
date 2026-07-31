@@ -1,5 +1,5 @@
 import { RxCross2 } from "react-icons/rx";
-import { CustomButton } from "../custom/customButton";
+import { CustomButton } from "../custom/CustomButton";
 import { useEffect } from "react";
 
 export function AppDialogBox({ title, children, handleClick, setOpen, open }) {
