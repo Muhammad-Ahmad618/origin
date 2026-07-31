@@ -1,6 +1,6 @@
 import useCartStore from "../context/CartStore";
 import { MdWindow } from "react-icons/md";
-import { CustomButton } from "../Components/custom/customButton";
+import { CustomButton } from "../Components/custom/CustomButton";
 import { BsTrash } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
 import { CustomToast } from "../Components/custom/CustomToast";

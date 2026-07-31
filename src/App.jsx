@@ -1,22 +1,26 @@
 import "./App.css";
+import { lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import LandingPage from "./Pages/landingPage";
-import SignIn from "./Pages/authPage";
-import Register from "./Pages/authPage";
-import Store from "./Pages/StorePage/Store";
-import CartPage from "./Pages/cartPage";
-import WishlistPage from "./Pages/wishlistPage";
-import SettingPage from "./Pages/settingPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import StoreContent from "./Pages/StorePage/StoreContent";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import ScrollToTop from "./Components/utility/ScrollToTop/ScrollToTop";
-import CouponPage from "./Pages/couponPage";
-import WalletPage from "./Pages/walletPage";
-import NewsPage from "./Pages/newsPage";
-import GameDetailsPage from "./Pages/GameDetailsPage/GameDetailsPage";
-import LibraryPage from "./Pages/libraryPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+
+const LandingPage = lazy(() => import("./Pages/landingPage"));
+const SignIn = lazy(() => import("./Pages/authPage"));
+const Register = lazy(() => import("./Pages/authPage"));
+const Store = lazy(() => import("./Pages/StorePage/Store"));
+const CartPage = lazy(() => import("./Pages/cartPage"));
+const WishlistPage = lazy(() => import("./Pages/wishlistPage"));
+const SettingPage = lazy(() => import("./Pages/settingPage"));
+const StoreContent = lazy(() => import("./Pages/StorePage/StoreContent"));
+const CouponPage = lazy(() => import("./Pages/couponPage"));
+const WalletPage = lazy(() => import("./Pages/walletPage"));
+const NewsPage = lazy(() => import("./Pages/newsPage"));
+const GameDetailsPage = lazy(
+  () => import("./Pages/GameDetailsPage/GameDetailsPage"),
+);
+const LibraryPage = lazy(() => import("./Pages/libraryPage"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
