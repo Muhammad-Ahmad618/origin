@@ -87,7 +87,7 @@ export default function VideoGamesNews({ limit }) {
       </div>
     );
 
-  if (error) return <ErrorNotFound />;
+  if (error) return <ErrorNotFound code={error?.response?.status || 503} />;
 
   return (
     <div

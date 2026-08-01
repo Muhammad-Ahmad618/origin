@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import LargeGameCards from "../shared/LargeGameCards";
-import { fetchDetailedGameData } from "../../api/games";
+import LargeGameCards from "../../shared/LargeGameCards";
+import { fetchDetailedGameData } from "../../../api/games";
 import { useEffect, useRef } from "react";
 
 export default function GameCards({

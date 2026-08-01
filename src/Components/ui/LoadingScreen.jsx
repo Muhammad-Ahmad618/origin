@@ -4,7 +4,7 @@ import { SpinnerDotted } from "spinners-react";
 function LoadingScreen({ splashScreen }) {
   return (
     <div
-      className={`h-[100vh] w-full bg-black/60 backdrop-blur-md fixed top-0 left-0 z-10 gap-y-10 ${
+      className={`h-[100vh] w-full bg-black/60 backdrop-blur-md fixed top-0 left-0 z-40 gap-y-10 ${
         splashScreen ? "flex flex-col justify-center items-center" : "hidden"
       }`}
     >

@@ -30,5 +30,6 @@ export const FetchGameNews = async (limit) => {
     return response.data.articles;
   } catch (error) {
     console.log("Error Cannnot Fetch Data", error);
+    throw error;
   }
 };

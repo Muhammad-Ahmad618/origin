@@ -73,9 +73,9 @@ export default function SignIn({ heading }) {
 
           {/* Form panel */}
           <div
-            className={`bg-[rgba(10,8,22,0.85)] backdrop-blur-[28px] -webkit-backdrop-blur-[28px] w-[26rem] max-w-[95vw] px-5 py-8 sm:px-[2.6rem] sm:py-[2.2rem] flex flex-col justify-between ${!isSignIn ? "register" : "signin"}`}
+            className={`bg-[rgba(10,8,22,0.85)] backdrop-blur-[28px] -webkit-backdrop-blur-[28px] w-[26rem] max-w-[95vw] px-5 py-8 sm:px-[2.6rem] sm:py-[2.2rem] ${!isSignIn ? "register" : "signin"}`}
           >
-            <h1 className="text-[1.65rem] font-extrabold leading-tight mb-[0.35rem] bg-gradient-to-br from-[30%_#fff] to-[#c084fc] bg-clip-text text-transparent">
+            <h1 className="text-[1.65rem] font-extrabold leading-tight mb-[0.35rem] bg-gradient-to-br from-[#893bfe] via-[#b268fb] to-[#9012df] bg-clip-text text-transparent">
               {isSignIn ? "Welcome back" : "Join Origin"}
             </h1>
             <p
@@ -104,7 +104,12 @@ export default function SignIn({ heading }) {
               )}
             </p>
 
-            <form onSubmit={handleSubmit}>
+            <form
+              onSubmit={handleSubmit}
+              className={
+                !isSignIn ? "min-h-fit flex flex-col gap-y-2 mt-7" : ""
+              }
+            >
               {/* Registration-only: username + email */}
               {!isSignIn && (
                 <FloatingInput

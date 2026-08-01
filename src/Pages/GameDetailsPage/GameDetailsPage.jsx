@@ -1,4 +1,4 @@
-import GameDetailsLayout from "../../Components/layout/GameDetailLayout";
+import GameDetailsLayout from "../../Components/layout/GameDetail/GameDetailLayout";
 import { useGameDetails } from "../../Hooks/useGameDetails";
 import { useParams } from "react-router-dom";
 

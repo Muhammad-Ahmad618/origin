@@ -1,8 +1,18 @@
-import HeroSectionSlider from "../../Components/Sliders/HeroSectionSlider/HeroSectionSlider";
-import GameGrid from "../../Components/GameGrid/GameGrid";
-import GamesSlider from "../../Components/Sliders/GamesSlider";
-import Categories from "../../Components/Sliders/CategoriesSlider";
-import GameCards from "../../Components/GameCard/GameCards";
+import { lazy } from "react";
+
+const HeroSectionSlider = lazy(
+  () => import("../../Components/Sliders/HeroSectionSlider/HeroSectionSlider"),
+);
+const GameGrid = lazy(
+  () => import("../../Components/layout/store/GameGridLayout"),
+);
+const GamesSlider = lazy(() => import("../../Components/Sliders/GamesSlider"));
+const Categories = lazy(
+  () => import("../../Components/Sliders/CategoriesSlider"),
+);
+const GameCards = lazy(
+  () => import("../../Components/layout/store/GameColumn"),
+);
 
 function StoreContent() {
   return (
@@ -26,7 +36,7 @@ function StoreContent() {
           title="Game of the Year"
           genre="role-playing-games-rpg"
           dates="2020-01-01,2025-08-30"
-          specifics="Black Desert,Elden Ring"
+          specifics="Black Desert,Elden Ring,Devil May Cry 5,Horizon Zero Dawn, Atomic Heart, Expedition 33"
         />
         <div className="space-y-4">
           <GamesSlider

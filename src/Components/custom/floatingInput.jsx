@@ -28,7 +28,7 @@ export function FloatingInput({
         <div className="flex-1 relative h-full flex items-center">
           <label
             htmlFor={id}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 text-[0.85rem] text-[#64748b] pointer-events-none transition-all duration-[0.22s] ease ${focused || value ? "top-[10px] text-[0.62rem] text-[#a78bfa] font-semibold tracking-[0.05em] uppercase translate-y-0" : ""}`}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 text-[0.75rem] text-[#64748b] pointer-events-none transition-all duration-[0.22s] ease ${focused || value ? "top-[5px] text-[#a78bfa] font-semibold tracking-[0.05em] uppercase translate-y-0" : ""}`}
           >
             {label}
           </label>

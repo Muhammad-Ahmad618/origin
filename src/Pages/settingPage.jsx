@@ -3,7 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { CustomToast } from "../Components/custom/CustomToast";
 import { IoSettingsOutline, IoNotificationsOutline } from "react-icons/io5";
 import { FaRegUser, FaLock, FaSpinner, FaWallet } from "react-icons/fa";
+import { ToggleSwitch } from "../Components/ui/ToggleSwitch";
 import { MdFolder } from "react-icons/md";
+
+const tabs = [
+  { id: "General", label: "General", icon: <IoSettingsOutline /> },
+  { id: "Account", label: "My Account", icon: <FaRegUser /> },
+  {
+    id: "Notifications",
+    label: "Notifications",
+    icon: <IoNotificationsOutline />,
+  },
+  { id: "Privacy", label: "Privacy & Security", icon: <FaLock /> },
+];
 
 export default function SettingPage() {
   const navigate = useNavigate();
@@ -46,40 +58,6 @@ export default function SettingPage() {
       });
     }, 1000);
   };
-
-  const ToggleSwitch = ({ checked, onChange, label }) => {
-    return (
-      <div className="flex items-center justify-between py-3 border-b border-white/5 last:border-0 text-left">
-        <span className="text-sm font-medium text-gray-300 pr-4">{label}</span>
-        <button
-          onClick={onChange}
-          type="button"
-          className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-300 cursor-pointer outline-none ${
-            checked
-              ? "bg-purple-600 shadow-[0_0_8px_rgba(147,51,234,0.5)]"
-              : "bg-white/10"
-          }`}
-        >
-          <span
-            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 ${
-              checked ? "translate-x-6" : "translate-x-1"
-            }`}
-          />
-        </button>
-      </div>
-    );
-  };
-
-  const tabs = [
-    { id: "General", label: "General", icon: <IoSettingsOutline /> },
-    { id: "Account", label: "My Account", icon: <FaRegUser /> },
-    {
-      id: "Notifications",
-      label: "Notifications",
-      icon: <IoNotificationsOutline />,
-    },
-    { id: "Privacy", label: "Privacy & Security", icon: <FaLock /> },
-  ];
 
   return (
     <div className="max-w-screen-2xl min-h-screen py-34 mx-auto px-5 lg:px-24 text-white">

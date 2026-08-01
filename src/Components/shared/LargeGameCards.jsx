@@ -144,7 +144,7 @@ export default function LargeGameCards({ game }) {
           )}
         </span>
         {toolTip && (
-          <div className="absolute top-2 right-12 rounded-md py-1.5 px-4 bg-black/90 backdrop-blur-sm text-xs font-semibold text-white z-10 shadow-lg border border-white/5 animate-fade-in">
+          <div className="absolute top-3.5 right-12 rounded-md py-1.5 px-4 bg-black/90 backdrop-blur-sm text-xs font-semibold text-white z-10 shadow-lg border border-white/5 animate-fade-in">
             {inWishList ? "Remove From WishList" : "Add To WishList"}
           </div>
         )}
