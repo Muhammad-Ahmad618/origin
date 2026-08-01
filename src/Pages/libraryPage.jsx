@@ -1,4 +1,4 @@
-import { Library } from "../Components/Library";
+import { Library } from "../Components/layout/Library/index";
 
 function LibraryPage() {
   return <Library />;

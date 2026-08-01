@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MdFileDownload, MdFileDownloadDone } from "react-icons/md";
 import { FaHeart, FaRegHeart, FaSpinner } from "react-icons/fa";
-import useLibraryStore from "../../../context/libraryContext";
+import useLibraryStore from "../../../../context/libraryContext";
 
 function LibraryCards({ game, isLoading }) {
   const toggleInstalled = useLibraryStore((state) => state.toggleInstalled);
@@ -70,7 +70,7 @@ function LibraryCards({ game, isLoading }) {
           alt={title}
           className="aspect-[7/9] object-cover w-full rounded-lg transition-transform duration-500 group-hover:scale-105"
         />
-        
+
         {/* Dark overlay on hover */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -101,8 +101,8 @@ function LibraryCards({ game, isLoading }) {
             isInstalling
               ? "text-purple-400"
               : game.installed
-              ? "text-[#e02ebf] hover:text-[#ff4ce3]"
-              : "text-gray-400 hover:text-white"
+                ? "text-[#e02ebf] hover:text-[#ff4ce3]"
+                : "text-gray-400 hover:text-white"
           }`}
         >
           {isInstalling ? (

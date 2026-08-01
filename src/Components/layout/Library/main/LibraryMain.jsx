@@ -3,8 +3,8 @@ import { IoGameControllerOutline } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineFileDownloadOff, MdFileDownloadDone } from "react-icons/md";
 import LibraryCards from "./LibraryCards";
-import useLibraryStore from "../../../context/libraryContext";
-import { CustomBanner } from "../../custom/CustomBanner";
+import useLibraryStore from "../../../../context/libraryContext";
+import { CustomBanner } from "../../../custom/CustomBanner";
 
 export function LibraryMain({ filter = "All Games", setFilter }) {
   const library = useLibraryStore((state) => state.library);
