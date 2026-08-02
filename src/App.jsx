@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import ScrollToTop from "./Components/utility/ScrollToTop/ScrollToTop";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "react-hot-toast";
 
 const LandingPage = lazy(() => import("./Pages/landingPage"));
@@ -36,6 +37,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <>
+      <Analytics />
       <Toaster
         position="top-right"
         reverseOrder={false}
