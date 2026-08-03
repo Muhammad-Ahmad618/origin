@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import useCartStore from "../../context/CartStore";
 import { LuMenu } from "react-icons/lu";
@@ -12,31 +12,29 @@ import SideMenu from "./SideMenu";
 export default function StoreNavBar() {
   const [sideMenu, setSideMenu] = useState(false);
   const [notificationTab, setNotificationTab] = useState(false);
-  const cart = useCartStore((state) => state.cart);
+  const cartCount = useCartStore((state) => state.cart.length);
   const notificationRef = useRef(null);
   const notificationButtonRef = useRef(null);
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const handleCart = () => {
-    navigate("cart");
-  };
+  const handleCart = useCallback(() => navigate("cart"), [navigate]);
 
-  const toggleSideMenu = () => {
-    setSideMenu(!sideMenu);
-  };
+  const toggleSideMenu = useCallback(() => setSideMenu((prev) => !prev), []);
 
-  const toggleNotifications = () => {
-    setNotificationTab(!notificationTab);
-  };
+  const toggleNotifications = useCallback(
+    () => setNotificationTab((prev) => !prev),
+    [],
+  );
 
   useEffect(() => {
     setSideMenu(false);
   }, [pathname]);
 
   useEffect(() => {
+    if (!notificationTab) return;
+
     const handleOutsideClick = (event) => {
-      // Check if click is outside both the notification panel and button
       if (
         notificationRef.current &&
         !notificationRef.current.contains(event.target) &&
@@ -51,7 +49,7 @@ export default function StoreNavBar() {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, []);
+  }, [notificationTab]);
 
   return (
     <div className="bg-black shadow-sm shadow-black p-4 flex items-center justify-between top-0 fixed w-full z-20">
@@ -85,28 +83,37 @@ export default function StoreNavBar() {
           </div>
 
           <div
-            className={`w-[19rem] h-[30rem] hidden md:block bg-black/60 backdrop-blur-md absolute top-10 right-16 rounded-3xl duration-300 transition-all ease-in-out ${
+            className={`absolute top-10 right-16 hidden h-[30rem] w-[19rem] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] shadow-2xl shadow-purple-950/50 backdrop-blur-2xl duration-300 ease-in-out transition-all md:block ${
               notificationTab
-                ? "opacity-100 pointer-events-auto"
-                : "opacity-0 pointer-events-none"
+                ? "translate-y-0 opacity-100 pointer-events-auto"
+                : "-translate-y-2 opacity-0 pointer-events-none"
             }`}
             ref={notificationRef}
           >
-            <div className="p-4 text-white w-full space-y-4">
-              <h3 className="font-medium ">Notifications</h3>
-              <div className="w-[95%] h-[1px] bg-gray-300"></div>
+            {/* ambient glow inside the panel */}
+            <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-purple-600/15 blur-[80px]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-300/40 to-transparent" />
+
+            <div className="relative w-full space-y-4 p-4 text-white">
+              <h3 className="font-medium">Notifications</h3>
+              <div className="h-px w-full bg-white/10" />
             </div>
-            <div className="w-full h-full flex justify-center items-center">
-              <div className="text-center mb-14">
-                <FaRegBell className="text-[3rem] w-full m-auto mb-5 text-white" />
-                <h3 className="font-semibold text-white">No Notifications</h3>
+            <div className="relative flex h-full w-full items-center justify-center">
+              <div className="mb-14 text-center">
+                <div className="relative mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-purple-300/20 bg-purple-950/40">
+                  <FaRegBell className="text-2xl text-purple-300" />
+                </div>
+                <h3 className="font-semibold text-white">No notifications</h3>
+                <p className="mt-1 text-sm text-purple-100/50">
+                  You're all caught up.
+                </p>
               </div>
             </div>
           </div>
 
           <div className="relative">
             <span className="w-4 h-4 bg-purple-500 text-white flex items-center justify-center font-bold text-[0.65rem] rounded-full absolute -right-1 -top-1.5">
-              {cart.length === 0 ? "0" : cart.length}
+              {cartCount === 0 ? "0" : cartCount}
             </span>
             <IoCart
               className="text-white text-[1.8rem] cursor-pointer hover:text-purple-400"
