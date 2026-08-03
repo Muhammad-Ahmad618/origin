@@ -8,7 +8,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { CustomButton } from "../../custom/CustomButton";
-import { ErrorNotFound } from "../../ui/ErrorNotFound";
+import { ErrorNotFound } from "../../ui/ErrorBanner";
 import Skeleton from "react-loading-skeleton";
 import { CustomToast } from "../../custom/CustomToast";
 import "react-loading-skeleton/dist/skeleton.css";

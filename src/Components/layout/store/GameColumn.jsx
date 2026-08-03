@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import LargeGameCards from "../../shared/LargeGameCards";
 import { fetchDetailedGameData } from "../../../api/games";
 import { useEffect, useRef } from "react";
+import { GamesErrorBanner } from "../../ui/GamesErrorBanner";
 
 export default function GameCards({
   title,
@@ -72,7 +73,7 @@ export default function GameCards({
         </div>
       )}
 
-      {error && <p className="text-red-500">Error Loading Games</p>}
+      {error && <GamesErrorBanner title={title} refetch={refetch} />}
 
       {!isLoading && !error && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">

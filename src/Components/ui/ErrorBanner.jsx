@@ -2,7 +2,7 @@ import { GiAstronautHelmet } from "react-icons/gi";
 import { MdArrowBack, MdRefresh } from "react-icons/md";
 import { useMemo } from "react";
 
-export function ErrorNotFound({ code }) {
+export function ErrorBanner({ code }) {
   const funFacts = [
     "🐙 Git was created by Linus Torvalds in just 10 days.",
     "💻 The first computer bug was an actual moth stuck in a relay.",

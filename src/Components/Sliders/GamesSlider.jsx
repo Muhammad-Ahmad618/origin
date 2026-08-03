@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import { MdArrowForwardIos } from "react-icons/md";
+import { MdArrowForwardIos, MdErrorOutline, MdRefresh } from "react-icons/md";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useRef } from "react";
 import { fetchBaseGameData } from "../../api/games";
 import SmallGameCards from "../shared/SmallGameCards";
+import { GamesErrorBanner } from "../ui/GamesErrorBanner";
 
 export default function GamesSlider({
   title,
@@ -156,9 +157,7 @@ export default function GamesSlider({
           </Swiper>
         )}
 
-        {error && (
-          <p className="text-red-500 text-center">Error fetching games !</p>
-        )}
+        {error && <GamesErrorBanner title={title} refetch={refetch} />}
 
         {!error && !isLoading && games.length > 0 && (
           <Swiper {...loadedConfig}>
