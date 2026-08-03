@@ -8,7 +8,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { CustomButton } from "../../custom/CustomButton";
-import { ErrorNotFound } from "../../ui/ErrorBanner";
+import { ErrorBanner } from "../../ui/ErrorBanner";
 import Skeleton from "react-loading-skeleton";
 import { CustomToast } from "../../custom/CustomToast";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -154,7 +154,7 @@ export default function GameDetailLayout({ game, isLoading, error }) {
   }
 
   if (error) {
-    return <ErrorNotFound />;
+    return <ErrorBanner />;
   }
 
   const handleAddToCart = () => {
